@@ -4,7 +4,6 @@
     // будет перегружаться в дочерних классах
     class Model {
         function getData() {
-            
         }
     }
 

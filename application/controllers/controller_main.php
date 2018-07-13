@@ -5,11 +5,13 @@
         // Конструткор, где инициилизируется атрибут view
         function __construct() {
             $this->view = new View();
+            $this->model = new Model_Main();
         }
         
         // Переопределение родительского метода
         function action_index() {
-            $this->view->generate("main_view.php", "template_view.php");
+            $data = $this->model->getData();
+            $this->view->generate("main_view.php", "template_view.php", $data);
         }
     }
 
