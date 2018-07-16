@@ -43,9 +43,9 @@
             // вызвать ошибку 404
             if (file_exists($controller_path) == true)
                 include $controller_path;
-            else
+            else 
                 Route::ErrorPage404();
-            
+
             // Объявить и инициализировать контроллер
             $controller = new $controller_name;
             // Запомнить метод (действие) для контроллера
