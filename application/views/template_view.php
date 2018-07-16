@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" >
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="/css/cssBootstrap.css"/>    
+    <link rel="stylesheet" type="text/css" href="/css/cssBootstrap.css"/>
+    <script src="/js/anotherScripts.js"></script>
     <title>Swim Suit Store </title>
 </head>
 <body>
@@ -160,7 +161,5 @@
                         <span>Build by Kirill Litvinov, Natali Antonenko</span>
                 </div>
         </footer>
-
-    <script src="/js/anotherScripts.js"></script>
 </body>
 </html>
