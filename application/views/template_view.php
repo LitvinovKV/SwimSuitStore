@@ -112,8 +112,6 @@
         </header>
         
         <?php
-            // var_dump(LanguageSelect::$templateData);
-            // var_dump($_SERVER['REQUEST_URI']);
             include "application/views/" . $contentView; 
         ?>
 
@@ -126,13 +124,13 @@
                                                 <div class="subscription">
                                                     <p class="lable"> <? echo LanguageSelect::$templateData['OtherSentences'][0]; ?> </p>
                                                     <div class="send-email">
-                                                        <input type="text" name="e-mail" placeholder="Введите E-mail...">
+                                                        <input type="email" id="e-mail" maxLength="75" placeholder="Введите E-mail...">
                                                     </div>
                                                     <p class="dop"> <? echo LanguageSelect::$templateData['OtherSentences'][1]; ?> </p>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
-                                                <button class="button-arrow"><i class="fa fa-angle-right"></i></button>
+                                                <button class="button-arrow" onClick="saveEmail()"><i class="fa fa-angle-right"></i></button>
                                             </div>
                                             <div class="col-md-4">
                                                     <div class="s_networks">
@@ -166,5 +164,7 @@
                         <span>Build by Kirill Litvinov, Natali Antonenko</span>
                 </div>
         </footer>
+
+        <div hidden="true" id="languageSelect"><? echo LanguageSelect::$lang ?></div>
 </body>
 </html>

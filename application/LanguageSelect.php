@@ -13,11 +13,11 @@
             self::$templateData = array(
                 "SwimWearCatName" => array(
                     "Name" => "КУПАЛЬНИКИ",
-                    "Elements" => ["СЛИТНЫЕ", "РАЗДЕЛЬНЫЕ", "ПРИНТОВАННЫЕ", "ОДНОТОННЫЕ", "АКЦИИ"]
+                    "Elements" => ["ВСЕ", "СЛИТНЫЕ", "РАЗДЕЛЬНЫЕ", "ПРИНТОВАННЫЕ", "ОДНОТОННЫЕ", "АКЦИИ"]
                 ),
                 "UnderWearCatName" => array(
                     "Name" => "НИЖНЕЕ БЕЛЬЕ",
-                    "Elements" => ["БЮСТГАЛТЕРЫ", "ТРУСЫ", "БОДИ", "АКЦИИ"]
+                    "Elements" => ["ВСЕ", "БЮСТГАЛТЕРЫ", "ТРУСЫ", "БОДИ", "АКЦИИ"]
                 ),
                 "PrintsCatName" => "ПРИНТЫ",
                 "FAQCatName" => array(
@@ -37,11 +37,11 @@
             self::$templateData = array(
                 "SwimWearCatName" => array(
                     "Name" => "SWIMWEAR",
-                    "Elements" => ["SWIMSUIT", "TWO-PIECE", "PRINTED", "ONE-PIECE", "SHARES"]
+                    "Elements" => ["ALL", "SWIMSUIT", "TWO-PIECE", "PRINTED", "ONE-PIECE", "SHARES"]
                 ),
                 "UnderWearCatName" => array(
                     "Name" => "UNDERWEAR",
-                    "Elements" => ["BRA", "UNDERPANTS", "BODY", "SHARES"]
+                    "Elements" => ["ALL", "BRA", "UNDERPANTS", "BODY", "SHARES"]
                 ),
                 "PrintsCatName" => "PRINTS",
                 "FAQCatName" => array(
