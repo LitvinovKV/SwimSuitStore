@@ -1,4 +1,37 @@
-$(document).ready(function() {	
+$(document).ready(function() {
+
+	$(".carousel-images").owlCarousel({
+		loop: true,
+		nav: true,
+		navText: ["<i class='fa fa-chevron-circle-left'></i>","<i class='fa fa-chevron-circle-right'></i>"],
+		responsive:{
+        0:{
+            items:1,
+            mergeFit:true,
+        },
+        520:{
+            items:1,
+            mergeFit:true,
+        },
+        768:{
+            items:1,
+            mergeFit:true,
+        },
+        992:{
+            items:1,
+            mergeFit:true,
+        },
+        1200:{
+            items:1,
+            mergeFit:true,
+        },
+        1400:{
+            items:1,
+            mergeFit:true,
+        }
+    }
+	});	
+
 	//Replace all SVG images with inline SVG
 	$('img.img-svg').each(function(){
 		var $img = $(this);

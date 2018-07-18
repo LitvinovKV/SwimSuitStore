@@ -10,24 +10,99 @@
 	position: relative;
 }
 
-.table {
-	display: table;
+/* Owl Carousel */
+.carousel-images {
+	position: relative;
+}
+
+.carousel-images .owl-controls {
+	left: 0;
+	bottom: 0;
 	width: 100%;
+	position: absolute;
 }
 
-.tr {
-	display: table-row;
+.carousel-images .owl-controls .owl-nav {
+	position: absolute;
+	width: 100%;
+	bottom: 240px;
 }
 
-.td {
-	display: table-cell;
+.carousel-images .owl-controls .owl-nav > div{
+	position: absolute;
+	left: 25px;
+	font-size: 38px;
+	font-family: "MyriadPro-Regular", sans-serif;
+	color: #fff;
+	opacity: .7;
+	font-weight: normal;
+	transition: all .3s ease;
 }
 
+.carousel-images .owl-controls .owl-nav > div:hover {
+	color: #dfbdaf;
+}
+
+.carousel-images .owl-controls .owl-nav .owl-next {
+	right: 25px;
+	left: auto;
+}
+
+.carousel-images .owl-dots {
+	text-align: center;
+	bottom: 25px;
+}
+
+.carousel-images .owl-dots .owl-dot {
+	height: 14px;
+	width: 14px;
+	background-color: #dfbdaf;
+	border-radius: 50%;
+	display: inline-block;
+	margin-bottom: 23px;
+	margin-right: 14px;
+}
+
+.carousel-images .owl-dots .owl-dot.active {
+	background-color: #303030;
+}
+
+.s-carousel .button {
+	right: 100px;
+	bottom: 40px;
+}
+/* End of Owl Carousel */
+
+/* Button */
 .button {
+	position: absolute;
+	display: inline-block;
+	border: none;
 	background-color: #fff;
-	border-color: #dfbdaf;
-	border: 5px 10px;
+	color: #000;
+	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 12.5px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	padding: 13px 34px;
+	border-radius: 5px;
+	box-shadow: 0 4px 0 #dfbdaf;
+	transition: all .25s ease-in-out;
+	text-align: center;
 }
+
+.button:hover {
+	background-color: #e0cbbf;
+	color: #303030;
+	text-decoration: none;
+}
+
+.button:focus , .button:active {
+	background-color: #dfbdaf;
+	color: #fff;
+	transform: translateY(2px);
+}
+/* End of Button */
 
 .s-slogan p {
 	font-family: "MyriadPro-Regular", sans-serif;
@@ -50,12 +125,26 @@
 	width: auto;
 }
 
-.s-shop a {
-	display: block;
+.s-shop .button {
+	bottom: 75px;
+	left: 153px;
+}
+
+.s-video .col-md-12 {
+	padding: 0;
+	margin-top: 80px;
+	margin-bottom: 40px;
+}
+
+.s-video video {
+	height: auto;
+	width: 100%;
 }
 
 .s-join .col-md-12 {
 	padding: 0;
+	margin-bottom: 80px;
+	margin-top: 40px;
 }
 
 .s-join img {
@@ -63,4 +152,9 @@
 	background-position: top center;
 	max-width: 100%;
 	overflow: hidden;
+}
+
+.s-join .button {
+	bottom: 80px;
+	left: 130px;
 }
