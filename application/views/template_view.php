@@ -4,18 +4,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <meta http-equiv="X-UA-Compatible" content="ie=edge" >
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main_view.css" />
     <link rel="stylesheet" type="text/css" href="/css/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href="/css/cssBootstrap.css"/>
     <script src="/js/anotherScripts.js"></script>
     <title>Swim Suit Store </title>
 </head>
 <body>
-
         <header>
             <div class="lang_line">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-11"></div>
+                        <div class="col-md-11 offset11"></div>
                         <div class="col-md-1">
                                 
                                 <div class="languages">
@@ -58,7 +58,6 @@
             <div class="mnu_line">
                 <div class="container">
                     <div class="row">
-
                         <div class="col-md-2">
                             <ul class="topmenu">
                                 <li><a href="#" class="first"><? echo LanguageSelect::$templateData['SwimWearCatName']['Name']; ?> <i class="fa fa-caret-down"></i></a>
@@ -75,10 +74,10 @@
                             <ul class="topmenu">
                                 <li><a href="#" class="swimwear"> <? echo LanguageSelect::$templateData['UnderWearCatName']['Name']; ?> <i class="fa fa-caret-down"></i></a>
                                     <ul class="submenu">
-                                    <?
-                                        for ($i = 0; $i < count(LanguageSelect::$templateData['UnderWearCatName']['Elements']); $i++)
-                                            echo "<li><a href=''>" . LanguageSelect::$templateData['UnderWearCatName']['Elements'][$i] . "</a></li>"
-                                    ?>
+                                        <?
+                                            for ($i = 0; $i < count(LanguageSelect::$templateData['UnderWearCatName']['Elements']); $i++)
+                                                echo "<li><a href=''>" . LanguageSelect::$templateData['UnderWearCatName']['Elements'][$i] . "</a></li>"
+                                        ?>
                                     </ul>
                                 </li>
                             </ul>
@@ -104,11 +103,13 @@
                         <div class="col-md-2">
                             <a href="#" class="last"> <? echo LanguageSelect::$templateData['AboutCatName']; ?> </a>
                         </div>
+
+                        
                         
                     </div>
                 </div>
             </div>
-                
+            
         </header>
         
         <?php

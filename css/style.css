@@ -131,6 +131,10 @@ h1, h2, h3, h4{
 	padding: 0;
 }
 
+.mnu-line {
+	display: block;
+}
+
 .mnu_line a {
 	display: block;
 	font-family: "MyriadPro-Regular", sans-serif;
@@ -165,7 +169,7 @@ h1, h2, h3, h4{
 
 .mnu_line ul {
 	list-style: none;
-  margin: 0;
+	margin: 0 0 10px;
   padding: 0;
 }
 .topmenu:after {
@@ -208,6 +212,9 @@ h1, h2, h3, h4{
 }
 
 /*End of Hidden menu*/
+
+.feedback {
+}
 
 .section-pink {
 	background-color: #dfbdaf;
