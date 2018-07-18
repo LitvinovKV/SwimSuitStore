@@ -13,11 +13,13 @@
             self::$templateData = array(
                 "SwimWearCatName" => array(
                     "Name" => "КУПАЛЬНИКИ",
-                    "Elements" => ["СЛИТНЫЕ", "РАЗДЕЛЬНЫЕ", "ПРИНТОВАННЫЕ", "ОДНОТОННЫЕ", "АКЦИИ"]
+                    "Elements" => ["ВСЕ", "СЛИТНЫЕ", "РАЗДЕЛЬНЫЕ", "ПРИНТОВАННЫЕ", "ОДНОТОННЫЕ", "АКЦИИ"],
+                    "Hrefs" => ["", "swimsuit", "two-piece", "printed", "one-piece", "shares"]
                 ),
                 "UnderWearCatName" => array(
                     "Name" => "НИЖНЕЕ БЕЛЬЕ",
-                    "Elements" => ["БЮСТГАЛТЕРЫ", "ТРУСЫ", "БОДИ", "АКЦИИ"]
+                    "Elements" => ["ВСЕ", "БЮСТГАЛТЕРЫ", "ТРУСЫ", "БОДИ", "АКЦИИ"],
+                    "Hrefs" => ["", "bra", "underpants", "body", "shares"]
                 ),
                 "PrintsCatName" => "ПРИНТЫ",
                 "FAQCatName" => array(
@@ -37,11 +39,13 @@
             self::$templateData = array(
                 "SwimWearCatName" => array(
                     "Name" => "SWIMWEAR",
-                    "Elements" => ["SWIMSUIT", "TWO-PIECE", "PRINTED", "ONE-PIECE", "SHARES"]
+                    "Elements" => ["ALL", "SWIMSUIT", "TWO-PIECE", "PRINTED", "ONE-PIECE", "SHARES"],
+                    "Hrefs" => ["", "swimsuit", "two-piece", "printed", "one-piece", "shares"]
                 ),
                 "UnderWearCatName" => array(
                     "Name" => "UNDERWEAR",
-                    "Elements" => ["BRA", "UNDERPANTS", "BODY", "SHARES"]
+                    "Elements" => ["ALL", "BRA", "UNDERPANTS", "BODY", "SHARES"],
+                    "Hrefs" => ["", "bra", "underpants", "body", "shares"]
                 ),
                 "PrintsCatName" => "PRINTS",
                 "FAQCatName" => array(

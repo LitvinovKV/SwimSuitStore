@@ -70,7 +70,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<video controls="controls" poster="/images/video/video.jpg">
+				<video controls="controls" poster="/images/general_images/video.jpg">
 					<source src="/images/video/video1.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 					<source src="/images/video/video1.mp4" type='video/ogg; codecs="theora, vorbis"'>
    				<source src="/images/video/video1.mp4" type='video/webm; codecs="vp8, vorbis"'>
@@ -95,5 +95,3 @@
 	</div>
 	
 </section>
-
-<!--<?php var_dump($data) ?> -->
