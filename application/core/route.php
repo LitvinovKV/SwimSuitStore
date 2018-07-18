@@ -10,16 +10,46 @@
 
             // Разбить строку маршрута (URL) по разделителю '/'
             $routes = explode('/', $_SERVER['REQUEST_URI']);
+            $index = 0;
+            // Подсчитать кол-во каждого элемента в массиве 
+            $countElements = array_count_values($routes);
+            
+            // Два условия, для отслеживания различных ситуаций со смены языка во время эксплуатации сайта
+            // 1. Если пользователь попытался сменить язык в первый раз не на главной странице (../.../../RU)
+            // 2. Если пользователь попытался сменить язык во второй и более раз (../RU/../RU)
+            // то редирект на начальную страницу
+            if (in_array("RU", $routes) && ((array_search("RU", $routes) != 1 ) || (array_count_values($routes)["RU"] > 1))) {
+                header("Location: http://" . $_SERVER['HTTP_HOST'] . "/RU");
+                return;
+            }
+            if (in_array("ENG", $routes) && ((array_search("ENG", $routes) != 1 ) ||  ($countElements["ENG"] > 1))) {
+                header("Location: http://" . $_SERVER['HTTP_HOST'] . "/ENG");
+                return;
+            }
+
+            // Если язык был изменен на Русский, то поменять вызвать статический метод
+            // класса setRU() и поменять все на русский язык
+            if ($routes[1] === "RU") {
+                LanguageSelect::setRU();
+                $index = 1; 
+            }
+
+            // Если язык был изменен на Английский, то поменять вызвать статический метод
+            // класса setENG() и поменять все на английский язык
+            if ($routes[1] === "ENG") {
+                LanguageSelect::setENG();
+                $index = 1;
+            }
 
             // Если был введен в маршруте контроллер, то 
             // Запомнить его
-            if (empty($routes[1]) == false)
-                $controllerName = $routes[1];
+            if (empty($routes[1 + $index]) == false)
+                $controllerName = $routes[1 + $index];
             
             // Если был введен метод для контроллера в маршруте, то
             // Запомнить его 
-            if (empty($routes[2]) == false)
-                $actionName = $routes[2];
+            if (empty($routes[2 + $index]) == false)
+                $actionName = $routes[2 + $index];
 
             // Добавить префиксы для корректной дальнейшей работы
             $model_name = "model_" . $controllerName;
@@ -62,8 +92,10 @@
         static function ErrorPage404() {
             $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
             header('HTTP/1.1 404 Not Found');
-		    header("Status: 404 Not Found");
-            header('Location:'.$host.'404');
+            header("Status: 404 Not Found");
+            (LanguageSelect::$lang === "RU") ? header("Location:" . $host . "RU/404") : 
+                header("Location:" . $host . "ENG/404");
+            // header('Location:'.$host.'404');
         }
     }
 

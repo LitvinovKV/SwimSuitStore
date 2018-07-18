@@ -6,7 +6,8 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/main_view.css" />
     <link rel="stylesheet" type="text/css" href="/css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="/css/cssBootstrap.css"/>    
+    <link rel="stylesheet" type="text/css" href="/css/cssBootstrap.css"/>
+    <script src="/js/anotherScripts.js"></script>
     <title>Swim Suit Store </title>
 </head>
 <body>
@@ -18,8 +19,8 @@
                         <div class="col-md-1">
                                 
                                 <div class="languages">
-                                        <a href="#" class="ru">RU</a>
-                                        <a href="#">EN</a>
+                                        <a href="RU" class="ru">RU</a>
+                                        <a href="ENG">EN</a>
                                 </div>
                         </div>
                             
@@ -59,49 +60,48 @@
                     <div class="row">
                         <div class="col-md-2">
                             <ul class="topmenu">
-                                <li><a href="#" class="first">SWIMWEAR <i class="fa fa-caret-down"></i></a>
+                                <li><a href="#" class="first"><? echo LanguageSelect::$templateData['SwimWearCatName']['Name']; ?> <i class="fa fa-caret-down"></i></a>
                                     <ul class="submenu">
-                                        <li><a href="">Все</a></li>
-                                        <li><a href="">Слитные</a></li>
-                                        <li><a href="">Раздельные</a></li>
-                                        <li><a href="">Принтованные</a></li>
-                                        <li><a href="">Однотонные</a></li>
-                                        <li><a href="">Акции</a></li>
+                                        <?
+                                            for ($i = 0; $i < count(LanguageSelect::$templateData['SwimWearCatName']['Elements']); $i++)
+                                                echo "<li><a href=''>" . LanguageSelect::$templateData['SwimWearCatName']['Elements'][$i] . "</a></li>";
+                                        ?>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-md-2">
                             <ul class="topmenu">
-                                <li><a href="#">UNDERWEAR <i class="fa fa-caret-down"></i></a>
+                                <li><a href="#" class="swimwear"> <? echo LanguageSelect::$templateData['UnderWearCatName']['Name']; ?> <i class="fa fa-caret-down"></i></a>
                                     <ul class="submenu">
-                                        <li><a href="">Все</a></li>
-                                        <li><a href="">Бюстгальтеры</a></li>
-                                        <li><a href="">Трусы</a></li>
-                                        <li><a href="">Боди</a></li>
-                                        <li><a href="">Акции</a></li>
+                                        <?
+                                            for ($i = 0; $i < count(LanguageSelect::$templateData['UnderWearCatName']['Elements']); $i++)
+                                                echo "<li><a href=''>" . LanguageSelect::$templateData['UnderWearCatName']['Elements'][$i] . "</a></li>"
+                                        ?>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-md-2">
-                            <a href="#">PATTERNS</a>
+                            <a href="#"> <? echo LanguageSelect::$templateData['PrintsCatName']; ?> </a>
                         </div>
                         <div class="col-md-2">
                             <ul class="topmenu">
-                                <li><a href="#">FAQ <i class="fa fa-caret-down"></i></a>
+                                <li><a href="#" class="swimwear"> <? echo LanguageSelect::$templateData['FAQCatName']['Name']; ?> <i class="fa fa-caret-down"></i></a>
                                     <ul class="submenu">
-                                        <li><a href="">Условия оплаты</a></li>
-                                        <li><a href="">Условия доставки</a></li>
+                                        <?
+                                            for ($i = 0; $i < count(LanguageSelect::$templateData['FAQCatName']['Elements']); $i++)
+                                                echo  "<li><a href=''>" . LanguageSelect::$templateData['FAQCatName']['Elements'][$i] . "</a></li>";
+                                        ?>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-md-2">
-                            <a href="#">RESPONSES</a>
+                            <a href="#"> <? echo LanguageSelect::$templateData['ReviewsCatName']; ?> </a>
                         </div>
                         <div class="col-md-2">
-                            <a href="#" class="last">ABOUT</a>
+                            <a href="#" class="last"> <? echo LanguageSelect::$templateData['AboutCatName']; ?> </a>
                         </div>
 
                         
@@ -112,7 +112,11 @@
             
         </header>
         
-        <?php include "application/views/" . $contentView; ?>
+        <?php
+            // var_dump(LanguageSelect::$templateData);
+            // var_dump($_SERVER['REQUEST_URI']);
+            include "application/views/" . $contentView; 
+        ?>
 
         <footer>
                 <div class="section-pink">
@@ -121,11 +125,11 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="subscription">
-                                                    <p class="lable">ПОДПИШИТЕСЬ НА НОВОСТИ</p>
+                                                    <p class="lable"> <? echo LanguageSelect::$templateData['OtherSentences'][0]; ?> </p>
                                                     <div class="send-email">
-                                                        <input type="text" name="e-mail" placeholder="Введите E-mail...">
+                                                        <input type="email" name="e-mail" placeholder="Введите E-mail...">
                                                     </div>
-                                                    <p class="dop">Узнавайте о новостях акциях!</p>
+                                                    <p class="dop"> <? echo LanguageSelect::$templateData['OtherSentences'][1]; ?> </p>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -133,7 +137,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                     <div class="s_networks">
-                                                        <p>МЫ В СОЦИАЛЬНЫХ СЕТЯХ</p>
+                                                        <p> <? echo LanguageSelect::$templateData['OtherSentences'][2]; ?> </p>
                                                         <a href="#" class="vk"><img class="img-svg" src="/images/s_networks/icon-vk.svg" alt="Vkontakte"></a>
                                                         <a href="#" class="insta"><img class="img-svg" src="/images/s_networks/icon-insta.svg" alt="Instagram"></a>
                                                         <a href="#" class="fb"><img class="img-svg" src="/images/s_networks/icon-fb.svg" alt="Facebook"></a>
@@ -148,7 +152,7 @@
                                 <div class="container">
                                         <div class="row">
                                                 <div class="col-md-12">
-                                                        <p>СЛУЖБА ПОДДЕРЖКИ ПОКУПАТЕЛЕЙ</p>
+                                                        <p> <? echo LanguageSelect::$templateData['OtherSentences'][3]; ?> </p>
                                                         <span>8 (999) 847-47-66</span>
                                                         <span>pochtanepredumana@gmail.com</span>
                                                 </div>
@@ -163,7 +167,5 @@
                         <span>Build by Kirill Litvinov, Natali Antonenko</span>
                 </div>
         </footer>
-
-    <script src="/js/anotherScripts.js"></script>
 </body>
 </html>

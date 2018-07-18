@@ -9,6 +9,10 @@
     // Установить соединения с базой данных
     require_once("DBConnection.php");
     DataBaseConnection::initConnect();
+    
+    // Иницализировать статическую переменую для интерфейса и языка
+    require_once("LanguageSelect.php");
+    LanguageSelect::setRU(); // установить язык по умолчанию - RU
 
     // Запустить основной статический метод для маршрутизации
     Route::start();
