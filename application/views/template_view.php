@@ -34,15 +34,15 @@
                             
                         <div class="col-md-3">
                                 <div class="s_networks">
-                                        <a href="#" class="vk"><img class="img-svg" src="/images/s_networks/icon-vk.svg" alt="Vkontakte"></a>
-                                        <a href="#" class="insta"><img class="img-svg" src="/images/s_networks/icon-insta.svg" alt="Instagram"></a>
-                                        <a href="#" class="fb"><img class="img-svg" src="/images/s_networks/icon-fb.svg" alt="Facebook"></a>
-                                        <a href="#" class="wa"><img class="img-svg" src="/images/s_networks/icon-wa.svg" alt="Whatsap"></a>
+                                        <a href="https://vk.com/swiund" class="vk"><img class="img-svg" src="/images/s_networks/icon-vk.svg" alt="Vkontakte"></a>
+                                        <a href="https://www.instagram.com/swiund/" class="insta"><img class="img-svg" src="/images/s_networks/icon-insta.svg" alt="Instagram"></a>
+                                        <a href="https://www.facebook.com/swiund" class="fb"><img class="img-svg" src="/images/s_networks/icon-fb.svg" alt="Facebook"></a>
+                                        <a href="https://api.whatsapp.com/send?phone=79998744766" class="wa"><img class="img-svg" src="/images/s_networks/icon-wa.svg" alt="Whatsap"></a>
                                 </div>
                         </div>
                         <div class="col-md-7">
                                 <div class="logo">
-                                        <a href="#" class="lg"><h1>swim under</h1></a>
+                                        <a <? echo "href=/" . LanguageSelect::$lang ?> class="lg"><h1>swim under</h1></a>
                                 </div>
                         </div>
                         <div class="col-md-1 offset1"></div>
@@ -60,11 +60,15 @@
                     <div class="row">
                         <div class="col-md-2">
                             <ul class="topmenu">
-                                <li><a href="#" class="first"><? echo LanguageSelect::$templateData['SwimWearCatName']['Name']; ?> <i class="fa fa-caret-down"></i></a>
+                                <li><a <? echo "href=/". LanguageSelect::$lang . "/product/swimwear"?> class="first">
+                                        <? echo LanguageSelect::$templateData['SwimWearCatName']['Name']; ?> <i class="fa fa-caret-down"></i>
+                                    </a>
                                     <ul class="submenu">
                                         <?
                                             for ($i = 0; $i < count(LanguageSelect::$templateData['SwimWearCatName']['Elements']); $i++)
-                                                echo "<li><a href=''>" . LanguageSelect::$templateData['SwimWearCatName']['Elements'][$i] . "</a></li>";
+                                                echo "<li><a href=/" . LanguageSelect::$lang . "/product/swimwear/" 
+                                                . LanguageSelect::$templateData['SwimWearCatName']['Hrefs'][$i] . ">" 
+                                                . LanguageSelect::$templateData['SwimWearCatName']['Elements'][$i] . "</a></li>";
                                         ?>
                                     </ul>
                                 </li>
@@ -72,18 +76,24 @@
                         </div>
                         <div class="col-md-2">
                             <ul class="topmenu">
-                                <li><a href="#" class="swimwear"> <? echo LanguageSelect::$templateData['UnderWearCatName']['Name']; ?> <i class="fa fa-caret-down"></i></a>
+                                <li><a <? echo "href=/" . LanguageSelect::$lang . "/product/underwear" ?> class="swimwear"> 
+                                        <? echo LanguageSelect::$templateData['UnderWearCatName']['Name']; ?> <i class="fa fa-caret-down"></i>
+                                    </a>
                                     <ul class="submenu">
                                         <?
                                             for ($i = 0; $i < count(LanguageSelect::$templateData['UnderWearCatName']['Elements']); $i++)
-                                                echo "<li><a href=''>" . LanguageSelect::$templateData['UnderWearCatName']['Elements'][$i] . "</a></li>"
+                                                echo "<li><a href=/" . LanguageSelect::$lang . "/product/underwear/" 
+                                                . LanguageSelect::$templateData['UnderWearCatName']['Hrefs'][$i] . ">" 
+                                                . LanguageSelect::$templateData['UnderWearCatName']['Elements'][$i] . "</a></li>"
                                         ?>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-md-2">
-                            <a href="#"> <? echo LanguageSelect::$templateData['PrintsCatName']; ?> </a>
+                            <a <? echo "href=/" . LanguageSelect::$lang . "/product/prints"?> > 
+                                <? echo LanguageSelect::$templateData['PrintsCatName']; ?> 
+                            </a>
                         </div>
                         <div class="col-md-2">
                             <ul class="topmenu">
@@ -136,10 +146,10 @@
                                             <div class="col-md-4">
                                                     <div class="s_networks">
                                                         <p> <? echo LanguageSelect::$templateData['OtherSentences'][2]; ?> </p>
-                                                        <a href="#" class="vk"><img class="img-svg" src="/images/s_networks/icon-vk.svg" alt="Vkontakte"></a>
-                                                        <a href="#" class="insta"><img class="img-svg" src="/images/s_networks/icon-insta.svg" alt="Instagram"></a>
-                                                        <a href="#" class="fb"><img class="img-svg" src="/images/s_networks/icon-fb.svg" alt="Facebook"></a>
-                                                        <a href="#" class="wa"><img class="img-svg" src="/images/s_networks/icon-wa.svg" alt="Whatsapp"></a>
+                                                        <a href="https://vk.com/swiund" class="vk"><img class="img-svg" src="/images/s_networks/icon-vk.svg" alt="Vkontakte"></a>
+                                                        <a href="https://www.instagram.com/swiund/" class="insta"><img class="img-svg" src="/images/s_networks/icon-insta.svg" alt="Instagram"></a>
+                                                        <a href="https://www.facebook.com/swiund" class="fb"><img class="img-svg" src="/images/s_networks/icon-fb.svg" alt="Facebook"></a>
+                                                        <a href="https://api.whatsapp.com/send?phone=79998744766" class="wa"><img class="img-svg" src="/images/s_networks/icon-wa.svg" alt="Whatsapp"></a>
                                                     </div>
                                             </div>
                                             <div class="col-md-1 offset1"></div>
