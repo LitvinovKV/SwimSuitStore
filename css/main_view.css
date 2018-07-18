@@ -1,0 +1,66 @@
+.s-carousel .col-md-12 {
+	padding: 0;
+}
+
+.s-carousel img {
+	background-size: cover;
+	background-position: top center;
+	max-width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.table {
+	display: table;
+	width: 100%;
+}
+
+.tr {
+	display: table-row;
+}
+
+.td {
+	display: table-cell;
+}
+
+.button {
+	background-color: #fff;
+	border-color: #dfbdaf;
+	border: 5px 10px;
+}
+
+.s-slogan p {
+	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 18px;
+	letter-spacing: 6px;
+	color: #000;
+	text-align: center;
+	margin: 34px;
+}
+
+.s-shop .col-md-4 {
+	padding: 0;
+}
+
+.s-shop img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-height: auto;
+	width: auto;
+}
+
+.s-shop a {
+	display: block;
+}
+
+.s-join .col-md-12 {
+	padding: 0;
+}
+
+.s-join img {
+	background-size: cover;
+	background-position: top center;
+	max-width: 100%;
+	overflow: hidden;
+}

@@ -4,17 +4,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <meta http-equiv="X-UA-Compatible" content="ie=edge" >
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main_view.css" />
     <link rel="stylesheet" type="text/css" href="/css/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href="/css/cssBootstrap.css"/>    
     <title>Swim Suit Store </title>
 </head>
 <body>
-        
         <header>
             <div class="lang_line">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-11"></div>
+                        <div class="col-md-11 offset11"></div>
                         <div class="col-md-1">
                                 
                                 <div class="languages">
@@ -57,11 +57,11 @@
             <div class="mnu_line">
                 <div class="container">
                     <div class="row">
-
                         <div class="col-md-2">
                             <ul class="topmenu">
                                 <li><a href="#" class="first">SWIMWEAR <i class="fa fa-caret-down"></i></a>
                                     <ul class="submenu">
+                                        <li><a href="">Все</a></li>
                                         <li><a href="">Слитные</a></li>
                                         <li><a href="">Раздельные</a></li>
                                         <li><a href="">Принтованные</a></li>
@@ -73,8 +73,9 @@
                         </div>
                         <div class="col-md-2">
                             <ul class="topmenu">
-                                <li><a href="#" class="swimwear">UNDERWEAR <i class="fa fa-caret-down"></i></a>
+                                <li><a href="#">UNDERWEAR <i class="fa fa-caret-down"></i></a>
                                     <ul class="submenu">
+                                        <li><a href="">Все</a></li>
                                         <li><a href="">Бюстгальтеры</a></li>
                                         <li><a href="">Трусы</a></li>
                                         <li><a href="">Боди</a></li>
@@ -88,7 +89,7 @@
                         </div>
                         <div class="col-md-2">
                             <ul class="topmenu">
-                                <li><a href="#" class="swimwear">FAQ <i class="fa fa-caret-down"></i></a>
+                                <li><a href="#">FAQ <i class="fa fa-caret-down"></i></a>
                                     <ul class="submenu">
                                         <li><a href="">Условия оплаты</a></li>
                                         <li><a href="">Условия доставки</a></li>
@@ -102,11 +103,13 @@
                         <div class="col-md-2">
                             <a href="#" class="last">ABOUT</a>
                         </div>
+
+                        
                         
                     </div>
                 </div>
             </div>
-                
+            
         </header>
         
         <?php include "application/views/" . $contentView; ?>
