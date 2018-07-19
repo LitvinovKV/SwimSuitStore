@@ -30,13 +30,13 @@
 	<p>You never get a second chance to make a first impression</p>
 </section>
 
-<section class="s-shop">
+<section class="s-shops">
 	<div class="container-fluid">
 		<div class="row">
 
 			<div class="col-md-4 col-sm-6">
-				<div class="shop1">
-					<img src="/images/products_images/shop1.jpg" alt="shop1">
+				<div class="shop">
+					<img class="responsive-img" src="/images/products_images/shop1.jpg" alt="shop1">
 					<div>
 						<a href="#" class="button">SHOP NOW</a>
 					</div>
@@ -44,8 +44,8 @@
 			</div>
 
 			<div class="col-md-4 col-sm-6">
-				<div class="shop2">
-					<img src="/images/products_images/shop2.jpg" alt="shop2">
+				<div class="shop">
+					<img class="responsive-img" src="/images/products_images/shop2.jpg" alt="shop2">
 					<div>
 						<a href="#" class="button">SHOP NOW</a>
 					</div>
@@ -53,8 +53,8 @@
 			</div>
 
 			<div class="col-md-4 col-sm-6">
-				<div class="shop3">
-					<img src="/images/products_images/shop3.jpg" alt="shop3">
+				<div class="shop">
+					<img class="responsive-img" src="/images/products_images/shop3.jpg" alt="shop3">
 					<div>
 						<a href="#" class="button">SHOP NOW</a>
 					</div>

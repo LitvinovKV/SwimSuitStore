@@ -5,7 +5,7 @@
 .s-carousel img {
 	background-size: cover;
 	background-position: top center;
-	max-width: 100%;
+	width: 100%;
 	overflow: hidden;
 	position: relative;
 }
@@ -113,19 +113,18 @@
 	margin: 34px;
 }
 
-.s-shop .col-md-4 {
+.s-shops .col-md-4 {
 	padding: 0;
 }
 
-.s-shop img {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	max-height: auto;
-	width: auto;
+.shop .responsive-img {
+	width: 100%;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 15px;
 }
 
-.s-shop .button {
+.shop .button {
 	bottom: 75px;
 	left: 153px;
 }
@@ -137,20 +136,21 @@
 }
 
 .s-video video {
-	height: auto;
+	max-height: 550px;
 	width: 100%;
+	background-color: #000;
 }
 
 .s-join .col-md-12 {
 	padding: 0;
-	margin-bottom: 80px;
+	margin-bottom: 40px;
 	margin-top: 40px;
 }
 
 .s-join img {
 	background-size: cover;
 	background-position: top center;
-	max-width: 100%;
+	width: 100%;
 	overflow: hidden;
 }
 
