@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" >
 	<link rel="stylesheet" type="text/css" href="/css/style.css" />
 	<link rel="stylesheet" type="text/css" href="/css/main_view.css" />
+    <link rel="stylesheet" type="text/css" href="/css/product_view.css" />
 	<link rel="stylesheet" type="text/css" href="/css/font-awesome.css" />
 	<link rel="stylesheet" type="text/css" href="/css/owl.carousel.css" />
 	<link rel="stylesheet" type="text/css" href="/css/cssBootstrap.css"/>

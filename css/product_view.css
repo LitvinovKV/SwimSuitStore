@@ -1,0 +1,62 @@
+.s-ref_point {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.s-ref_point span {
+	display: block;
+	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 15px;
+	text-transform: uppercase;
+	text-align: left;
+	margin-left: 40px;
+}
+
+.s-ref_point .filter a {
+	display: block;
+	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 15px;
+	color: #000;
+	text-align: right;
+	margin-right: 45px;
+	margin-left: auto;
+	width: 20%;
+}
+
+.items .col-md-3 {
+	padding: 0;
+}
+
+.items .responsive-img {
+	width: 100%;
+	padding-top: 10px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.s-nav {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.s-nav .navigation a {
+	display: block;
+	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 15px;
+	color: #000;
+	width: 8%;
+}
+
+.s-nav .navigation .previos {
+	text-align: left;
+	margin-left: 10px;
+	margin-right: auto;
+	padding: 0;
+}
+
+.s-nav .navigation .next {
+	text-align: right;
+	margin-right: 10px;
+	margin-left: auto;
+	padding: 0;
+}

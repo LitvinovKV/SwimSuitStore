@@ -1,8 +1,4 @@
 
-<!-- <? var_dump($data); ?> --!>
-
-
-
 <section class="s-carousel">
 	<div class="container-fluid">
 		<div class="row">
@@ -22,23 +18,6 @@
 BANNERS;
 						}
 					?>
-					
-					<!-- <div class="item" data-merge="6">
-						<img src="/images/general_images/carousel.jpg" alt="carousel">
-						<a href="#" class="button">View all</a>
-					</div>
-					<div class="item" data-merge="6">
-						<img src="/images/general_images/carousel.jpg" alt="carousel">
-						<a href="#" class="button">View all</a>
-					</div>
-					<div class="item" data-merge="6">
-						<img src="/images/general_images/carousel.jpg" alt="carousel">
-						<a href="#" class="button">View all</a>
-					</div>
-					<div class="item" data-merge="6">
-						<img src="/images/general_images/carousel.jpg" alt="carousel">
-						<a href="#" class="button">View all</a>
-					</div> -->
 				
 				</div>
 			</div>
@@ -50,19 +29,19 @@ BANNERS;
 	<p>You never get a second chance to make a first impression</p>
 </section>
 
-<section class="s-shop">
+<section class="s-shops">
 	<div class="container-fluid">
 		<div class="row">
 
-			<?php
+		<?php
 				$buttonTitle = LanguageSelect::$templateData["GeneralProductButton"];
 				$href = "#";
 				for ($i = 0; $i < count($data["hits"]); $i++) {
 					$path = "/images/products_images/" . $data["hits"][$i]["name"];
 					echo <<<HITS
 						<div class="col-md-4 col-sm-6">
-							<div class="shop1">
-								<img src="$path" alt="shop1">
+							<div class="shop">
+								<img class="responsive-img" src="$path" alt="shop1">
 								<div>
 									<a href="$href" class="button">$buttonTitle</a>
 								</div>
@@ -71,33 +50,6 @@ BANNERS;
 HITS;
 				}
 			?>
-
-			<!-- <div class="col-md-4 col-sm-6">
-				<div class="shop1">
-					<img src="/images/products_images/shop1.jpg" alt="shop1">
-					<div>
-						<a href="#" class="button">SHOP NOW</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-4 col-sm-6">
-				<div class="shop2">
-					<img src="/images/products_images/shop2.jpg" alt="shop2">
-					<div>
-						<a href="#" class="button">SHOP NOW</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-4 col-sm-6">
-				<div class="shop3">
-					<img src="/images/products_images/shop3.jpg" alt="shop3">
-					<div>
-						<a href="#" class="button">SHOP NOW</a>
-					</div>
-				</div>
-			</div> -->
 
 		</div>
 	</div>
