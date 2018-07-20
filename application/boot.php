@@ -14,6 +14,9 @@
     require_once("LanguageSelect.php");
     LanguageSelect::setRU(); // установить язык по умолчанию - RU
 
+    require_once("ProductsValues.php");
+    ProductsValues::init();
+
     // Запустить основной статический метод для маршрутизации
     Route::start();
 ?>

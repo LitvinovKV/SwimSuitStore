@@ -11,27 +11,24 @@
             $this->action_swimwear();
         }
 
-        // Отобразить все плавательные принадлежности
-        function action_swimwear() {
-            $data = "ALL SWIMWEAR";
+        // Метод, который предоставляет пользователю представление (view) с перечнем товаров,
+        // который относится к определенной категории
+        function action_category($pageNumber, $CategoryName) {
+            $data = "ALL_" . $CategoryName . "_#" . $pageNumber;
             $this->view->generate("product_view.php", "template_view.php", $data);
         }
 
-        // Отобразить все нижнее белье
-        function action_underwear() {
-            $data = "ALL UNDERWEAR";
+        // Метод, который предоставляет пользователю представление (view) с перечнем товаров,
+        // который относится к определенной подкатегории
+        function action_subcategory($pageNumber, $SubCategoryName) {
+            $data = "ALL_" . $SubCategoryName . "_#" . $pageNumber;
             $this->view->generate("product_view.php", "template_view.php", $data);
         }
 
-        // Отобразить все принты
-        function action_prints() {
-            $data = "ALL PRINTS";
-            $this->view->generate("product_view.php", "template_view.php", $data);
-        }
-
-        // Отобразить конкретную выбранную подкатегорию
-        function action_SubCategory($nameCategory) {
-            $data = "ALL " . $nameCategory;
+        // Данный метод будет возвращать представление (view), если такого товара в подкатегории 
+        // (или категории) нет 
+        function action_noCountProduct() {
+            $data = "WE__HAVEN'T__GOT__THIS__PRODUCT. SORRY!";
             $this->view->generate("product_view.php", "template_view.php", $data);
         }
     } 

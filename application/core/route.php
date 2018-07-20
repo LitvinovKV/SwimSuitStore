@@ -19,24 +19,25 @@
             else if ($changeLanguegeVal === -1) 
                 return;
 
-            // Если в URL был передеана Категория (underwear, swimwear, prints) и после идет параметр подкатегории
-            // хост/.../swimwear/swimsuit, то вызвать метод, который вызывает контроллер и действие для отображения
-            // представления этой подкатегории по введенному URL хост/../product/swimwear/swimsuit
-            // Если в строке браузеной строке был введен слишком длинный URL : /.../.../underwear/body/.../.., то
-            // вызвать ошибку 404 (если разница уровней урла больше чем на два)
-            if  ( (in_array("underwear", $routes) === true) && ((array_search("underwear", $routes) + 1) === (count($routes) - 1)) && 
-                (empty($routes[count($routes) - 1]) === false) ) {
-                self::callSubcategoryController($routes[count($routes) - 1]);
+            // Если пользователь перешел на URL /patterns, то вызывать метод для предосталвения нужного представления (view)
+            // пользователю
+            if (in_array("patterns", $routes) === true) {
+                self::CheckCategoryPages("patterns", ProductsValues::$printsCount, $routes);
                 return;
             }
-            else if ( (in_array("swimwear", $routes) === true) && ((array_search("swimwear", $routes) + 1) === (count($routes) - 1)) &&
-                    (empty($routes[count($routes) - 1]) === false) ) {
-                self::callSubcategoryController($routes[count($routes) - 1]);
+
+            // Если пользователь перешел на URL /swimwear, то вызывать метод для предосталвения нужного представления (view)
+            // пользователю
+            if (in_array("swimwear", $routes) === true) {
+                self::CheckCategoryPages("swimwear", ProductsValues::$SwimwearCount, $routes);
                 return;
             }
-            else if ( (in_array("underwear", $routes) === true) && ((count($routes) - array_search("underwear", $routes)) > 2) ||
-                    (in_array("swimwear", $routes) === true) && ((count($routes) - array_search("swimwear", $routes)) > 2) ) {
-                Route::ErrorPage404();
+
+            // Если пользователь перешел на URL /underwear, то вызывать метод для предосталвения нужного представления (view)
+            // пользователю
+            if (in_array("underwear", $routes) === true) {
+                self::CheckCategoryPages("underwear", ProductsValues::$UnderwearCount, $routes);
+                return;
             }
 
             // Если был введен в маршруте контроллер, то 
@@ -143,6 +144,10 @@
         // Метод который, создает контроллер для отображения каталога товаров по подкатегориям
         // На вход получает название подкатегории
         private function callSubcategoryController($SubCategoryName) {
+            // Если был передан пустой под URL swimwear/ , то вызвать метод checkSwimwearPage()
+            // для предоставления представления (view) страницы с определенным товаром
+            if ($SubCategoryName >= 0 && $SubCategoryName <= ProductsValues::$SwimwearCount)
+                self::checkSwimwearPage($SubCategoryName);
             // Если была предпринята попытка перейти на страницу несуществующей подкатегории
             if ( (in_array($SubCategoryName, LanguageSelect::$templateData['SwimWearCatName']['Hrefs']) === false) &&
                 (in_array($SubCategoryName, LanguageSelect::$templateData['UnderWearCatName']['Hrefs']) === false) )
@@ -150,6 +155,80 @@
             include "application/controllers/controller_product.php";
             $controllerSubCategory = new Controller_Product();
             $controllerSubCategory->action_SubCategory($SubCategoryName);
+        }
+
+        // Метод который разбирвает URL на части для категория и подкатегорий и вызывает контроллер с действием
+        // чтобы отобразить пользователю перечень необходимого товара из категории или подкатегории
+        // .../swimwear/swimsuit/1 или .../underwear/bra или .../patterns
+        // На вход подется: $CategoryName - название категории или подкатегории
+        // $ProductCount - кол-во страниц товара, которое содержит данная категория или подкатегория
+        // $routes - сам маршрут страницы (URL) 
+        private function CheckCategoryPages($CategoryName, $ProductCount, $routes) {
+            // Найти позицию под URL /категория в страке браузера с конца
+            $posCategory = count($routes) - array_search($CategoryName, $routes) - 1;
+            // Подготовить переменные для определенной категории
+            require_once "application/controllers/controller_product.php";
+            // Если название является категорией, то вызвать метод контроллера для категорий
+            if (in_array($CategoryName, LanguageSelect::$CategoryArray) === true)
+                $actionName = "action_category" ;
+            // Иначе вызвать метод контроллера для подкатегорий
+            else if (in_array($CategoryName, LanguageSelect::$SubCategoryArray) === true)
+                $actionName = "action_subcategory";
+            // Если под URL /КАТЕГОРИЯ последний и в данной категории есть товар,
+            // то вывести первую страницу с товарами принтами
+            if ($posCategory === 0 && $ProductCount > 0) {
+                $controller = new Controller_Product();
+                $controller->$actionName(1, $CategoryName);
+            }
+            // Если под URL /КАТЕГОРИЯ последний и в данной категории нет товара,
+            // то вывести соболезнующую картинку (надпись) что товара в данной категории (подкатегории) нет
+            else if (($posCategory === 0) && ($ProductCount === (float)0)) {
+                $controller = new Controller_Product();
+                $controller->action_noCountProduct();    
+            }
+            // Если под URL /КАТЕГОРИЯ не последний, то перед ним может стоять под URL
+            // который указывает какую страницу из перечня товара показывать или стоять подкатегория 
+            // товара для данной категории
+            else if ($posCategory >= 1) {
+                // Вычислить позицию элемента, который в маршруте URL, который стоит после категории
+                $posSubCategory = count($routes) - ($posCategory - 1) - 1;
+                // Если получилось так, что под URL пустой /КАТЕГОРИЯ/ и в категории (подкатегории) есть товар, 
+                // то вывести первую страницу 
+                if (strlen($routes[$posSubCategory]) === 0 && $ProductCount > 0) {
+                    $controller = new Controller_Product();
+                    $controller->$actionName(1, $CategoryName);
+                }
+                // Если получилось тк, что под URL пустой /КАТЕГОРИЯ/ и в категории (подкатегории) нет товара,
+                // то вывести картинку (надпись), что товара в данной категории (подкатегории) нет
+                else if (strlen($routes[$posSubCategory]) === 0 && $ProductCount === (float)0) {
+                    $controller = new Controller_Product();
+                    $controller->action_noCountProduct(); 
+                }
+                // Если под URL удовлетворяет условию кол-ва страниц у возможной категории
+                // то предоставить пользователю эту страницу /КАТЕГОРИЯ/1
+                else if ( ($routes[$posSubCategory] <= $ProductCount) &&
+                    ($routes[$posSubCategory] > 0) ) {
+                    $controller = new Controller_Product();
+                    $controller->$actionName($routes[$posSubCategory], $CategoryName);
+                }
+                // Если после категории (swimwear, underwear) идет подкатегория (/swimwear/swimsuit и др.), список
+                // которых представлен в массиве $templateData статического класса LanguageSelect, то вызвать эту же функцию, 
+                // только вместо категории будет определенный подкатегория
+                else if ( $CategoryName === "swimwear" &&
+                        in_array(($routes[$posSubCategory]), LanguageSelect::$templateData['SwimWearCatName']['Hrefs']) === true) { 
+                    self::CheckCategoryPages($routes[$posSubCategory],
+                        ProductsValues::callCountSubCategory(LanguageSelect::$SubCateLang[$routes[$posSubCategory]], true), $routes);
+                }
+                else if ( $CategoryName === "underwear" &&
+                        in_array(($routes[$posSubCategory]), LanguageSelect::$templateData['UnderWearCatName']['Hrefs']) === true ) {
+                    self::CheckCategoryPages($routes[$posSubCategory],
+                        ProductsValues::callCountSubCategory(LanguageSelect::$SubCateLang[$routes[$posSubCategory]], true), $routes);
+                }
+                // Иначе редирект на 404 (если страница не удовлетворяет кол-ву товара в категории)
+                else Route::ErrorPage404();
+            }
+            // Иначе если категория не последняя и не пред последняя в URL строке, то редирект на 404
+            else {exit;Route::ErrorPage404();}
         }
     }
 

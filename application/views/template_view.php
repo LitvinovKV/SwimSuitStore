@@ -92,8 +92,8 @@
                             </ul>
                         </div>
                         <div class="col-md-2">
-                            <a <? echo "href=/" . LanguageSelect::$lang . "/product/prints"?> > 
-                                <? echo LanguageSelect::$templateData['PrintsCatName']; ?> 
+                            <a <? echo "href=/" . LanguageSelect::$lang . "/product/patterns"?> > 
+                                <? echo LanguageSelect::$templateData['PatternsCatName']; ?> 
                             </a>
                         </div>
                         <div class="col-md-2">

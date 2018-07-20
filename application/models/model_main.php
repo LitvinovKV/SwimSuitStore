@@ -36,13 +36,20 @@
             $res = $connect->query("SELECT id_product FROM product WHERE is_hit = 1");
             for($i = 0; $i < $res->num_rows; $i++) {
                 $res->data_seek($i);
+                // Сформировать массив из сделанной выборки по таблице PRODUCT, где is_hit === 1
                 $row = $res->fetch_assoc();
                 // Сделать выборку по имени фотографий, выбрать только те фотографии
                 //      продуктов, которые являются главными (is_general == 1)
                 $new_res = $connect->query("SELECT name FROM photo WHERE id_product = " . 
                     $row['id_product'] . " AND is_general = 1");
+                // Сформировать массив из сделанной выборке по таблице PHOTO
                 $new_row = $new_res->fetch_assoc();
-                array_push($result, $new_row['name']);
+                // Сформировать конечный массив из двух предыдущих
+                $resultArray = array(
+                    "id_product" => $row['id_product'],
+                    "name" => $new_row['name']
+                );
+                array_push($result, $resultArray);
             }
             return $result;
         }

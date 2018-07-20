@@ -7,6 +7,20 @@
     class LanguageSelect {
         public static $lang;
         public static $templateData;
+        public static $SubCateLang = array (
+            "swimsuit" => "Слитные",
+            "two_piece" => "Раздельные",
+            "printed" => "Принтованные",
+            "one_piece" => "Однотонные",
+            "bra" => "Бюстгалтеры",
+            "underpants" => "Трусы",
+            "body" => "Боди",
+            "swimwearshares" => "Акции Купальники",
+            "underwearshares" => "Акции Нижнее белье"
+        );
+        public static $CategoryArray = ["patterns", "swimwear", "underwear"];
+        public static $SubCategoryArray = ["swimsuit", "two_piece", "printed", "one_piece", "bra",
+            "underpants", "body", "swimwearshares", "underwearshares"];
 
         // Статический метод для смены элементов в тегах footer и header на Русский язык
         public static function setRU() {
@@ -14,14 +28,14 @@
                 "SwimWearCatName" => array(
                     "Name" => "КУПАЛЬНИКИ",
                     "Elements" => ["ВСЕ", "СЛИТНЫЕ", "РАЗДЕЛЬНЫЕ", "ПРИНТОВАННЫЕ", "ОДНОТОННЫЕ", "АКЦИИ"],
-                    "Hrefs" => ["", "swimsuit", "two-piece", "printed", "one-piece", "shares"]
+                    "Hrefs" => ["", "swimsuit", "two_piece", "printed", "one_piece", "swimwearshares"]
                 ),
                 "UnderWearCatName" => array(
                     "Name" => "НИЖНЕЕ БЕЛЬЕ",
                     "Elements" => ["ВСЕ", "БЮСТГАЛТЕРЫ", "ТРУСЫ", "БОДИ", "АКЦИИ"],
-                    "Hrefs" => ["", "bra", "underpants", "body", "shares"]
+                    "Hrefs" => ["", "bra", "underpants", "body", "underwearshares"]
                 ),
-                "PrintsCatName" => "ПРИНТЫ",
+                "PatternsCatName" => "ПРИНТЫ",
                 "FAQCatName" => array(
                     "Name" => "FAQ",
                     "Elements" => ["УСЛОВИЯ ОПЛАТЫ", "УСЛОВАИЯ ДОСТАВКИ"]
@@ -29,7 +43,10 @@
                 "ReviewsCatName" => "ОТЗЫВЫ",
                 "AboutCatName" => "О НАС",
                 "OtherSentences" => ["ПОДПИСАТЬСЯ НА НОВОСТИ", "Узанать о новостях и акциях!", 
-                    "МЫ В СОЦИАЛЬНЫХ СЕТЯХ", "СЛУЖБА ПОДДЕРЖКИ ПОКУПАТЕЛЕЙ"]
+                    "МЫ В СОЦИАЛЬНЫХ СЕТЯХ", "СЛУЖБА ПОДДЕРЖКИ ПОКУПАТЕЛЕЙ"],
+                "GeneralBannerButton" => "ПОСМОТРЕТЬ ВСЕ",
+                "GeneralProductButton" => "КУПИТЬ СЕЙЧАС",
+                "GeneralJoinButton" => "ПРИСОЕДЕНИТЬСЯ К ",
             );
             self::$lang = "RU";
         }
@@ -40,14 +57,14 @@
                 "SwimWearCatName" => array(
                     "Name" => "SWIMWEAR",
                     "Elements" => ["ALL", "SWIMSUIT", "TWO-PIECE", "PRINTED", "ONE-PIECE", "SHARES"],
-                    "Hrefs" => ["", "swimsuit", "two-piece", "printed", "one-piece", "shares"]
+                    "Hrefs" => ["", "swimsuit", "two_piece", "printed", "one_piece", "swimwearshares"]
                 ),
                 "UnderWearCatName" => array(
                     "Name" => "UNDERWEAR",
                     "Elements" => ["ALL", "BRA", "UNDERPANTS", "BODY", "SHARES"],
-                    "Hrefs" => ["", "bra", "underpants", "body", "shares"]
+                    "Hrefs" => ["", "bra", "underpants", "body", "underwearshares"]
                 ),
-                "PrintsCatName" => "PRINTS",
+                "PatternsCatName" => "PATTERNS",
                 "FAQCatName" => array(
                     "Name" => "FAQ",
                     "Elements" => ["TERMS OF PAYMENT", "TERMS OF DELIVERY"]
@@ -55,7 +72,10 @@
                 "ReviewsCatName" => "REVIEWS",
                 "AboutCatName" => "ABOUT US",
                 "OtherSentences" => ["SUBSCRIBE TO NEWS", "LEARN ABOUT NEWS PROMOTIONS!", 
-                    "WE ARE IN SOCIAL NETWORKS", "CUSTOMER SUPPORT SERVICE"]
+                    "WE ARE IN SOCIAL NETWORKS", "CUSTOMER SUPPORT SERVICE"],
+                "GeneralBannerButton" => "VIEW ALL",
+                "GeneralProductButton" => "SHOP NOW",
+                "GeneralJoinButton" => "JOIN"
             );
             self::$lang = "ENG";
         }
