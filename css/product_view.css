@@ -27,12 +27,155 @@
 	padding: 0;
 }
 
-.items .responsive-img {
+.carousel-pr .responsive-img {
 	width: 100%;
 	padding-top: 10px;
 	padding-left: 3px;
 	padding-right: 3px;
 }
+
+.items .hidden-img {
+	position: absolute;
+	width: 100%;
+	padding-top: 10px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+/*Hidden filter*/
+
+.filter ul {
+	list-style: none;
+	margin: 0;
+  padding: 0;
+}
+.filter .f-topmenu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.filter .f-submenu {
+  position: absolute;
+  background-color: #fff;
+  padding-bottom: 100px;
+  z-index: 6;
+  width: 100%;
+  opacity: 0;
+  transform: scale(0);
+  transform-origin :0 0;
+}
+
+.filter h3 {
+  font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 15px;
+	margin-left: 15px;
+}
+
+.filter .text {
+	display: block;
+	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 15px;
+}
+
+.filter input {
+	margin-top: 7px;
+	margin-right: 10px;
+}
+
+.filter .colomn {
+	margin-bottom: 30px;
+}
+
+.filter .close {
+	margin-left: 150px;
+}
+
+.filter p {
+	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 15px;
+	margin-left: 310px;
+	margin-top: 50px;
+}
+
+.filter .f-submenu li:hover {
+	text-decoration: none;
+}
+
+.filter .f-topmenu > li:hover .f-submenu {
+	opacity: 1;
+  transform: scaleY(1);
+}
+
+/*End of Hidden filter*/
+
+/*Hidden image*/
+
+.items ul {
+	list-style: none;
+	margin: 0;
+  padding: 0;
+}
+.items .topmenu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.items .submenu {
+  position: absolute;
+  z-index: 4;
+  width: 100%;
+  opacity: 1;
+  transform: scale(1);
+  transform-origin :0 0;
+}
+
+.items .submenu li:hover {
+	text-decoration: none;
+}
+
+.items .topmenu > li:hover .submenu {
+	opacity: 0;
+  transform: scaleY(0);
+}
+
+/*End of Hidden image*/
+
+/* Owl Carousel */
+.carousel-pr {
+	position: relative;
+}
+
+.carousel-pr .owl-controls {
+	left: 0;
+	bottom: 270px;
+	width: 100%;
+	position: absolute;
+}
+
+.carousel-pr .owl-controls .owl-nav {
+	bottom: 240px;
+}
+
+.carousel-pr .owl-controls .owl-nav > div{
+	position: absolute;
+	left: 25px;
+	font-size: 38px;
+	font-family: "MyriadPro-Regular", sans-serif;
+	color: #dfbdaf;
+	opacity: .7;
+	font-weight: normal;
+	transition: all .3s ease;
+}
+
+.carousel-pr .owl-controls .owl-nav > div:hover {
+	color: #303030;
+}
+
+.carousel-pr .owl-controls .owl-nav .owl-next {
+	right: 25px;
+	left: auto;
+}
+/* End of Owl Carousel */
 
 .s-nav {
 	margin-top: 10px;
