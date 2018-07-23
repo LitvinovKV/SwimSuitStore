@@ -8,6 +8,9 @@
         public static $lang;
         public static $templateData;
         public static $SubCateLang = array (
+            "swimwear" => "Купальники",
+            "underwear" => "Нижнее белье",
+            "patterns" => "Принты",
             "swimsuit" => "Слитные",
             "two_piece" => "Раздельные",
             "printed" => "Принтованные",
