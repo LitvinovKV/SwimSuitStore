@@ -472,7 +472,17 @@ h1, h2, h3, h4{
 }
 /* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {
-/**/
+.main_line .s_networks img {
+	height: 20;
+	width: auto;
+	margin: 45px 30px;
+}
+
+.main_line .s_networks svg {
+	height: 20;
+	width: auto;
+	margin: 45px 30px;
+}
 }
 @media only screen and (max-width: 520px) {
 /**/

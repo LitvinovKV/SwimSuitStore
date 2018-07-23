@@ -18,8 +18,8 @@
 			<div class="lang_line">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-11 col-md-11 offset11"></div>
-						<div class="col-lg-1 col-md-1">
+						<div class="col-lg-11 col-md-11 col-sm-11 col-xs-10 offset11 offset10"></div>
+						<div class="col-lg-1 col-md-1 col-sm-1 col-xs-2">
 								
 								<div class="languages">
 										<a href="RU" class="ru">RU</a>
@@ -35,7 +35,7 @@
 				<div class="container">
 					<div class="row">
 							
-						<div class="col-lg-3 col-md-3 col-sm-3">
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 								<div class="s_networks">
 										<a href="https://vk.com/swiund" class="vk"><img class="img-svg" src="/images/s_networks/icon-vk.svg" alt="Vkontakte"></a>
 										<a href="https://www.instagram.com/swiund/" class="insta"><img class="img-svg" src="/images/s_networks/icon-insta.svg" alt="Instagram"></a>
@@ -43,12 +43,12 @@
 										<a href="https://api.whatsapp.com/send?phone=79998744766" class="wa"><img class="img-svg" src="/images/s_networks/icon-wa.svg" alt="Whatsap"></a>
 								</div>
 						</div>
-						<div class="col-lg-7 col-md-7 col-sm-7">
+						<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
 								<div class="logo">
 										<a <? echo "href=/" . LanguageSelect::$lang ?> class="lg"><h1>swim under</h1></a>
 								</div>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2">
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
 							<div class="basket">
 								<span>0</span>
 								<a href="#" class="bs"> <img class="img-svg" src="/images/s_networks/icon-basket.svg" alt="Baske"></a>

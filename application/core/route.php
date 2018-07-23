@@ -178,7 +178,7 @@
             // то вывести первую страницу с товарами принтами
             if ($posCategory === 0 && $ProductCount > 0) {
                 $controller = new Controller_Product();
-                $controller->$actionName(1, $CategoryName);
+                $controller->$actionName(1, $CategoryName, $ProductCount);
             }
             // Если под URL /КАТЕГОРИЯ последний и в данной категории нет товара,
             // то вывести соболезнующую картинку (надпись) что товара в данной категории (подкатегории) нет
@@ -190,13 +190,13 @@
             // который указывает какую страницу из перечня товара показывать или стоять подкатегория 
             // товара для данной категории
             else if ($posCategory >= 1) {
-                // Вычислить позицию элемента, который в маршруте URL, который стоит после категории
+                // Вычислить позицию элемента, в маршруте URL, который стоит после категории
                 $posSubCategory = count($routes) - ($posCategory - 1) - 1;
                 // Если получилось так, что под URL пустой /КАТЕГОРИЯ/ и в категории (подкатегории) есть товар, 
                 // то вывести первую страницу 
                 if (strlen($routes[$posSubCategory]) === 0 && $ProductCount > 0) {
                     $controller = new Controller_Product();
-                    $controller->$actionName(1, $CategoryName);
+                    $controller->$actionName(1, $CategoryName, $ProductCount);
                 }
                 // Если получилось тк, что под URL пустой /КАТЕГОРИЯ/ и в категории (подкатегории) нет товара,
                 // то вывести картинку (надпись), что товара в данной категории (подкатегории) нет
@@ -209,7 +209,7 @@
                 else if ( ($routes[$posSubCategory] <= $ProductCount) &&
                     ($routes[$posSubCategory] > 0) ) {
                     $controller = new Controller_Product();
-                    $controller->$actionName($routes[$posSubCategory], $CategoryName);
+                    $controller->$actionName($routes[$posSubCategory], $CategoryName, $ProductCount);
                 }
                 // Если после категории (swimwear, underwear) идет подкатегория (/swimwear/swimsuit и др.), список
                 // которых представлен в массиве $templateData статического класса LanguageSelect, то вызвать эту же функцию, 
@@ -228,7 +228,7 @@
                 else Route::ErrorPage404();
             }
             // Иначе если категория не последняя и не пред последняя в URL строке, то редирект на 404
-            else {exit;Route::ErrorPage404();}
+            else Route::ErrorPage404();
         }
     }
 
