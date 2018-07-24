@@ -82,13 +82,14 @@
             $result = [];
             for ($i = 0; $i < count($ProductsArrayId); $i++) {
                 $QuantityFlag = $this->getProductQuantityFlag($ProductsArrayId[$i]);
-                $PhotoName = $this->getProductGeneralPhoto($ProductsArrayId[$i]);
+                $GeneralPhotoName = $this->getProductGeneralPhoto($ProductsArrayId[$i]);
+                $PhotoArray = $this->getProductPhoto($ProductsArrayId[$i]);
                 if (in_array($ProductsArrayId[$i], $SharesArrayId))
                     array_push($result, array( "id_product" => $ProductsArrayId[$i], "is_share" => true, 
-                        "quantity" => $QuantityFlag, "photo" => $PhotoName));
+                        "quantity" => $QuantityFlag, "GeneralPhoto" => $GeneralPhotoName, "Photos" => $PhotoArray));
                 else
                 array_push($result, array( "id_product" => $ProductsArrayId[$i], "is_share" => false, 
-                    "quantity" => $QuantityFlag, "photo" => $PhotoName));
+                    "quantity" => $QuantityFlag, "GeneralPhoto" => $GeneralPhotoName, "Photos" => $PhotoArray));
             }
 
             return $result;
@@ -139,9 +140,23 @@
         // На вход : идентификатор продукта
         // На выходе : название фотографии
         private function getProductGeneralPhoto($ProductId) {
-            $sql_query = "SELECT name FROM photo WHERE id_product = " . $ProductId;
+            $sql_query = "SELECT name FROM photo WHERE id_product = " . $ProductId . " AND is_general = 1";
             $PhotoName = $this->connection->query($sql_query)->fetch_assoc()["name"];
             return $PhotoName;
+        }
+
+        // Метод, который возвращает осталные (побочные, не главную) фотографии продукта
+        // На вход : идентфиикатор продукта
+        // На выходе : массив из названий фотографий
+        private function getProductPhoto($ProductId) {
+            $sql_query = "SELECT name FROM photo WHERE id_product = " . $ProductId . " AND is_general = 0";
+            $res = $this->connection->query($sql_query);
+            $result = [];
+            for ($i = 0; $i < $res->num_rows; $i++) {
+                $res->data_seek($i);
+                array_push($result, $res->fetch_assoc()["name"]);
+            }
+            return $result;
         }
     }
 

@@ -41,7 +41,8 @@
                 "PatternsCatName" => "ПРИНТЫ",
                 "FAQCatName" => array(
                     "Name" => "FAQ",
-                    "Elements" => ["УСЛОВИЯ ОПЛАТЫ", "УСЛОВАИЯ ДОСТАВКИ"]
+                    "Elements" => ["УСЛОВИЯ ОПЛАТЫ", "УСЛОВАИЯ ДОСТАВКИ", "ГАРАНТИЯ НА ТОВАР", "РАЗМЕРНАЯ СЕТКА"],
+                    "Hrefs" => ["payment", "delivery", "guarantee", "chart"]
                 ),
                 "ReviewsCatName" => "ОТЗЫВЫ",
                 "AboutCatName" => "О НАС",
@@ -50,6 +51,12 @@
                 "GeneralBannerButton" => "ПОСМОТРЕТЬ ВСЕ",
                 "GeneralProductButton" => "КУПИТЬ СЕЙЧАС",
                 "GeneralJoinButton" => "ПРИСОЕДЕНИТЬСЯ К ",
+                "Basket" => "ДОБАВИТЬ В КОРЗИНУ",
+                "Size" => "РАЗМЕР",
+                "Color" => "ЦВЕТ",
+                "Description" => "ОПИСАНИЕ",
+                "InAvailable" => "ЕСТЬ В НАЛИЧИИ",
+                "NoAvailable" => "НЕТ В НАЛИЧИИ"
             );
             self::$lang = "RU";
         }
@@ -70,7 +77,8 @@
                 "PatternsCatName" => "PATTERNS",
                 "FAQCatName" => array(
                     "Name" => "FAQ",
-                    "Elements" => ["TERMS OF PAYMENT", "TERMS OF DELIVERY"]
+                    "Elements" => ["TERMS OF PAYMENT", "TERMS OF DELIVERY", "PRODUCT GUARANTEE", "SIZE CHART"],
+                    "Hrefs" => ["payment", "delivery", "guarantee", "chart"]
                 ),
                 "ReviewsCatName" => "REVIEWS",
                 "AboutCatName" => "ABOUT US",
@@ -78,7 +86,13 @@
                     "WE ARE IN SOCIAL NETWORKS", "CUSTOMER SUPPORT SERVICE"],
                 "GeneralBannerButton" => "VIEW ALL",
                 "GeneralProductButton" => "SHOP NOW",
-                "GeneralJoinButton" => "JOIN"
+                "GeneralJoinButton" => "JOIN ",
+                "Basket" => "ADD TO BASKET",
+                "Size" => "SIZE",
+                "Color" => "COLOR",
+                "Description" => "DESCRIPTION",
+                "InAvailable" => "ARE AVAILABLE",
+                "NoAvailable" => "NOT AVAILABLE"
             );
             self::$lang = "ENG";
         }

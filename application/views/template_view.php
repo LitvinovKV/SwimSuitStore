@@ -103,17 +103,19 @@
 									<ul class="submenu">
 										<?
 											for ($i = 0; $i < count(LanguageSelect::$templateData['FAQCatName']['Elements']); $i++)
-												echo  "<li><a href=''>" . LanguageSelect::$templateData['FAQCatName']['Elements'][$i] . "</a></li>";
+												echo  "<li><a href=/" . LanguageSelect::$lang . "/faq/" . 
+													LanguageSelect::$templateData['FAQCatName']['Hrefs'][$i] . 
+													">" . LanguageSelect::$templateData['FAQCatName']['Elements'][$i] . "</a></li>";
 										?>
 									</ul>
 								</li>
 							</ul>
 						</div>
 						<div class="col-lg-2 col-md-2 col-sm-2">
-							<a href="#"> <? echo LanguageSelect::$templateData['ReviewsCatName']; ?> </a>
+							<a <? echo "href=/" . LanguageSelect::$lang . "/reviews" ?> > <? echo LanguageSelect::$templateData['ReviewsCatName']; ?> </a>
 						</div>
 						<div class="col-lg-2 col-md-2 col-sm-2">
-							<a href="#" class="last"> <? echo LanguageSelect::$templateData['AboutCatName']; ?> </a>
+							<a <? echo "href=/" . LanguageSelect::$lang . "/about" ?> class="last"> <? echo LanguageSelect::$templateData['AboutCatName']; ?> </a>
 						</div>
 
 						

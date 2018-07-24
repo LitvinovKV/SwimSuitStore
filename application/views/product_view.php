@@ -1,6 +1,6 @@
 <!-- <? var_dump($data) ?> -->
 
-<section class="s-ref_point">
+<section class="s-nav">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-9">
@@ -14,7 +14,7 @@
 						$href .= "/" . $data["HrefPath"][$i + 2];
 						$block .= "<a href=\"" . $href . "\">" . $HrefName . "</a>";
 						if ($i != count($data["PathContent"]) - 1)
-							$block .= "  >  ";
+							$block .= "<i class=\"fa fa-angle-right\"></i>";
 					}
 					echo $block;
 				?>
@@ -33,255 +33,73 @@
 <section class="s-products">
 	<div class="container-fluid">
 		<div class="row">
-			<?php 
-				for ($i = 0; $i < count($data["Products"]); $i++) {
-					if ($data["Products"][$i]["quantity"] === true) {
-						$href = "/productcard/" . $data["Products"][$i]["id_product"];
-						$img = $data["Products"][$i]["photo"];
-						echo <<<PRODUCT
-							<div class="col-md-3">
-								<div class="item">
+			<div class="items">
+
+				<?php
+
+					for($i = 0; $i < count($data["Products"]); $i++) {
+						
+						// УБРАТЬ В БУДУЩЕМ, ЧТОБЫ БЫЛА ВИДНА КАЖДАЯ ЕДЕНИЦА ТОВАРА!  
+						if (count($data["Products"][$i]["Photos"]) < 2) continue;
+						
+						$GeneralPhoto = $data["Products"][$i]["GeneralPhoto"];
+						$href = "/" . LanguageSelect::$lang . "/productcard/" . $data["Products"][$i]["id_product"];
+						echo <<<GENERAL_BLOCK_TOP
+							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+							<ul class="topmenu">
+								<li>
+									<ul class="submenu">
+										<li><img class="hidden-img responsive-img" src="/images/products_images/$GeneralPhoto" alt="shop1" ></li>
+									</ul>
+									<div class="carousel-pr">
+GENERAL_BLOCK_TOP;
+						for ($j = 0; $j < count($data["Products"][$i]["Photos"]); $j++) {
+							$PhotoName = $data["Products"][$i]["Photos"][$j];
+							echo <<<CAROUSEL_BLOCK
+								<div class="carousel-item">
 									<a href=$href class="product-item">
-										<img class="responsive-img" src="/images/products_images/$img" alt="shop1" >
+										<img class="responsive-img" src="/images/products_images/$PhotoName" alt="shop1" >
 									</a>
 								</div>
-							</div>
-PRODUCT;
+CAROUSEL_BLOCK;
+						}
+						echo <<<GENERAL_BLOCK_BOTTOM
+									</div>
+								</li>
+							</ul>
+						</div>
+GENERAL_BLOCK_BOTTOM;
 					}
-				}
-			?>
 
-			<!-- <div class="items">
-				<div class="col-md-3">
-					<div class="item">
-						<a href="#" class="product-item">
-							<img class="responsive-img" src="/images/products_images/shop1.jpg" alt="shop1" >
-						</a>
-					</div>
+				?>
+					<!-- <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+						<ul class="topmenu">
+							<li>
+								<ul class="submenu">
+									<li><img class="hidden-img responsive-img" src="/images/products_images/Photo13.jpg" alt="shop1" ></li>
+								</ul>
+								<div class="carousel-pr">
+									<div class="carousel-item">
+										<a href="#" class="product-item">
+											<img class="responsive-img" src="/images/products_images/Photo9.jpg" alt="shop1" >
+										</a>
+									</div>
+									<div class="carousel-item">
+										<a href="#" class="product-item">
+											<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="shop1" >
+										</a>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div> -->
+
 				</div>
-				
-				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-					<ul class="topmenu">	
-						<li>
-							<ul class="submenu">
-								<li><img class="hidden-img responsive-img" src="/images/products_images/Photo13.jpg" alt="shop1" ></li>
-							</ul>
-							<div class="carousel-pr">
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo9.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo13.jpg" alt="shop1" >
-								</a>
-							</div>
-						</div></li>
-					</ul>
-				</div>
-				
-				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-					<ul class="topmenu">	
-						<li>
-							<ul class="submenu">
-								<li><img class="hidden-img responsive-img" src="/images/products_images/Photo13.jpg" alt="shop1" ></li>
-							</ul>
-							<div class="carousel-pr">
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo9.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo13.jpg" alt="shop1" >
-								</a>
-							</div>
-						</div></li>
-					</ul>
-				</div>
-				
-				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-					<ul class="topmenu">	
-						<li>
-							<ul class="submenu">
-								<li><img class="hidden-img responsive-img" src="/images/products_images/Photo13.jpg" alt="shop1" ></li>
-							</ul>
-							<div class="carousel-pr">
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo9.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo13.jpg" alt="shop1" >
-								</a>
-							</div>
-						</div></li>
-					</ul>
-				</div>
-				
-				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-					<ul class="topmenu">	
-						<li>
-							<ul class="submenu">
-								<li><img class="hidden-img responsive-img" src="/images/products_images/Photo13.jpg" alt="shop1" ></li>
-							</ul>
-							<div class="carousel-pr">
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo9.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo13.jpg" alt="shop1" >
-								</a>
-							</div>
-						</div></li>
-					</ul>
-				</div>
-				
-				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-					<ul class="topmenu">	
-						<li>
-							<ul class="submenu">
-								<li><img class="hidden-img responsive-img" src="/images/products_images/Photo13.jpg" alt="shop1" ></li>
-							</ul>
-							<div class="carousel-pr">
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo9.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo13.jpg" alt="shop1" >
-								</a>
-							</div>
-						</div></li>
-					</ul>
-				</div>
-				
-				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-					<ul class="topmenu">	
-						<li>
-							<ul class="submenu">
-								<li><img class="hidden-img responsive-img" src="/images/products_images/Photo13.jpg" alt="shop1" ></li>
-							</ul>
-							<div class="carousel-pr">
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo9.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo13.jpg" alt="shop1" >
-								</a>
-							</div>
-						</div></li>
-					</ul>
-				</div>
-				
-				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-					<ul class="topmenu">	
-						<li>
-							<ul class="submenu">
-								<li><img class="hidden-img responsive-img" src="/images/products_images/Photo13.jpg" alt="shop1" ></li>
-							</ul>
-							<div class="carousel-pr">
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo9.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="shop1" >
-								</a>
-							</div>
-							<div class="carousel-item">
-								<a href="#" class="product-item">
-									<img class="responsive-img" src="/images/products_images/Photo13.jpg" alt="shop1" >
-								</a>
-							</div>
-						</div></li>
-					</ul>
-				</div>
-				</div>
-			</div> -->
-			
+			</div>
 		</div>
 	</div>
 </section>
+				
 <section class="s-nav">
 	<div class="container-fluid">
 		<div class="row">

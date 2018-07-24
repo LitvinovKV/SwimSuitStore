@@ -32,7 +32,7 @@
                 "PathContent" => $path,
                 "HrefPath" => $this->routesArray,
                 "PageNumber" => (int)$pageNumber,
-            );
+            ); 
             $this->view->generate("product_view.php", "template_view.php", $data);
         }
 
