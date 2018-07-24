@@ -40,6 +40,12 @@
                 return;
             }
 
+            // Если пользователь перешел на URL /productcard, то вызвать метод для предоставления нужной вьюхи пользователю 
+            if (in_array("productcard", $routes) === true) {
+                $flag = self::CheckProductCardPages($routes);
+                if ($flag === true) return;
+            }
+
             // Если был введен в маршруте контроллер, то 
             // Запомнить его
             if (empty($routes[1 + $index]) == false)
@@ -229,6 +235,42 @@
             }
             // Иначе если категория не последняя и не пред последняя в URL строке, то редирект на 404
             else Route::ErrorPage404();
+        }
+
+        // Метод который проверяет адресную строку если в ней упоминалось ключевое слово "productcard"
+        // Разбивает урл на подурлы и сверяет с подходящими условиями.
+        // На входе : $routes - адресная строка разбитая на массив
+        // На выходе : флаг, который указывает на то как пректарил свое действие метод
+        // если flag === false, то при возвращении из метода вызовется метод контроллера productcard_controller->action_index()
+        // который в свою очередь вызовет ошибку 404, ибо адресная строка не подходит для дальнейшей работы
+        // если flaf === true, то это значит, что в метода инициализировался объект класса и вызволся метод, который возвращает
+        // представление контента с продуктом по идентификатору 
+        private function CheckProductCardPages($routes) {
+            $posProductcardURL = array_search("productcard", $routes);
+            // Если подурл /productcard последний, тогда выйти из метода 
+            // и вызвать начальное действие action_index
+            if ($posProductcardURL + 1 === count($routes)) 
+                return false;
+            // Если подурл /productcard/ не последний, но после него нчиего нет, то
+            // вызвать начальное действие action_index
+            else if ($posProductcardURL + 1 != count($routes) && strlen($routes[$posProductcardURL + 1]) === 0)
+                return false;
+            // Если существует такой подурл, который идет после идентификатора товара /productcard/id/
+            // и если он не пустой, тогда вызвать начальное действие action_index
+            else if (count($routes) > $posProductcardURL + 2) {
+                if (strlen($routes[$posProductcardURL + 2]) != 0) return false;
+            }
+            
+            // Если подукрл идентфиикатора товара соответсвует товару в БД, то объявить и инициализировать контроллер
+            // который возвращает представление с этим товаром по идентификатору
+            if (in_array($routes[$posProductcardURL + 1], ProductsValues::$AllProdcutsId) === true) {
+                require_once "application/controllers/controller_productcard.php";
+                $controller = new Controller_ProductCard();
+                $controller->action_getProduct($routes[$posProductcardURL + 1]);
+                return true;
+            }
+            else
+                return false;
         }
     }
 

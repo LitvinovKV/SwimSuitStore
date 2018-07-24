@@ -8,11 +8,14 @@
         public static $printsCount;
         public static $SwimwearCount;
         public static $UnderwearCount;
+        public static $AllProdcutsId;
 
         public static function init() {
             self::$printsCount = self::calculateCountCategory("Принты");
             self::$SwimwearCount = self::calculateCountCategory("Купальники");
             self::$UnderwearCount = self::calculateCountCategory("Нижнее белье");
+            self::$AllProdcutsId = self::getAllProductsIdArray();
+            
         }
 
         // Метод, который подсчитывает кол-во страниц для купальников (общая страница)
@@ -77,6 +80,19 @@
         public static function callCountSubCategory($SubCategoryName, $flag) {
             $pagesCount = self::calculateCountSubCategory($SubCategoryName, $flag);
             return $pagesCount;
+        }
+
+        // Метод который возвращает массив всех идентификатор товаров в БД
+        public static function getAllProductsIdArray() {
+            $connection = $connection = DataBaseConnection::$connect;
+            $sql_query = "SELECT id_product FROM product";
+            $res = $connection->query($sql_query);
+            $result = [];
+            for ($i = 0; $i < $res->num_rows; $i++) {
+                $res->data_seek($i);
+                array_push($result, $res->fetch_assoc()["id_product"]);
+            }
+            return $result;
         }
     }
 

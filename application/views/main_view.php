@@ -35,8 +35,8 @@ BANNERS;
 
 		<?php
 				$buttonTitle = LanguageSelect::$templateData["GeneralProductButton"];
-				$href = "#";
 				for ($i = 0; $i < count($data["hits"]); $i++) {
+					$href = "/" . LanguageSelect::$lang . "/productcard/" . $data["hits"][$i]["id_product"];
 					$path = "/images/products_images/" . $data["hits"][$i]["name"];
 					echo <<<HITS
 						<div class="col-md-4 col-sm-6">
