@@ -76,7 +76,6 @@
 /* Button */
 .button {
 	position: absolute;
-	display: inline-block;
 	border: none;
 	background-color: #fff;
 	color: #000;

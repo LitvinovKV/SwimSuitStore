@@ -1,0 +1,136 @@
+.s-nav {
+	margin-left: 70px;
+	margin-bottom: 60px;
+	margin-top: 20px;
+}
+
+.s-nav a {
+	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 14.5px;
+	text-transform: uppercase;
+	color: #000;
+}
+
+.s-nav i {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.product {
+	margin-bottom: 30px;
+}
+
+.product .photo img {
+	width: 98px;
+	height: 124px;
+	background-color: #dfbdaf;
+	margin: 5px 0 0 0;
+}
+
+.product .photo .big {
+	width: 379px;
+	height: 511px;
+	background-color: #dfbdaf;
+	margin-left: 30px;
+	margin-bottom: 40px;
+}
+
+.details h3 {
+	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 20.8px;
+	text-transform: uppercase;
+	color: #000;
+	margin-top: 5px;
+}
+ .details .d-title {
+ 	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 16.5px;
+	text-transform: uppercase;
+	color: #fff;
+	background-color: #000;
+	width: 24%;
+	padding: 5px 25px;
+ }
+
+ .details .description {
+ 	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 16.5px;
+	color: #544f4f;
+	letter-spacing: -1px;
+	line-height: 20px;
+	margin-bottom: 20px;
+ }
+
+ .details .material {
+ 	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 16.5px;
+	color: #544f4f;
+	letter-spacing: -1px;
+	line-height: 20px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #000;
+	margin-bottom: 5px;
+ }
+
+ .details .price {
+ 	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 25px;
+	color: #000;
+	margin-top: 10px;
+	margin-bottom: 15px;
+ }
+
+ .details .color {
+ 	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 16.5px;
+	color: #000;
+	margin-top: 10px;
+ }
+
+ .details .color-title {
+ 	text-transform: uppercase;
+ }
+
+ .details .color i {
+ 	margin-left: 10px;
+ 	margin-right: 10px;
+ }
+
+ .details img {
+ 	margin-right: 22px;
+ }
+
+ .details .s-title {
+ 	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 16.5px;
+	color: #000;
+	text-transform: uppercase;
+ }
+
+ .details .size span{
+ 	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 16.5px;
+	color: #585858;
+	padding: 5px 5px;
+	border: 2px solid #585858;
+	margin-right: 25px;
+ }
+
+ .details .status {
+ 	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 16.5px;
+	color: #000;
+	text-transform: uppercase;
+	margin-top: 23px;
+ }
+
+ .details .button {
+ 	display: block;
+ 	margin-left: 180px;
+ 	border: 1px solid #dfbdaf;
+ }
+
+ .carousel {
+ 	background-color: #f3eae4;
+ 	margin-bottom: 30px;
+ }
