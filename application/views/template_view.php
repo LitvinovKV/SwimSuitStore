@@ -14,6 +14,21 @@
 	<title>Swim Suit Store </title>
 </head>
 <body>
+	<? 
+		session_start();
+		
+		// var_dump($_SESSION);
+
+		// Удалить значение из сессии
+		// unset($_SESSION["..."]);
+
+		// Вывести время жизни сессии
+		// var_dump(ini_get("session.gc_maxlifetime"));
+
+		// ПРОБЛЕМА УДАЛЕНИЯ СЕССИЯ РАНЬШЕ НАЗНАЧЕННОГО ИМ СРОКА
+		// var_dump($_SERVER['DOCUMENT_ROOT']);
+		// var_dump(session_save_path());
+	?>
 		<header>
 			<div class="lang_line">
 				<div class="container">
@@ -99,7 +114,8 @@
 						</div>
 						<div class="col-lg-2 col-md-2 col-sm-2">
 							<ul class="topmenu">
-								<li><a href="#" class="swimwear"> <? echo LanguageSelect::$templateData['FAQCatName']['Name']; ?> <i class="fa fa-caret-down"></i></a>
+								<li><a <? echo "href=/" . LanguageSelect::$lang . "/faq" ?> class="swimwear"> 
+									<? echo LanguageSelect::$templateData['FAQCatName']['Name']; ?> <i class="fa fa-caret-down"></i></a>
 									<ul class="submenu">
 										<?
 											for ($i = 0; $i < count(LanguageSelect::$templateData['FAQCatName']['Elements']); $i++)

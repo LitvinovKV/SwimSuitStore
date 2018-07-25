@@ -23,4 +23,13 @@ function saveEmail(EmailName = document.getElementById("e-mail").value,
     if (XHR.status === 200)
         alert(XHR.responseText);
 
-}
+};
+
+function addBasket() {
+    let Flag = true;
+    let XHR = new XMLHttpRequest();
+    XHR.open("GET", "/queries.php?SessionTest=" + Flag, false);
+    XHR.send();
+    if (XHR.status === 200)
+        alert(XHR.responseText);
+};

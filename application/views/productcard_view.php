@@ -111,7 +111,9 @@
 					</p>
 					<div class="button-add">
 						<!-- <a href="#" class="button">Добавить в корзину</a> -->
-						<a href="#" class="button"> <? echo LanguageSelect::$templateData["Basket"] ?> </a>
+						<? if ($data["main"]["quantity"] > 0) 
+							echo "<button class=\"button\" onclick=\"addBasket()\">" . LanguageSelect::$templateData["Basket"] . "</button>";
+						?>
 					</div>
 				</div>
 			</div>
