@@ -41,9 +41,8 @@
 <section class="product">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6">
 				<div class="photo">
-					<div class="col-md-2">
+					<div class="col-md-1">
 						<div class="preview">
 							<!-- <a href="#"><img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="1"></a>
 							<a href="#"><img class="responsive-img" src="/images/products_images/Photo9.jpg" alt="2"></a>
@@ -60,7 +59,7 @@
 							?>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-5">
 						<div class="view">
 							<!-- <img class="big responsive-img" src="/images/products_images/Photo6.jpg" alt="Big photo"> -->
 							<? 
@@ -70,7 +69,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
 			<div class="col-md-6">
 				<div class="details">
 					<!-- <h3>Трусики 1</h3> -->
@@ -120,34 +118,26 @@
 		</div>
 	</div>
 </section>
-<section class="carousel">
-	<div class="container-fluid">
+<section class="s-carousel">
+	<div class="container">
 		<div class="row">
 			<div class="carousel-shop">
-				<div class="col-md-3">
 					<div class="carousel-item">
 						<a href="#"><img class="responsive-img" src="/images/products_images/Photo6.jpg" alt=""></a>
 						<a href="#" class="button">Shop now</a>
 					</div>
-				</div>
-				<div class="col-md-3">
 					<div class="carousel-item">
 						<a href="#"><img class="responsive-img" src="/images/products_images/Photo6.jpg" alt=""></a>
 						<a href="#" class="button">Shop now</a>
 					</div>
-				</div>
-				<div class="col-md-3">
 					<div class="carousel-item">
 						<a href="#"><img class="responsive-img" src="/images/products_images/Photo6.jpg" alt=""></a>
 						<a href="#" class="button">Shop now</a>
 					</div>
-				</div>
-				<div class="col-md-3">
 					<div class="carousel-item">
 						<a href="#"><img class="responsive-img" src="/images/products_images/Photo6.jpg" alt=""></a>
 						<a href="#" class="button">Shop now</a>
 					</div>
-				</div>
 			</div>
 		</div>
 	</div>

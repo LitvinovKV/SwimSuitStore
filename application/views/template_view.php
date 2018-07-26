@@ -1,20 +1,4 @@
-<html>
-<head>
-	<meta charset="utf-8" >
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
-	<meta http-equiv="X-UA-Compatible" content="ie=edge" >
-	<link rel="stylesheet" type="text/css" href="/css/style.css" />
-	<link rel="stylesheet" type="text/css" href="/css/main_view.css" />
-	<link rel="stylesheet" type="text/css" href="/css/product_view.css" />
-	<link rel="stylesheet" type="text/css" href="/css/productcard_view.css" />
-	<link rel="stylesheet" type="text/css" href="/css/font-awesome.css" />
-	<link rel="stylesheet" type="text/css" href="/css/owl.carousel.css" />
-	<link rel="stylesheet" type="text/css" href="/css/cssBootstrap.css"/>
-	<script src="/js/anotherScripts.js"></script>
-	<title>Swim Suit Store </title>
-</head>
-<body>
-	<? 
+<? 
 		session_start();
 		
 		// var_dump($_SESSION);
@@ -29,6 +13,25 @@
 		// var_dump($_SERVER['DOCUMENT_ROOT']);
 		// var_dump(session_save_path());
 	?>
+<html>
+<head>
+	<meta charset="utf-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" >
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/css/main_view.css" />
+	<link rel="stylesheet" type="text/css" href="/css/product_view.css" />
+	<link rel="stylesheet" type="text/css" href="/css/productcard_view.css" />
+	<link rel="stylesheet" type="text/css" href="/css/payment_view.css" />
+	<link rel="stylesheet" type="text/css" href="/css/delivery_view.css" />
+	<link rel="stylesheet" type="text/css" href="/css/font-awesome.css" />
+	<link rel="stylesheet" type="text/css" href="/css/owl.carousel.css" />
+	<link rel="stylesheet" type="text/css" href="/css/cssBootstrap.css"/>
+	<script src="/js/anotherScripts.js"></script>
+	<title>Swim Suit Store </title>
+</head>
+<body>
+	
 		<header>
 			<div class="lang_line">
 				<div class="container">

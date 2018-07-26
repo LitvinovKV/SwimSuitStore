@@ -126,11 +126,61 @@
 
  .details .button {
  	display: block;
- 	margin-left: 180px;
+ 	margin-left: 165px;
  	border: 1px solid #dfbdaf;
  }
 
- .carousel {
+ .s-carousel {
  	background-color: #f3eae4;
  	margin-bottom: 30px;
  }
+
+ .carousel-shop .responsive-img {
+	width: 100%;
+	padding: 40px 30px;
+}
+
+ /* Owl Carousel */
+.carousel-shop {
+	position: relative;
+}
+
+.carousel-shop .owl-controls {
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	position: absolute;
+}
+
+.carousel-shop .owl-controls .owl-nav {
+	position: absolute;
+	width: 100%;
+	bottom: 230px;
+}
+
+.carousel-shop .owl-controls .owl-nav > div{
+	position: absolute;
+	left: -30px;
+	font-size: 45px;
+	font-family: "MyriadPro-Regular", sans-serif;
+	color: #303030;
+	opacity: .7;
+	font-weight: normal;
+	transition: all .3s ease;
+}
+
+.carousel-shop .owl-controls .owl-nav > div:hover {
+	color: #dfbdaf;
+}
+
+.carousel-shop .owl-controls .owl-nav .owl-next {
+	right: -30px;
+	left: auto;
+}
+
+.s-carousel .carousel-shop .button {
+	right: 85px;
+	bottom: 90px;
+	padding: 8px 24px;
+}
+/* End of Owl Carousel */
