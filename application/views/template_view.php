@@ -1,3 +1,18 @@
+<?php session_start();
+		
+	// var_dump($_SESSION);
+
+	// Удалить значение из сессии
+	// unset($_SESSION["..."]);
+
+	// Вывести время жизни сессии
+	// var_dump(ini_get("session.gc_maxlifetime"));
+
+	// ПРОБЛЕМА УДАЛЕНИЯ СЕССИЯ РАНЬШЕ НАЗНАЧЕННОГО ИМ СРОКА
+	// var_dump($_SERVER['DOCUMENT_ROOT']);
+	// var_dump(session_save_path());
+?>
+
 <html>
 <head>
 	<meta charset="utf-8" >
@@ -14,21 +29,6 @@
 	<title>Swim Suit Store </title>
 </head>
 <body>
-	<? 
-		session_start();
-		
-		// var_dump($_SESSION);
-
-		// Удалить значение из сессии
-		// unset($_SESSION["..."]);
-
-		// Вывести время жизни сессии
-		// var_dump(ini_get("session.gc_maxlifetime"));
-
-		// ПРОБЛЕМА УДАЛЕНИЯ СЕССИЯ РАНЬШЕ НАЗНАЧЕННОГО ИМ СРОКА
-		// var_dump($_SERVER['DOCUMENT_ROOT']);
-		// var_dump(session_save_path());
-	?>
 		<header>
 			<div class="lang_line">
 				<div class="container">

@@ -25,6 +25,7 @@ function saveEmail(EmailName = document.getElementById("e-mail").value,
 
 };
 
+
 function addBasket() {
     let Flag = true;
     let XHR = new XMLHttpRequest();
