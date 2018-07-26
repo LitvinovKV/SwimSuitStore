@@ -3,3 +3,15 @@
     margin-left: 30%;
     width: 30%;
 }
+
+#ExitButton {
+    margin-left: 80%;   
+}
+
+.btnforms, .SelectWidth {
+    margin-top: 0.5%;
+}
+
+.labelWidth, .SelectWidth {
+    width: 50%;
+}

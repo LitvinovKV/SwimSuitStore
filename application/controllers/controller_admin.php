@@ -4,6 +4,7 @@
         
         function __construct() {
             $this->view = new View();
+            $this->model = new Model_Admin();
         }
 
         function action_index() {
@@ -15,6 +16,7 @@
         }
 
         function action_workspace() {
+            $data = $this->model->getData();
             include "application/views/admin_workspace.php";
         }
     }

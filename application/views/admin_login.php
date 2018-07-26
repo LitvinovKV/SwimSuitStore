@@ -1,3 +1,17 @@
+<?
+    session_start();
+    // Если уже запущена сессия с параметром UserLogin, то покинуть страницу логирования
+    // и перейти в рабочее пространство
+    if (isset($_SESSION['UserLogin']) === true) header('location:  http://' . $_SERVER['HTTP_HOST'] . 
+       '/admin/workspace');
+
+    // Скрипты для запросов панели администратора
+    require_once "adminpanel_queries.php";
+
+    // var_dump(md5("KetiKate081195"));
+	// var_dump(md5("ReWqASdf951108"));
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,20 +25,6 @@
 	<script src="/js/anotherScripts.js"></script>
 </head>
 <body>
-    
-    <?
-        session_start();
-        // Если уже запущена сессия с параметром UserLogin, то покинуть страницу логирования
-        // и перейти в рабочее пространство
-        if (isset($_SESSION['UserLogin']) === true) header('location:  http://' . $_SERVER['HTTP_HOST'] . 
-            '/admin/workspace');
-
-        // Скрипты для запросов панели администратора
-        require_once "adminpanel_queries.php";
-
-        // var_dump(md5("KetiKate081195"));
-		// var_dump(md5("ReWqASdf951108"));
-    ?>
 
     <form method="POST">
         <div id="blockForm">
@@ -42,6 +42,7 @@
             <button type="submit" class="btn btn-primary" name="LogIn">Log In</button>
         </div>
     </form>
+    ReWqASdf951108
 
 </body>
 </html>
