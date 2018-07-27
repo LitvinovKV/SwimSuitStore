@@ -1,10 +1,14 @@
+.s-conditions {
+  margin-left: 70px;
+  margin-bottom: 30px;
+}
+
 .s-conditions .button {
   position: relative;
   display: block;
-  margin-bottom: 20px;
-  text-align: left;
-  width: 21%;
+  text-align: center;
   border: 1px solid #dfbdaf;
+  margin: 10px 0 10px 0;
 }
 
 .s-conditions .title {
@@ -22,3 +26,49 @@
   letter-spacing: -1px;
   line-height: 20px;
 }
+
+.s-conditions .button-text1 {
+  display: none;
+}
+
+.s-conditions .button-text2 {
+  display: none;
+}
+
+.s-conditions .button-text3 {
+  display: none;
+}
+
+.s-conditions ul {
+  list-style: none;
+  padding: 0;
+}
+
+.s-conditions .note {
+  color: #000;
+}
+
+/* Toggle text */
+
+.toggle-text {
+  display: block;
+}
+.toggle-text:after, .toggle-text:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.toggle-text1, .toggle-text1:after, .toggle-text1:before {
+  width: 100%;
+  transition: all 0.3s;
+  backface-visibility: hidden;
+}
+.toggle-text.on {
+}
+.toggle-text1.on:before {
+}
+.toggle-text1.on:after {
+}
+
+/*End of Toggle text */

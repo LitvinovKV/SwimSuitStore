@@ -8,3 +8,7 @@
 .s-content {
 	margin-bottom: 300px;
 }
+
+.s-content p {
+	margin-left: 50px;
+}

@@ -39,7 +39,7 @@ BANNERS;
 					$href = "/" . LanguageSelect::$lang . "/productcard/" . $data["hits"][$i]["id_product"];
 					$path = "/images/products_images/" . $data["hits"][$i]["name"];
 					echo <<<HITS
-						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 							<div class="shop">
 								<img class="responsive-img" src="$path" alt="shop1">
 								<div>

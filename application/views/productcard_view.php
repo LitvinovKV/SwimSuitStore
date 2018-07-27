@@ -123,19 +123,19 @@
 		<div class="row">
 			<div class="carousel-shop">
 					<div class="carousel-item">
-						<a href="#"><img class="responsive-img" src="/images/products_images/Photo6.jpg" alt=""></a>
+						<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="">
 						<a href="#" class="button">Shop now</a>
 					</div>
 					<div class="carousel-item">
-						<a href="#"><img class="responsive-img" src="/images/products_images/Photo6.jpg" alt=""></a>
+						<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="">
 						<a href="#" class="button">Shop now</a>
 					</div>
 					<div class="carousel-item">
-						<a href="#"><img class="responsive-img" src="/images/products_images/Photo6.jpg" alt=""></a>
+						<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="">
 						<a href="#" class="button">Shop now</a>
 					</div>
 					<div class="carousel-item">
-						<a href="#"><img class="responsive-img" src="/images/products_images/Photo6.jpg" alt=""></a>
+						<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="">
 						<a href="#" class="button">Shop now</a>
 					</div>
 			</div>

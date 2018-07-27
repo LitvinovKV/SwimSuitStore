@@ -1,4 +1,22 @@
 $(document).ready(function() {
+    $(".toggle-text1").click(function() {
+      $(this).toggleClass("on");
+      $(".button-text1").slideToggle();
+      return false;
+    });
+
+    $(".toggle-text2").click(function() {
+      $(this).toggleClass("on");
+      $(".button-text2").slideToggle();
+      return false;
+    });
+
+    $(".toggle-text3").click(function() {
+      $(this).toggleClass("on");
+      $(".button-text3").slideToggle();
+      return false;
+    });
+
     $(".carousel-shop").owlCarousel({
         loop: true,
         nav: true,
