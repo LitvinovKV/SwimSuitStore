@@ -12,7 +12,9 @@
             return array(
                 "colors" => $this->getSimpleQueryFromDB("name", "color"),
                 "sizes" => $this->getSimpleQueryFromDB("name", "size"),
-                "id_products" => $this->getSimpleQueryFromDB("id_product", "product")
+                "id_products" => $this->getSimpleQueryFromDB("id_product", "product"),
+                "categories" => $this->getSimpleQueryFromDB("name", "category"),
+                "subcategories" => $this->getSimpleQueryFromDB("name", "subcategory")
             );
         }
 
