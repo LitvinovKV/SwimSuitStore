@@ -300,4 +300,100 @@
         header('location:  http://' . $_SERVER['HTTP_HOST'] . '/admin/workspace');
     }
 
+    // Отловить редактирование названия подкатегории
+    if(isset($_POST["RedactSubcategoryName"]) === true && isset($_POST["OldestSubcategoryName"]) === true) {
+        $connection = setConnectionToDB();
+        $sql_query = "UPDATE `subcategory` SET `name` = '" . $_POST["RedactSubcategoryName"] . 
+            "' WHERE name = '" . $_POST["OldestSubcategoryName"] . "'";
+        if ($connection->query($sql_query) === true) {
+            echo "Название подкатегории успешно изименено.";
+        }
+        else
+            echo "Проблемы с изменением названия подкатегории, попробуйте снова.";
+    }
+
+    // Отловить редактирование названия категории
+    if(isset($_POST["RedactCategoryName"]) === true && isset($_POST["OldCategoryName"]) === true) {
+        $connection = setConnectionToDB();
+        $sql_query = "UPDATE `category` SET `name` = '" . $_POST["RedactCategoryName"] . "' " . 
+            "WHERE name = '" . $_POST["OldCategoryName"] . "'";
+        if ($connection->query($sql_query) === true) {
+            echo "Название категории успешно изменено.";
+        }
+        else
+            echo "Проблемы с имзенением названия категории, попробуйте снова.";
+    }
+
+    // Отловить редактирование название цвета
+    if(isset($_POST["RedactColorName"]) === true && isset($_POST["OldColorName"]) === true) {
+        $connection = setConnectionToDB();
+        $sql_query = "UPDATE `color` SET `name` = '" . $_POST["RedactColorName"] .
+            "' WHERE `name` = '" . $_POST["OldColorName"] . "'";
+        if ($connection->query($sql_query) === true)
+            echo "Название цвета успешно изменено.";
+        else
+            echo "Проблемы с имзенением названия цвета, попробуйте снова.";
+    }
+
+    // Отловить редактирование название размера
+    if(isset($_POST["RedcactSizeName"]) === true && isset($_POST["OldSizeName"]) === true) {
+        $connection = setConnectionToDB();
+        $sql_query = "UPDATE `size` SET `name` = '" . $_POST["RedcactSizeName"] . 
+            "' WHERE `name` = '" . $_POST["OldSizeName"] ."'";
+        if ($connection->query($sql_query) === true)
+            echo "Название размера успешно изменено.";
+        else
+            echo "Проблемы с имзенением размера, попробуйте снова.";
+    }
+
+    // Отловить запрос на получение подробной инфорамции по товару из БД
+    if(isset($_POST["InformationAboutProductById"]) === true) {
+        $connection = setConnectionToDB();
+        $sql_query = "SELECT * FROM `product` WHERE id_product = " . $_POST["InformationAboutProductById"];
+        $result = $connection->query($sql_query)->fetch_assoc();
+        echo $result["id_product"] . "||" . $result["description_ru"] . "||" . 
+            $result["description_eng"] . "||" . $result["material_ru"] . "||" . 
+            $result["material_eng"] . "||" . $result["price_ru"] . "||" . 
+            $result["price_eng"] . "||" . $result["quantity"];
+    }
+
+    // Отловить запрос на изменение информации об товаре в БД
+    if(isset($_POST["ChangedInformationProductId"]) === true &&
+        isset($_POST["ChangedInformationProductDescRu"]) === true &&
+        isset($_POST["ChangedInformationProductDescEng"]) === true &&
+        isset($_POST["ChangedInformationProductMaterialDescRu"]) === true &&  
+        isset($_POST["ChangedInformationProductMaterialDescEng"]) === true && 
+        isset($_POST["ChangedInformationProductPriceRu"]) === true &&
+        isset($_POST["ChangedInformationProductPriceEng"]) === true &&
+        isset($_POST["ChangedInformationProductQuantity"]) === true) {
+        
+        $id_product = $_POST["ChangedInformationProductId"];
+        $DescRu = $_POST["ChangedInformationProductDescRu"];
+        $DescEng = $_POST["ChangedInformationProductDescEng"];
+        $DescMaterialRu = $_POST["ChangedInformationProductMaterialDescRu"];
+        $DescMaterialEng = $_POST["ChangedInformationProductMaterialDescEng"];
+        $PriceRu = $_POST["ChangedInformationProductPriceRu"];
+        $PriceEng = $_POST["ChangedInformationProductPriceEng"];
+        $Quantity = $_POST["ChangedInformationProductQuantity"];
+
+        $connection = setConnectionToDB();
+        $sql_query = <<<DBQUERY
+UPDATE `product` SET `description_ru`=  '$DescRu', `price_ru`= $PriceRu, `quantity`= $Quantity, `description_eng`= '$DescEng', `material_ru`= '$DescMaterialRu', `material_eng`= '$DescMaterialEng', `price_eng`= $PriceEng WHERE `id_product` = $id_product
+DBQUERY;
+
+        if ($connection->query($sql_query) === true)
+            echo "Данные о продукте успешно изменены.";
+        else
+            echo "Проблемы с имзенением информации о товаре, попробуйте снова.";
+    }
+
+    // Отловить запрос на добавление нового хита
+    if(isset($_POST["AddNewHitProduct"]) === true) {
+        $connection = setConnectionToDB();
+        $sql_query = "UPDATE `product` SET `is_hit` = " . 1 . " WHERE `id_product` = " . $_POST["AddNewHitProduct"];
+        if($connection->query($sql_query) === true)
+            echo "Продукт теперь является хитом.";
+        else
+            echo "Проблемы с изменением продукта на хит, попробуйте снова.";
+    }
 ?>

@@ -164,12 +164,144 @@ function AddColorForProduct(ColorName = document.getElementsByName("AddColorName
         sendSimpleDoubleHTTP("AddColorNameForProduct", ColorName, "AddProductIdForColor", ProductId);
 }
 
+// Отправить запрос на сервер, чтобы добавить запись втаблицу БД для связи М:М (размер - продукт)
 function AddSizeForProduct(SizeName = document.getElementsByName("AddSizeNameForProduct")[0].value,
     ProductId = document.getElementsByName("AddProductIdForSize")[0].value) {
-        if (SizeName.lengt === 0 || ProductId === 0) {
+        if (SizeName.length === 0 || ProductId === 0) {
             alert("Вы не заполнили форму!");
             return;
         }
 
         sendSimpleDoubleHTTP("AddSizeNameForProduct", SizeName, "AddProductIdForSize", ProductId);
+}
+
+// Ф-ия отлавливающая изменения в select и задающая значения в определенный input text
+function changeJS(Value, IdInputText) {
+    IdInputText.value = Value;
+}
+
+function RedactSubcategoryName(ChangedSubcategoryName = document.getElementsByName("ChangedSubcategoryName")[0].value,
+    OldestSubcategoryName = document.getElementsByName("OldestSubcategoryName")[0].value) {
+    if (ChangedSubcategoryName.length === 0 || OldestSubcategoryName.length === 0) {
+        alert("Вы не заполнили форму!");
+        return;
+    }
+
+    sendSimpleDoubleHTTP("RedactSubcategoryName", ChangedSubcategoryName, "OldestSubcategoryName", OldestSubcategoryName);
+}
+
+// Ф-ия для отправки запроса на сервер, чтобы редактировать название категории
+function RedactCategoryName(ChangedCategoryName = document.getElementsByName("ChangedCategoryName")[0].value, 
+    OldestCategoryName = document.getElementsByName("OldestCategoryName")[0].value) {
+    if (ChangedCategoryName.length === 0 || OldestCategoryName.length === 0) {
+        alert("Вы не заполнили форму!");
+        return;
+    }
+    
+    sendSimpleDoubleHTTP("RedactCategoryName", ChangedCategoryName, "OldCategoryName", OldestCategoryName);
+}
+
+// Ф-ия отправки запроса на сервер, чтобы редактировать название цвета в БД
+function RedactColorName(ChangedColorName = document.getElementsByName("ChangedColorName")[0].value,  
+    OldColorName = document.getElementsByName("OldColorName")[0].value) {
+    if (ChangedColorName.length === 0 || OldColorName.length === 0) {
+        alert("Вы не заполнили форму!");
+        return;
+    }
+
+    sendSimpleDoubleHTTP("RedactColorName", ChangedColorName, "OldColorName", OldColorName);
+}
+
+// Ф-ия отправки запроса на сервер, чтобы редактировать название размера в БД
+function RedactSizeName(ChangedSizeName = document.getElementsByName("ChangedSizeName")[0].value, 
+    OldSizeName = document.getElementsByName("OldSizeName")[0].value) {
+    if (ChangedSizeName.length === 0 || OldSizeName.length === 0) {
+        alert("Вы не заполнили форму!");
+        return;
+    }
+
+    sendSimpleDoubleHTTP("RedcactSizeName", ChangedSizeName, "OldSizeName", OldSizeName);
+}
+
+// Ф-ия отправки запроса на сервер, чтобы получитаь данные о товара по идентификатору
+function selectProduct(Id_product = document.getElementsByName("ChangedIdProduct")[0].value) {
+    if (Id_product.length === 0) {
+        alert("Вы не заполнили форму!");
+        return;
+    }
+
+    let XHR = new XMLHttpRequest();
+    // Настроить POST запрос
+    XHR.open("POST", "/adminpanel_queries.php", true);
+    XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // Отправить запрос
+    let body = "InformationAboutProductById=" + Id_product;
+    XHR.send(body);
+    // Если запрос имеет статус 200 (успешно обработан)
+    XHR.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            // alert(this.responseText);
+            let result = this.responseText.split("||");
+            // alert(result);
+            document.getElementsByName("ChangedDescProductRU")[0].value = result[1];
+            document.getElementsByName("ChangedDescProductENG")[0].value = result[2];
+            document.getElementsByName("ChangedDescMaterialProductRU")[0].value = result[3];
+            document.getElementsByName("ChangedDescMaterialProductENG")[0].value = result[4];
+            document.getElementsByName("ChangedPriceProductRU")[0].value = result[5];
+            document.getElementsByName("ChangedPriceProductENG")[0].value = result[6];
+            document.getElementsByName("ChangedQuanityProduct")[0].value = result[7];
+        }
+    }
+}
+
+// Ф-ия для отправки запроса на сервер, чтобы изменить данные продукта 
+// откоректированные в форме администратором
+function RedactInformationAboutlProduct(ChangedIdProduct = document.getElementsByName("ChangedIdProduct")[0].value, 
+    ChangedDescProductRu = document.getElementsByName("ChangedDescProductRU")[0].value, 
+    ChangedDescProductEng = document.getElementsByName("ChangedDescProductENG")[0].value,
+    ChangedDescMaterialProductRu = document.getElementsByName("ChangedDescMaterialProductRU")[0].value,
+    ChangedDescMaterialProductEng = document.getElementsByName("ChangedDescMaterialProductENG")[0].value,
+    ChangedPriceProductRu = document.getElementsByName("ChangedPriceProductRU")[0].value,
+    ChangedPriceProductEng = document.getElementsByName("ChangedPriceProductENG")[0].value,
+    ChangedQuantityProduct = document.getElementsByName("ChangedQuanityProduct")[0].value) {
+
+    if (ChangedIdProduct.length === 0 || ChangedDescProductRu.length === 0 || ChangedDescProductEng.length === 0 ||
+        ChangedDescMaterialProductRu.length === 0 || ChangedDescMaterialProductEng.length === 0 || 
+        ChangedPriceProductRu.length === 0 || ChangedPriceProductEng.length === 0 || ChangedQuantityProduct.length === 0) {
+        
+        alert("Вы не заполнили форму!");
+        return;
+    }
+
+
+    let XHR = new XMLHttpRequest();
+    // Настроить POST запрос
+    XHR.open("POST", "/adminpanel_queries.php", true);
+    XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // Отправить запрос
+    let body = "ChangedInformationProductId=" + ChangedIdProduct +
+        "&ChangedInformationProductDescRu=" + ChangedDescProductRu +
+        "&ChangedInformationProductDescEng=" + ChangedDescProductEng +
+        "&ChangedInformationProductMaterialDescRu=" + ChangedDescMaterialProductRu +
+        "&ChangedInformationProductMaterialDescEng=" + ChangedDescMaterialProductEng +
+        "&ChangedInformationProductPriceRu=" + ChangedPriceProductRu +
+        "&ChangedInformationProductPriceEng=" + ChangedPriceProductEng +
+        "&ChangedInformationProductQuantity=" + ChangedQuantityProduct;
+    XHR.send(body);
+    // Если запрос имеет статус 200 (успешно обработан)
+    XHR.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            alert(this.responseText);
+        }
+    };
+}
+
+// Ф-ия которая отправляет запрос на добавление нового хита в БД
+function AddNewProductHit(IdProductHit = document.getElementsByName("AddProductHit")[0].value) {
+    if (IdProductHit.length === 0) {
+        alert("Вы не заполнили форму!");
+        return;
+    }
+    
+    sendSimpleHTTP("AddNewHitProduct", IdProductHit);
 }
