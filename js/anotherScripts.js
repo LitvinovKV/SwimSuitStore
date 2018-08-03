@@ -23,7 +23,7 @@ function saveEmail(EmailName = document.getElementById("e-mail").value,
     if (XHR.status === 200)
         alert(XHR.responseText);
 
-};
+}
 
 
 function addBasket() {
@@ -33,4 +33,4 @@ function addBasket() {
     XHR.send();
     if (XHR.status === 200)
         alert(XHR.responseText);
-};
+}
