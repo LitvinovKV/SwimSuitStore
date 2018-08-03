@@ -1,4 +1,3 @@
-
 <section class="s-carousel">
 	<div class="container-fluid">
 		<div class="row">
@@ -84,4 +83,4 @@ HITS;
 		</div>
 	</div>
 	
-</section>
+</section> 

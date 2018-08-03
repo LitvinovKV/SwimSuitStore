@@ -23,6 +23,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/productcard_view.css" />
 	<link rel="stylesheet" type="text/css" href="/css/payment_view.css" />
 	<link rel="stylesheet" type="text/css" href="/css/delivery_view.css" />
+	<link rel="stylesheet" type="text/css" href="/css/basket_view.css" />
 	<link rel="stylesheet" type="text/css" href="/css/font-awesome.css" />
 	<link rel="stylesheet" type="text/css" href="/css/owl.carousel.css" />
 	<link rel="stylesheet" type="text/css" href="/css/cssBootstrap.css"/>
