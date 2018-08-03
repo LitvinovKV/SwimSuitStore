@@ -1,0 +1,33 @@
+.s-conditions .button-text4 {
+  display: none;
+}
+
+.s-conditions .button-text5 {
+  display: none;
+}
+
+.s-conditions .button-text6 {
+  display: none;
+}
+
+.s-conditions .button-text7 {
+  display: none;
+}
+
+.s-conditions .list {
+  list-style-type: disc;
+  font-family: "MyriadPro-Regular", sans-serif;
+  font-size: 16.5px;
+  color: #544f4f;
+  letter-spacing: -1px;
+  line-height: 20px;
+  padding: 0;
+}
+
+.s-conditions .list li {
+  margin-left: 30px;
+}
+
+.s-conditions .note {
+  color: #000;
+}

@@ -18,6 +18,30 @@ $(document).ready(function() {
       return false;
     });
 
+    $(".toggle-text4").click(function() {
+      $(this).toggleClass("on");
+      $(".button-text4").slideToggle();
+      return false;
+    });
+
+    $(".toggle-text5").click(function() {
+      $(this).toggleClass("on");
+      $(".button-text5").slideToggle();
+      return false;
+    });
+
+    $(".toggle-text6").click(function() {
+      $(this).toggleClass("on");
+      $(".button-text6").slideToggle();
+      return false;
+    });
+
+    $(".toggle-text7").click(function() {
+      $(this).toggleClass("on");
+      $(".button-text7").slideToggle();
+      return false;
+    });
+
     $(".carousel-shop").owlCarousel({
         loop: true,
         nav: true,
