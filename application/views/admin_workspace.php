@@ -52,7 +52,7 @@
                     <select class="form-control SelectWidth" id="SelectAddSubcategory">
                         <option hidden>Выберите категорию</option>
                         <? 
-                            for ($i = 0; $i < count($data["colors"]); $i++)
+                            for ($i = 0; $i < count($data["categories"]); $i++)
                                 echo  "<option>" . $data["categories"][$i] . "</option>";
                         ?>
                     </select>
@@ -295,34 +295,117 @@ BOTTOMFORM;
         <div>
             <!-- КНОПКИ -->
             <div style="margin-top: 0.5%; margin-left: 5%" class="ButtonBlock" hidden>
-                <button type="button" class="btn btn-light" onclick="FormHidden(0, 'DeleteForms')">Категорию</button>
-                <button type="button" class="btn btn-light" onclick="FormHidden(1, 'DeleteForms')">Подкатегорию</button>
-                <button type="button" class="btn btn-light" onclick="FormHidden(2, 'DeleteForms')">Цвет</button>
-                <button type="button" class="btn btn-light" onclick="FormHidden(3, 'DeleteForms')">Размер</button>
+                <!-- <button type="button" class="btn btn-light" onclick="FormHidden(0, 'DeleteForms')">Категорию</button> -->
+                <!-- <button type="button" class="btn btn-light" onclick="FormHidden(0, 'DeleteForms')">Подкатегорию</button> -->
+                <button type="button" class="btn btn-light" onclick="FormHidden(0, 'DeleteForms')">Цвет</button>
+                <button type="button" class="btn btn-light" onclick="FormHidden(1, 'DeleteForms')">Размер</button>
+                <button type="button" class="btn btn-light" onclick="FormHidden(2, 'DeleteForms')">Цвет у продукта</button>
+                <button type="button" class="btn btn-light" onclick="FormHidden(3, 'DeleteForms')">Размер у продукта</button>
                 <button type="button" class="btn btn-light" onclick="FormHidden(4, 'DeleteForms')">Продукт</button>
-                <button type="button" class="btn btn-light" onclick="FormHidden(5, 'DeleteForms')">Фотографию</button>
+                <button type="button" class="btn btn-light" onclick="FormHidden(5, 'DeleteForms')">Фотографию продукта</button>
             </div>
 
             <!-- ФОРМА -->
-            <div>
-                <form hidden class="DeleteForms">
-                    Удалить категорию
-                </form>
-                <form hidden class="DeleteForms">
+            <div style="margin-top: 0.5%; margin-left: 10%">
+                <!-- <form hidden class="DeleteForms">
+                <select class="form-control SelectWidth" name="DeleteCategoryName">
+                        <option hidden>Выберите категорию</option>
+                        <? 
+                            // for ($i = 0; $i < count($data["categories"]); $i++)
+                            //     echo  "<option>" . $data["categories"][$i] . "</option>";
+                        ?>
+                    </select>
+                    <button type="button" class="btn btn-primary btnforms" onclick="DeleteCategoryByName()">Удалить</button>
+                </form> -->
+
+                <!-- <form hidden class="DeleteForms">
                     Удалить подкатегорию
-                </form>
+                </form> -->
+
                 <form hidden class="DeleteForms">
-                    Удалить цвет
+                    <select class="form-control SelectWidth" name="DeleteColor">
+                        <option hidden>Выберите цвет</option>
+                        <? 
+                            for ($i = 0; $i < count($data["colors"]); $i++)
+                                echo  "<option>" . $data["colors"][$i] . "</option>";
+                        ?>
+                    </select>
+                    <button type="button" class="btn btn-primary btnforms" onclick="DeleteCurrentColor()">Удалить</button>
                 </form>
+
                 <form hidden class="DeleteForms">
-                    Удалить размер
+                    <select class="form-control SelectWidth" name="DeleteSize">
+                        <option hidden>Выберите размер</option>
+                        <? 
+                            for ($i = 0; $i < count($data["sizes"]); $i++)
+                                echo  "<option>" . $data["sizes"][$i] . "</option>";
+                        ?>
+                    </select>
+                    <button type="button" class="btn btn-primary btnforms" onclick="DeleteCurrentSize()">Удалить</button>
                 </form>
+
                 <form hidden class="DeleteForms">
-                    Удалить продукт
+                    <select class="form-control SelectWidth" name="DeletePC_Color">
+                        <option hidden>Выберите цвет</option>
+                        <? 
+                            for ($i = 0; $i < count($data["colors"]); $i++)
+                                echo  "<option>" . $data["colors"][$i] . "</option>";
+                        ?>
+                    </select>
+                    <select class="form-control SelectWidth" name="DeletePC_Product">
+                        <option hidden>Выберите идентификатор продукта</option>
+                        <? 
+                            for ($i = 0; $i < count($data["id_products"]); $i++)
+                                echo  "<option>" . $data["id_products"][$i] . "</option>";
+                        ?>
+                    </select>
+                    <button type="button" class="btn btn-primary btnforms" onclick="DeleteProductColor()">Удалить</button>
                 </form>
+
                 <form hidden class="DeleteForms">
-                    Удалить фотографию
+                    <select class="form-control SelectWidth" name="DeletePS_Size">
+                        <option hidden>Выберите размер</option>
+                        <? 
+                            for ($i = 0; $i < count($data["sizes"]); $i++)
+                                echo  "<option>" . $data["sizes"][$i] . "</option>";
+                        ?>
+                    </select>
+                    <select class="form-control SelectWidth" name="DeletePS_Product">
+                        <option hidden>Выберите идентификатор продукта</option>
+                        <? 
+                            for ($i = 0; $i < count($data["id_products"]); $i++)
+                                echo  "<option>" . $data["id_products"][$i] . "</option>";
+                        ?>
+                    </select>
+                    <button type="button" class="btn btn-primary btnforms" onclick="DeleteProductSize()">Удалить</button>
                 </form>
+
+                <form hidden class="DeleteForms">
+                    <select class="form-control SelectWidth" name="DeleteProduct">
+                        <option hidden>Выберите идентификатор продукта</option>
+                        <? 
+                            for ($i = 0; $i < count($data["id_products"]); $i++)
+                                echo  "<option>" . $data["id_products"][$i] . "</option>";
+                        ?>
+                    </select>
+                    <button type="button" class="btn btn-primary btnforms" onclick="DeleteCurrentProduct()">Удалить</button>
+                </form>
+
+                <form hidden class="DeleteForms">
+                    <select class="form-control SelectWidth" name="ShowProductsPhotoId">
+                        <option hidden>Выберите идентификатор продукта</option>
+                        <? 
+                            for ($i = 0; $i < count($data["id_products"]); $i++)
+                                echo  "<option>" . $data["id_products"][$i] . "</option>";
+                        ?>
+                    </select>
+                    <button type="button" class="btn btn-primary btnforms" onclick="ShowPhotosForProduct()">Отобразить фотографии</button>
+                    <div id="ShowPicturesProduct">
+                        
+                    </div>
+                    <button type="button" class="btn btn-primary btnforms" onclick="DeleteProductPictures()">Удалить</button>
+                </form>
+    
             </div>
         </div>
     </div>

@@ -302,6 +302,124 @@ function AddNewProductHit(IdProductHit = document.getElementsByName("AddProductH
         alert("Вы не заполнили форму!");
         return;
     }
-    
+
     sendSimpleHTTP("AddNewHitProduct", IdProductHit);
+}
+
+// Ф-ия которая отправялет запрос на удаление выбранной категории
+function DeleteCategoryByName(CategoryName = document.getElementsByName("DeleteCategoryName")[0].value) {
+    if (CategoryName.length === 0) {
+        alert("Вы не заполнили форму!");
+        return;
+    }
+
+    sendSimpleHTTP("DeleteCategoryName", CategoryName);
+}
+
+// Ф-ия кторая отправляет запрос на удаление выбранного цвета
+function DeleteCurrentColor(ColorName = document.getElementsByName("DeleteColor")[0].value) {
+    if (ColorName.length === 0) {
+        alert("Вы не заполнили форму!");
+        return;
+    }
+
+    sendSimpleHTTP("DeleteColorName", ColorName);
+}
+
+// Ф-ия которая отправляет запрос на удаление выбранного размера
+function DeleteCurrentSize(SizeName = document.getElementsByName("DeleteSize")[0].value) {
+    if (SizeName.length === 0) {
+        alert("Вы не заполнили форму!");
+        return;
+    }
+
+    sendSimpleHTTP("DeleteSizeName", SizeName);
+}
+
+// Ф-ия которая отправялет запрос на удаленние выбранного цвета у определенного товара
+function DeleteProductColor(ColorName = document.getElementsByName("DeletePC_Color")[0].value,
+    ProductId = document.getElementsByName("DeletePC_Product")[0].value) {
+    
+    if (ColorName.length === 0 || ProductId.length === 0) {
+        alert("Вы не заполнили форму!");
+        return;
+    }
+
+    sendSimpleDoubleHTTP("DeletePC_ColorName", ColorName, "DeletePC_ProductId", ProductId);
+}
+
+// Ф-ия которая отправляет запрос на удаление выбранного размера у выбранного товара
+function DeleteProductSize(SizeName = document.getElementsByName("DeletePS_Size")[0].value,
+    ProductId = document.getElementsByName("DeletePS_Product")[0].value) {
+
+    if (SizeName.length === 0 || ProductId.length === 0) {
+        alert("Вы не заполнили форму!");
+        return;
+    }
+
+    sendSimpleDoubleHTTP("DeletePS_SizeName", SizeName, "DeletePS_ProductId", ProductId);
+}
+
+// Ф-ия которая отправляет запрос на удаление выбранного продукта
+function DeleteCurrentProduct(ProductId = document.getElementsByName("DeleteProduct")[0].value) {
+    if (ProductId.length === 0) {
+        alert("Вы не заполнили форму!");
+        return;
+    }
+
+    sendSimpleHTTP("DeleteCurrentProductId", ProductId);
+}
+
+// Ф-ия которая отправляет запрос на получение и отображение фотографий продукта на странице
+function ShowPhotosForProduct(ProductId = document.getElementsByName("ShowProductsPhotoId")[0].value) {
+    if (ProductId.length === 0) {
+        alert("Вы не заполнили форму!");
+        return;   
+    }
+
+    let XHR = new XMLHttpRequest();
+    // Настроить POST запрос
+    XHR.open("POST", "/adminpanel_queries.php", true);
+    XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // Отправить запрос
+    let body = "ProductPhotosById=" + ProductId;
+    XHR.send(body);
+    // Если запрос имеет статус 200 (успешно обработан)
+    XHR.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            // alert(this.responseText);
+
+            // Разбить строку, которая пришла в качестве ответа на массив строк
+            let answer = this.responseText.split("//");
+            let parent = document.getElementById("ShowPicturesProduct");
+            parent.innerHTML = '';
+            for(let i = 0; i < answer.length; i++) {
+                let div = document.createElement("div");
+                let inputDiv = "<input type=\"checkbox\" name=\"photoProduct\" value=\"" + answer[i] + "\"/>" +
+                    "<img src=\"/images/products_images/" + answer[i] + "\" >";
+                div.innerHTML = inputDiv;
+                parent.appendChild(div);
+            }
+        }
+    };
+}
+
+// Ф-ия которая отправляет запрос на удаление фотографий выбранного продукта
+function DeleteProductPictures(elements = document.getElementsByName("photoProduct")) {
+    let request = "";
+    let checkedElements = [];
+    
+    // Получить только те элементы, который были выбраны администратором (помечены флажком)
+    for(i = 0; i < elements.length; i++) {
+        if (elements[i].checked === true) {
+            checkedElements[checkedElements.length] = elements[i].value;
+        }
+    }
+
+    if (checkedElements.length === 0) {
+        alert("Вы не выбрали ни одной фотографии!");
+        return;
+    }
+
+    sendSimpleHTTP("DeleteProductPictures", checkedElements);
 }

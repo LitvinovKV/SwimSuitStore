@@ -15,7 +15,8 @@
                 "id_products" => $this->getSimpleQueryFromDB("id_product", "product"),
                 "categories" => $this->getSimpleQueryFromDB("name", "category"),
                 "subcategories" => $this->getSimpleQueryFromDB("name", "subcategory"),
-                "hits" => $this->getHitsProducts()
+                "hits" => $this->getHitsProducts(),
+                "products" => $this->getProducts()
             );
         }
 
@@ -52,6 +53,53 @@
             return array($count_hits, $result);
         }
 
+        // Данный метод производит выборку из БД
+        // На выходе: массив состоящий из двух элементов:
+        // 1 - идентификатор товара
+        // 2 - названия его фотографий
+        private function getProducts() {
+            $id_products = $this->getSimpleQueryFromDB("id_product", "product");
+
+            $result = [];
+            for ($i = 0; $i < count($id_products); $i++) {
+                
+                // Все названия изображений продукта
+                $sql_query = "SELECT `name` FROM `photo` WHERE `id_product` = " . $id_products[$i];
+                $res = $this->connection->query($sql_query);
+                $Pictures = [];
+                for ($j = 0; $j < $res->num_rows; $j++) {
+                    $res->data_seek($j);
+                    array_push($Pictures, $res->fetch_assoc()["name"]);
+                }
+
+                array_push($result, array(
+                    "id" => $id_products[$i],
+                    "photos" => $Pictures,
+                    "subcategories" => $this->simpleQueryForProduct($id_products[$i], "product_subcategory", "subcategory", "id_subcategory"),
+                    "Colors" => $this->simpleQueryForProduct($id_products[$i], "product_color", "color", "id_color"),
+                    "Sizes" => $this->simpleQueryForProduct($id_products[$i], "product_size", "size", "id_size")
+                ));
+            }
+            return $result;
+        }
+
+        // Вспомогательная ф-ия для выборки из БД для продукта
+        private function simpleQueryForProduct($idProduct, $FirstTableName, $SecondTableName, $FirstParam) {
+            $sql_query = <<<FIRSTQUERY
+            SELECT `$FirstParam` FROM `$FirstTableName` WHERE `id_product` = $idProduct
+FIRSTQUERY;
+            $res = $this->connection->query($sql_query);
+            $Result = [];
+            for ($j = 0; $j < $res->num_rows; $j++) {
+                $res->data_seek($j);
+                $need_id = $res->fetch_assoc()[$FirstParam];
+                $sql_query = <<<SECONDQUERY
+                SELECT `name` FROM `$SecondTableName` WHERE `$FirstParam` =  $need_id;
+SECONDQUERY;
+                array_push($Result, $this->connection->query($sql_query)->fetch_assoc()["name"]);
+            }
+            return $Result;
+        }
     }
 
 ?>
