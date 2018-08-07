@@ -15,3 +15,7 @@
 .labelWidth, .SelectWidth {
     width: 50%;
 }
+
+.ParametrProductName {
+    font-weight: bold;
+}

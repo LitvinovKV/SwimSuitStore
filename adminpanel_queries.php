@@ -534,4 +534,47 @@ DBQUERY;
         }
         echo "Выбранные фотографии успешно удалены!";
     }
+
+    // Отловить запрос на выборку заказа из БД
+    if(isset($_POST["GetOrderParametrs"]) === true) {
+        $connection = setConnectionToDB();
+        $sql_query = "SELECT * FROM `orders` WHERE `id_order` = " . $_POST["GetOrderParametrs"];
+        $result = $connection->query($sql_query)->fetch_assoc();
+        echo $result["id_order"] . "//" . $result["full_name"] . "//" . $result["adress"] . "//" .
+            $result["phone_number"] . "//" . $result["post_index"] . "//" . $result["description"];
+    }
+
+    // Отловить запрос на редактирование заказа в БД
+    if(isset($_POST["ChangeOrderId"]) === true && isset($_POST["ChangeOrderFIO"]) === true && 
+    isset($_POST["ChangeOrderAdress"]) === true && isset($_POST["ChangePhoneNumberOrder"]) === true && 
+    isset($_POST["ChangePostIndexOrder"]) === true && isset($_POST["ChangeDescriptionOrder"]) === true) {
+
+        $connection = setConnectionToDB();
+        $id_order = $_POST["ChangeOrderId"];
+        $FullName = $_POST["ChangeOrderFIO"];
+        $adress = $_POST["ChangeOrderAdress"];
+        $PhoneNumber = $_POST["ChangePhoneNumberOrder"];
+        $PostIndex = $_POST["ChangePostIndexOrder"];
+        $description = $_POST["ChangeDescriptionOrder"];
+
+        $sql_query = <<<ORDERQUERY
+UPDATE `orders` SET `full_name`='$FullName',`adress`='$adress',`phone_number`='$PhoneNumber',`post_index`='$PostIndex',`description`='$description' WHERE `id_order` = $id_order
+ORDERQUERY;
+        if($connection->query($sql_query) === true)
+            echo "Заказ успешно изменен.";
+        else
+            echo "Ошибка при изменении заказа, повторите попытку ";
+        return;
+    }
+
+    // Отловить запрос на удаление заказа из БД
+    if(isset($_POST["DeleteCurrentOrder"]) === true) {
+        $connection = setConnectionToDB();
+        $sql_query = "DELETE FROM `orders` WHERE `id_order` = " . $_POST["DeleteCurrentOrder"];
+        if ($connection->query($sql_query) === true)
+            echo "Заказ успешно удален из базы.";
+        else
+            echo "Ошибка при удалении заказа, повторите снова.";
+        return;
+    }
 ?>

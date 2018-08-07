@@ -387,8 +387,6 @@ function ShowPhotosForProduct(ProductId = document.getElementsByName("ShowProduc
     // Если запрос имеет статус 200 (успешно обработан)
     XHR.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            // alert(this.responseText);
-
             // Разбить строку, которая пришла в качестве ответа на массив строк
             let answer = this.responseText.split("//");
             let parent = document.getElementById("ShowPicturesProduct");
@@ -422,4 +420,72 @@ function DeleteProductPictures(elements = document.getElementsByName("photoProdu
     }
 
     sendSimpleHTTP("DeleteProductPictures", checkedElements);
+}
+
+// Ф-ия которая отправляет запрос на выборку информации по определеному заказу
+function ShowRedactParametrs(OrderId = document.getElementsByName("RedactOrdersId")[0].value) {
+    if (OrderId.length === 0) {
+        alert("Вы не выбрали заказ!");
+        return;
+    }
+
+    let XHR = new XMLHttpRequest();
+    // Настроить POST запрос
+    XHR.open("POST", "/adminpanel_queries.php", true);
+    XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // Отправить запрос
+    let body = "GetOrderParametrs=" + OrderId;
+    XHR.send(body);
+    // Если запрос имеет статус 200 (успешно обработан)
+    XHR.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            let result = this.responseText.split("//");
+            document.getElementsByName("ChangedFIOClient")[0].value = result[1];
+            document.getElementsByName("ChangedAdressClient")[0].value = result[2];
+            document.getElementsByName("ChangedPhoneNumberClient")[0].value = result[3];
+            document.getElementsByName("ChangedPostIndexClient")[0].value = result[4];
+            document.getElementsByName("ChangedDescriptionOrderClient")[0].value = result[5];
+        }
+    }
+}
+
+// Ф-ия которая отправляет запрос на сервер для редактирования выбранного заказа
+function RedactOrderParametrs(OrderId = document.getElementsByName("RedactOrdersId")[0].value,
+    FIO_Order = document.getElementsByName("ChangedFIOClient")[0].value,
+    Adress_Order = document.getElementsByName("ChangedAdressClient")[0].value,
+    PhoneNumber_Order = document.getElementsByName("ChangedPhoneNumberClient")[0].value,
+    PostIndex_Order = document.getElementsByName("ChangedPostIndexClient")[0].value,
+    Description_Order = document.getElementsByName("ChangedDescriptionOrderClient")[0].value) {
+
+    if (OrderId.length === 0 || FIO_Order.length === 0 || Adress_Order.length === 0 || 
+    PhoneNumber_Order.length === 0 || PostIndex_Order.length === 0 || Description_Order.lengt === 0) {
+        alert("Вы не ввели параемтры в форму.");
+        return;    
+    }
+
+    let XHR = new XMLHttpRequest();
+    // Настроить POST запрос
+    XHR.open("POST", "/adminpanel_queries.php", true);
+    XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // Отправить запрос
+    let body = "ChangeOrderId=" + OrderId + "&ChangeOrderFIO=" + FIO_Order + "&ChangeOrderAdress=" +
+        Adress_Order + "&ChangePhoneNumberOrder=" + PhoneNumber_Order + "&ChangePostIndexOrder=" + 
+        PostIndex_Order + "&ChangeDescriptionOrder=" + Description_Order;
+    XHR.send(body);
+    // Если запрос имеет статус 200 (успешно обработан)
+    XHR.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            alert(this.responseText);
+        }
+    }
+}
+
+// Ф-ия которая отправляет запрос на удаление выбранного заказа
+function DeleteCurrentOrder(OrderId = document.getElementsByName("DeleteOrdersId")[0].value) {
+    if (OrderId.length === 0) {
+        alert("Вы не выбрали заказ.");
+        return;
+    }
+
+    sendSimpleHTTP("DeleteCurrentOrder", OrderId);
 }

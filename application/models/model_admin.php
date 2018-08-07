@@ -16,7 +16,8 @@
                 "categories" => $this->getSimpleQueryFromDB("name", "category"),
                 "subcategories" => $this->getSimpleQueryFromDB("name", "subcategory"),
                 "hits" => $this->getHitsProducts(),
-                "products" => $this->getProducts()
+                "products" => $this->getProducts(),
+                "orders" => $this->getOrders()
             );
         }
 
@@ -99,6 +100,18 @@ SECONDQUERY;
                 array_push($Result, $this->connection->query($sql_query)->fetch_assoc()["name"]);
             }
             return $Result;
+        }
+
+        // Метод, который возвращает массив с полной информацией по заказам
+        private function getOrders() {
+            $sql_query = "SELECT * FROM `orders`";
+            $res = $this->connection->query($sql_query);
+            $result = [];
+            for($i = 0; $i < $res->num_rows; $i++) {
+                $res->data_seek($i);
+                array_push($result, $res->fetch_assoc());
+            }
+            return $result;
         }
     }
 

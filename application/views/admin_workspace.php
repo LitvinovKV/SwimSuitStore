@@ -421,17 +421,83 @@ BOTTOMFORM;
             </div>
 
             <!-- ФОРМА -->
-            <div>
+            <div style="margin-top: 0.5%; margin-left: 10%">
                 <form hidden class="Orders">
-                    Отобразить заказы
+                    <?
+                        for($i = 0; $i < count($data["orders"]); $i++) {
+                            echo "<span class=\"ParametrProductName\">Заказ №" . $data["orders"][$i]["id_order"] . "</span><br>";
+                            echo "<span class=\"ParametrProductName\">ФИО Клиента : </span>" . $data["orders"][$i]["full_name"] . "<br>";
+                            echo "<span class=\"ParametrProductName\">Адрес Клиента : </span>" . $data["orders"][$i]["adress"] . "<br>";
+                            echo "<span class=\"ParametrProductName\">Номер телефона Клиента : </span>" . $data["orders"][$i]["phone_number"] . "<br>";
+                            echo "<span class=\"ParametrProductName\">Почтовый индекс Клиента : </span>" . $data["orders"][$i]["post_index"] . "<br>";
+                            echo "<span class=\"ParametrProductName\">Описание покупки : </span>" . "<br>";
+                            echo $data["orders"][$i]["description"];
+                            echo "<hr>";
+                        }
+                    ?>    
                 </form>
+                
                 <form hidden class="Orders">
-                    Редактировать заказы
+                    <select class="form-control SelectWidth" name="RedactOrdersId">
+                        <option hidden>Выберите идентификатор заказа</option>
+                        <? 
+                            for ($i = 0; $i < count($data["orders"]); $i++)
+                                echo  "<option>" . $data["orders"][$i]["id_order"] . "</option>";
+                        ?>
+                    </select>
+                    <button type="button" class="btn btn-primary btnforms" onclick="ShowRedactParametrs()">Отобразить данные</button><br>
+                    
+                    <label for="example-text-input" class="col-form-label">Редактировать ФИО Клиента</label>
+                    <input class="form-control labelWidth" type="text" name="ChangedFIOClient">
+                    <label for="example-text-input" class="col-form-label">Редактировать Адрес Клиента</label>
+                    <input class="form-control labelWidth" type="text" name="ChangedAdressClient">
+                    <label for="example-text-input" class="col-form-label">Редактировать Номер телефона Клиента</label>
+                    <input class="form-control labelWidth" type="text" name="ChangedPhoneNumberClient">
+                    <label for="example-text-input" class="col-form-label">Редактировать Почтовый индекс Клиента</label>
+                    <input class="form-control labelWidth" type="text" name="ChangedPostIndexClient">
+                    <label for="example-text-input" class="col-form-label">Редактировать Описание покупки</label>
+                    <input class="form-control labelWidth" type="text" name="ChangedDescriptionOrderClient">
+                    <button type="button" class="btn btn-primary btnforms" onclick="RedactOrderParametrs()">Редактировать</button>
                 </form>
+                
                 <form hidden class="Orders">
-                    Удалить заказ
+                    <select class="form-control SelectWidth" name="DeleteOrdersId">
+                        <option hidden>Выберите идентификатор заказа</option>
+                        <? 
+                            for ($i = 0; $i < count($data["orders"]); $i++)
+                                echo  "<option>" . $data["orders"][$i]["id_order"] . "</option>";
+                        ?>
+                    </select>
+                    <button type="button" class="btn btn-primary btnforms" onclick="DeleteCurrentOrder()">Удалить</button><br>
+                    
                 </form>
             </div>
+        </div>
+    </div>
+
+    <div style="margin-top:1%; margin-left: 5%">
+        <button type="submit" class="btn btn-primary" onclick="changeHidden(4)">Отобразить информацию о продуктах</button>
+        <div style="margin-top: 0.5%; margin-left: 5%" class="ButtonBlock" hidden>
+            <?
+                for($i = 0; $i < count($data["products"]); $i++) {
+                    echo "<span class=\"ParametrProductName\">Идентификатор продукта : </span>" . $data["products"][$i]["id"] . "<br>";
+                    echo "<span class=\"ParametrProductName\">Фотографии : </span>" . "<br>";
+                    for ($j = 0; $j < count($data["products"][$i]["photos"]); $j++) {
+                        echo ($j + 1) . ". Название фотографии : " . $data["products"][$i]["photos"][$j] . "<br>";
+                        echo "<img src=\"/images/products_images/" . $data["products"][$i]["photos"][$j] . "\" width=\"189\" height=\"255\">" . "<br>";
+                    }
+                    echo "<span class=\"ParametrProductName\">Подкатегории : </span>" . "<br>";
+                    for ($j = 0; $j < count($data["products"][$i]["subcategories"]); $j++)
+                        echo ($j + 1) . ". Название подкатегории : " . $data["products"][$i]["subcategories"][$j] . "<br>";
+                    echo "<span class=\"ParametrProductName\">Цвета : </span>" . "<br>";
+                    for ($j = 0; $j < count($data["products"][$i]["Colors"]); $j++)
+                        echo ($j + 1) . ". Название цвета : " . $data["products"][$i]["Colors"][$j] . "<br>";
+                    echo "<span class=\"ParametrProductName\">Размеры : </span>" . "<br>";
+                    for ($j = 0; $j < count($data["products"][$i]["Sizes"]); $j++)
+                        echo ($j + 1) . ". Название размера : " . $data["products"][$i]["Sizes"][$j] . "<br>";
+                    echo "<hr>";
+                }
+            ?>
         </div>
     </div>
 
@@ -440,15 +506,16 @@ BOTTOMFORM;
     </form>
     
     <label for="exampleFormControlFile1">
-            ПОДЗКАЗКИ: <br>
-            При добавлении, редактированиии, удалении файлов на сервере (изображений) после нажатия КНОПКИ
+            РУКОВОДСТВО: <br>
+            1. При добавлении, редактированиии, удалении файлов на сервере (изображений) после нажатия КНОПКИ
             перекидывает снова на страницу панели администратора, то все ОК. Иначе выдало бы ошибку.<br>Также возможна проблема с 
             добавлением новых фотографий в БД. Проблема возникает из-за большое размера изображения...<br>
-            Название БАННЕРА должно обязательно со слова "banner_" <br>
-            Название НИЖНЕГО БАННЕРА должно обязательно со слова "bottom_"<br>
-            Ожидаемый размер баннера: <br>
-            Ожидаемый размер нижнего баннера: <br>
-            Ожидаемый размер фотографий : <br>
+            2. Название БАННЕРА должно обязательно со слова "banner_" <br>
+            3. Название НИЖНЕГО БАННЕРА должно обязательно со слова "bottom_"<br>
+            4. Ожидаемый размер баннера: <br>
+            5. Ожидаемый размер нижнего баннера: <br>
+            6. Ожидаемый размер фотографий : <br>
+            7. Кол-во фотографий у одного продукта должно быть > 2 <br>
             </label>
 </body>
 </html>
