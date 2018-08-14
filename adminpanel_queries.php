@@ -396,4 +396,185 @@ DBQUERY;
         else
             echo "Проблемы с изменением продукта на хит, попробуйте снова.";
     }
+
+    if(isset($_POST["DeleteCategoryName"]) === true) {
+        $connection = setConnectionToDB();
+        $sql_query = "DELETE FROM `category` WHERE name = '" . $_POST["DeleteCategoryName"] . "'";
+        if($connection->query($sql_query) === true)
+            echo "Выбранная категория успешно удалена.";
+        else
+            echo "Проблемы с удалением категории, попробуйте снова.";
+    }
+
+
+    // Отловить запрос на удаление цвета. Его также надо удалить у каждого товара
+    if(isset($_POST["DeleteColorName"]) === true) {
+        $connection = setConnectionToDB();
+        $sql_query = "SELECT `id_color` FROM `color` WHERE name = '" . $_POST["DeleteColorName"] . "'";
+        $id_color = $connection->query($sql_query)->fetch_assoc()["id_color"];
+
+        // Удалить выбранный цвет у каждого товара, который его имеет
+        $sql_query = "DELETE FROM `product_color` WHERE `id_color` = " . $id_color;
+        if ($connection->query($sql_query) === false) {
+            echo "Проблемы с удалением цвета, попробуйте снова.";
+            return;
+        }
+
+        // Удалить непосредственно сам цвет из БД
+        $sql_query = "DELETE FROM `color` WHERE `id_color` = " . $id_color;
+        if ($connection->query($sql_query) === true) 
+            echo "Выбранный цвет успешно удален.";
+        else
+            echo "Проблемы с удалением цвета, попробуйте снова";
+        return;
+    }
+
+    // Отправляет запрос на удаление размера. Его также надо удалить у каждого товара
+    if(isset($_POST["DeleteSizeName"]) === true) {
+        $connection = setConnectionToDB();
+        $sql_query = "SELECT `id_size` FROM `size` WHERE name = '" . $_POST["DeleteSizeName"] . "'";
+        $id_size = $connection->query($sql_query)->fetch_assoc()["id_size"];
+
+        // Удалить выбранный размер у каждого товара, который его имеет
+        $sql_query = "DELETE FROM `product_size` WHERE `id_size` = " . $id_size;
+        if ($connection->query($sql_query) === false) {
+            echo "Проблемы с удалением размера, попробуйте снова.";
+            return;
+        }
+
+        // Удалить непосредственно сам размер из БД
+        $sql_query = "DELETE FROM `size` WHERE `id_size` = " . $id_size;
+        if ($connection->query($sql_query) === true)
+            echo "Выбранный размер успешно удален.";
+        else
+            echo "Проблемы с удалением размера, попробуйте снова.";
+        return;
+    }
+
+    // Отлавливает запрос на удаление выбранного цвета у определенного товара.
+    if(isset($_POST["DeletePC_ColorName"]) === true && isset($_POST["DeletePC_ProductId"]) === true) {
+        $connection = setConnectionToDB();
+        
+        // Получить идентификатор цвета по названию
+        $sql_query = "SELECT `id_color` FROM `color` WHERE `name` = '" . $_POST["DeletePC_ColorName"] . "'";
+        $id_color = $connection->query($sql_query)->fetch_assoc()["id_color"];
+        
+        // Удалить цвет у выбранного продукта по идентификаторам
+        $sql_query = "DELETE FROM `product_color` WHERE `id_product` = " . $_POST["DeletePC_ProductId"] . 
+        " AND `id_color` = " . $id_color;
+        if ($connection->query($sql_query) === true)
+            echo "Выбранный цвет успешно удален у выбранного продукта.";
+        else
+            echo "Проблемы с удалением цвета у продукта, попробуйте снова.";
+        return;
+    }
+
+    // Отловить запрос на удаление выбранного размера у выбранного товара
+    if(isset($_POST["DeletePS_SizeName"]) === true && isset($_POST["DeletePS_ProductId"]) === true) {
+        $connection = setConnectionToDB();
+
+        // Получить идентификатор размера по названию
+        $sql_query = "SELECT `id_size` FROM `size` WHERE `name` = '" . $_POST["DeletePS_SizeName"] . "'";
+        $id_size = $connection->query($sql_query)->fetch_assoc()["id_size"];
+
+        // Удалить выбранный размер у выбранного товара
+        $sql_query = "DELETE FROM `product_size` WHERE `id_product` = " . $_POST["DeletePS_ProductId"] . 
+        " AND `id_size` = " . $id_size;
+        if ($connection->query($sql_query) === true)
+            echo "Выбранный размер успешно удален у выбранного товара.";
+        else
+            echo "Проблемы с удалением размера у продукта, попробуйсте снова.";
+        return;
+    }
+
+    // Отправляет запрос на удаленние выбранного продукта по идентификатору
+    if(isset($_POST["DeleteCurrentProductId"]) === true) {
+        $connection = setConnectionToDB();
+        $id_product = $_POST["DeleteCurrentProductId"];
+
+        $sql_query = "DELETE FROM `product_color` WHERE `id_product` = " . $id_product;
+        $connection->query($sql_query);
+        $sql_query = "DELETE FROM `product_size` WHERE `id_product` = " . $id_product;
+        $connection->query($sql_query);
+        $sql_query = "DELETE FROM `photo` WHERE `id_product` = " . $id_product;
+        $connection->query($sql_query);
+        $sql_query = "DELETE FROM `product_subcategory` WHERE `id_product` = " . $id_product;
+        $connection->query($sql_query);
+        $sql_query = "DELETE FROM `product` WHERE `id_product` =" . $id_product;
+
+        echo "Товар и вся информация касающаяся него была удалена.";
+        return;
+    }
+
+    // Отлавливает запрос и возвращает фотографии продукта по идентификатору
+    if(isset($_POST["ProductPhotosById"]) === true) {
+        $connection = setConnectionToDB();
+        $sql_query = "SELECT `name` FROM `photo` WHERE `id_product` = " . $_POST["ProductPhotosById"];
+        $res = $connection->query($sql_query);
+        $result = "";
+        for($i = 0; $i < $res->num_rows; $i++) {
+            $res->data_seek($i);
+            $namePhoto = $res->fetch_assoc()["name"];
+            if ($i + 1 === $res->num_rows)
+                $result .= $namePhoto;
+            else
+                $result .= $namePhoto . "//";
+
+        }
+        echo $result;
+    }
+
+    // Отловить запрос на удаление выбранных фотографий продукта
+    if(isset($_POST["DeleteProductPictures"]) === true) {
+        $connection = setConnectionToDB();
+        $PhotoNames = explode(',', $_POST["DeleteProductPictures"]);
+        for($i = 0; $i < count($PhotoNames); $i++) {
+            $sql_query = "DELETE FROM `photo` WHERE `name` = '" . $PhotoNames[$i] . "'";
+            $connection->query($sql_query);
+        }
+        echo "Выбранные фотографии успешно удалены!";
+    }
+
+    // Отловить запрос на выборку заказа из БД
+    if(isset($_POST["GetOrderParametrs"]) === true) {
+        $connection = setConnectionToDB();
+        $sql_query = "SELECT * FROM `orders` WHERE `id_order` = " . $_POST["GetOrderParametrs"];
+        $result = $connection->query($sql_query)->fetch_assoc();
+        echo $result["id_order"] . "//" . $result["full_name"] . "//" . $result["adress"] . "//" .
+            $result["phone_number"] . "//" . $result["post_index"] . "//" . $result["description"];
+    }
+
+    // Отловить запрос на редактирование заказа в БД
+    if(isset($_POST["ChangeOrderId"]) === true && isset($_POST["ChangeOrderFIO"]) === true && 
+    isset($_POST["ChangeOrderAdress"]) === true && isset($_POST["ChangePhoneNumberOrder"]) === true && 
+    isset($_POST["ChangePostIndexOrder"]) === true && isset($_POST["ChangeDescriptionOrder"]) === true) {
+
+        $connection = setConnectionToDB();
+        $id_order = $_POST["ChangeOrderId"];
+        $FullName = $_POST["ChangeOrderFIO"];
+        $adress = $_POST["ChangeOrderAdress"];
+        $PhoneNumber = $_POST["ChangePhoneNumberOrder"];
+        $PostIndex = $_POST["ChangePostIndexOrder"];
+        $description = $_POST["ChangeDescriptionOrder"];
+
+        $sql_query = <<<ORDERQUERY
+UPDATE `orders` SET `full_name`='$FullName',`adress`='$adress',`phone_number`='$PhoneNumber',`post_index`='$PostIndex',`description`='$description' WHERE `id_order` = $id_order
+ORDERQUERY;
+        if($connection->query($sql_query) === true)
+            echo "Заказ успешно изменен.";
+        else
+            echo "Ошибка при изменении заказа, повторите попытку ";
+        return;
+    }
+
+    // Отловить запрос на удаление заказа из БД
+    if(isset($_POST["DeleteCurrentOrder"]) === true) {
+        $connection = setConnectionToDB();
+        $sql_query = "DELETE FROM `orders` WHERE `id_order` = " . $_POST["DeleteCurrentOrder"];
+        if ($connection->query($sql_query) === true)
+            echo "Заказ успешно удален из базы.";
+        else
+            echo "Ошибка при удалении заказа, повторите снова.";
+        return;
+    }
 ?>

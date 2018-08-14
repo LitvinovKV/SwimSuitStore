@@ -39,7 +39,7 @@
 
 					for($i = 0; $i < count($data["Products"]); $i++) {
 						
-						// УБРАТЬ В БУДУЩЕМ, ЧТОБЫ БЫЛА ВИДНА КАЖДАЯ ЕДЕНИЦА ТОВАРА!  
+						// Если изоброжения у товара < 2, то его отображать не стоит  
 						if (count($data["Products"][$i]["Photos"]) < 2) continue;
 						
 						$GeneralPhoto = $data["Products"][$i]["GeneralPhoto"];
