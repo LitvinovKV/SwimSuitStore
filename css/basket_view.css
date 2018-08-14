@@ -71,12 +71,15 @@
 	margin-top: 115px;
 }
 
-.s-parameters .p-item img {
+.s-parameters .first-colomn {
+	padding: 0;
+}
+
+.s-parameters .p-item .responsive-img {
 	background-color: #dfbdaf;
-	height: 208px;
-	width: 189px;
+	width: 100%;
+	height: auto;
 	margin-top: 25px;
-	margin-left: -10px;
 }
 
 .s-parameters .p-item p {
@@ -130,6 +133,75 @@
 	border-bottom: 1px solid #000;
 }
 
+/* Section Parameters Small */
+.s-parameters-small .text {
+	margin: 75px 0;
+}
+
+.s-parameters-small .p-items {
+	display: block;
+	text-align: center;
+}
+
+.s-parameters-small .p-item .responsive-img {
+	width: 100%;
+	height: auto;
+}
+
+.s-parameters-small p {
+	display: block;
+	font-family: "MyriadPro-Regular", sans-serif;
+  font-size: 13px;
+  color: #000;
+  text-transform: uppercase;
+  margin: 5px 0;
+}
+
+.s-parameters-small .size {
+	color: #5c5c5c;
+}
+
+.s-parameters-small a i {
+	display: block;
+	font-family: "FontAwesome";
+	color: #000;
+	font-size: 23px;
+	margin-top: 10%;
+}
+
+.s-parameters-small a:hover {
+	text-decoration: none;
+}
+
+.s-parameters-small .p-item .sign {
+	font-family: "MyriadPro-Regular", sans-serif;
+  font-size: 23px;
+  color: #000;
+}
+
+.s-parameters-small .p-item input {
+	width: 30%;
+	text-align: center;
+	border: 2px solid #dfbdaf;
+	padding: 4px;
+}
+
+.s-parameters-small .quantity {
+	display: block;
+	text-align: center;
+	margin: 10px 0;
+}
+
+.s-parameters-small .row {
+	padding-bottom: 20px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #000;
+	border-top: 1px solid #000;
+	padding-top: 20px;
+	margin-top: 10px;
+}
+/* End of Section Parameters Small */
+
 .s-results .result {
 	display: block;
 	text-align: center;
@@ -153,25 +225,47 @@
 	margin-top: 0;
 }
 
-.s-results .result .button {
+.s-results .result button {
 	position: relative;
+	background-color: #fff;
+	color: #000;
+	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 12.5px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	padding: 13px 34px;
+	border-radius: 5px;
+	box-shadow: 0 4px 0 #dfbdaf;
+	transition: all .25s ease-in-out;
+	text-align: center;
 	border: 1px solid #dfbdaf;
 	transition: all .25s ease-in-out;
 }
 
-.s-results .result .button:hover {
+.s-results .result button:hover {
 	background-color: #e0cbbf;
 	color: #303030;
 	text-decoration: none;
 }
 
-.s-results .result .button:focus , .s-results .result .button:active {
+.s-results .result button:focus , .s-results .result button:active {
 	background-color: #dfbdaf;
 	color: #fff;
 	transform: translateY(2px);
 }
 
 .s-results .result .registration {
+	position: relative;
+	background-color: #fff;
+	color: #000;
+	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 12.5px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	padding: 13px 34px;
+	border-radius: 5px;
+	transition: all .25s ease-in-out;
+	text-align: center;
 	border: 1px solid #000;
 	box-shadow: 0 4px 0 #000;
 	transition: all .25s ease-in-out;
@@ -337,7 +431,8 @@
 }
 
 .s-comment textarea {
-	margin: 0 0 35px 73px;
+	width: 87.5%;
+	margin: 0 6% 35px 6.5%;
 	padding: 7px 12px 7px;
 	font-family: "MyriadPro-Regular", sans-serif;
   font-size: 16.5px;
@@ -423,4 +518,405 @@
 	display: block;
 	text-align: right;
 	margin-right: 50px;
+}
+
+/* Custom Media Queries */
+@media only screen and (min-height: 899px) {
+
+}
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1400px) {
+/**/
+}
+@media only screen and (max-width: 1200px) {
+.s-parameters .p-item .responsive-img {
+	margin-top: 40px;
+}
+.s-steps .step .br {
+	display: none;
+}
+.s-comment textarea {
+	width: 86.5%;
+	margin: 0 6% 35px 7.5%;
+}
+}
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 990px) {
+.s-parameters .p-item .responsive-img {
+	margin-top: 55px;
+}
+.s-steps .step {
+	display: -webkit-inline-box;
+}
+.s-steps .item-step {
+	text-align: center;
+}
+.s-steps .step .name {
+	display: block;
+	position: relative;
+	text-align: center;
+}
+.s-results .result button {
+	padding: 13px 24px;
+}
+.s-results .result .registration {
+	padding: 13px 24px;
+}
+.s-delivery .delivery {
+	margin-left: 55px;
+}
+.s-contact .c-title {
+	margin-left: 34px;
+}
+.s-contact .block {
+	margin: 0 24px 0 14px;
+}
+.s-contact .required {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.s-contact input {
+	width: 90%;
+}
+.s-delinfo .d-title {
+	margin-left: 34px;
+}
+.s-delinfo input {
+	width: 90%;
+}
+.s-delinfo .block {
+	margin: 0 24px 35px 14px;
+}
+.s-delinfo .required {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.s-comment textarea {
+	width: 86%;
+	margin: 0 6.5% 35px 7.5%;
+}
+.s-check .phrase-left {
+	margin-left: 0;
+}
+.s-check .phrase-right {
+	margin-right: 0;
+}
+}
+/* Small Devices, Tablets */
+@media only screen and (max-width: 766px) {
+.s-titles .col-sm-2 , .s-titles .col-xs-2 {
+	padding: 0;
+}
+.s-parameters .col-sm-2 , .s-parameters .col-xs-2 {
+	padding: 0;
+}
+.s-steps {
+	margin-bottom: 25px;
+}
+.s-steps .step {
+  font-size: 15px;
+}
+.s-steps .step .number {
+	font-size: 25px;
+	padding: 8px 16px;
+	margin-right: 30px;
+}
+.s-titles .parameter-title {
+  font-size: 15px;
+  margin: 10px 0;
+}
+.s-parameters .text {
+	margin: 50px 0;
+}
+.s-parameters .p-item p {
+  font-size: 15px;
+}
+.s-parameters .p-item .small {
+	margin-top: 86px;
+}
+.s-parameters .p-item .responsive-img {
+	margin-top: 25px;
+}
+.s-parameters .p-item a i {
+	margin-top: 79px;
+}
+.s-parameters .quantity {
+	margin-top: 75px;
+}
+.s-parameters .row {
+	padding-bottom: 10px;
+	margin-bottom: 5px;
+}
+.s-results .result {
+	margin-bottom: 40px;
+}
+.s-results .result p {
+  font-size: 15px;
+  margin-top: 9px;
+}
+.s-results .result .title-sum {
+	margin-bottom: 24px;
+}
+.s-results .result .result-sum {
+	font-size: 22px;
+	margin-top: 1px;
+}
+.s-delivery .delivery .title {
+	display: block;
+	margin-bottom: 10px;
+}
+.s-contact .block {
+	margin: 0 25px 20px 14px;
+}
+.s-contact input {
+	width: 96%;
+}
+.s-delinfo .block {
+	margin: 0 25px 20px 14px;
+}
+.s-delinfo input {
+	width: 96%;
+}
+.s-delinfo .d-title {
+	margin-top: 15px;
+}
+.s-button .button-reg {
+	margin-top: 15px;
+	margin-bottom: 30px;
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+}
+}
+@media only screen and (max-width: 730px) {
+.s-parameters .p-item p {
+  font-size: 13px;
+}
+.s-parameters .p-item .small {
+	margin-top: 81px;
+}
+.s-parameters .p-item a i {
+	margin-top: 74px;
+}
+.s-parameters .quantity {
+	margin-top: 70px;
+}
+.s-results .result button {
+	padding: 13px 15px;
+}
+.s-results .result .registration {
+	padding: 13px 15px;
+}
+}
+@media only screen and (max-width: 660px) {
+.s-steps {
+	margin-bottom: 15px;
+}
+.s-steps .step {
+  font-size: 13px;
+}
+.s-steps .step .number {
+	font-size: 22px;
+	padding: 6px 14px;
+	margin-right: 15px;
+}
+.s-titles .parameter-title {
+  font-size: 13px;
+}
+.s-parameters .text {
+	margin: 35px 0;
+}
+.s-parameters .p-item p {
+  font-size: 13px;
+  margin: 5px 0;
+}
+.s-parameters .p-item .small {
+	margin-top: 58px;
+}
+.s-parameters .p-item .responsive-img {
+	margin-top: 15px;
+}
+.s-parameters .p-item a i {
+	margin-top: 49px;
+}
+.s-parameters .quantity {
+	margin-top: 45px;
+}
+.s-results .result {
+	margin-bottom: 30px;
+}
+.s-results .result p {
+  font-size: 13px;
+  margin-top: 9px;
+}
+.s-results .result .title-sum {
+	margin-bottom: 14px;
+}
+.s-results .result .result-sum {
+	font-size: 20px;
+	margin-bottom: 12px;
+}
+.s-results .result button {
+	font-size: 11px;
+}
+.s-results .result .registration {
+	font-size: 11px;
+}
+.s-contact .block {
+	margin: 0 0 20px 15px;
+}
+.s-contact input {
+	width: 90%;
+}
+.s-delinfo .block {
+	margin: 0 0 20px 15px;
+}
+.s-delinfo input {
+	width: 90%;
+}
+.s-comment textarea {
+	width: 83%;
+	margin: 0 8.5% 35px 8.5%;
+}
+}
+@media only screen and (max-width: 580px) {
+.s-parameters .p-item .responsive-img {
+	margin-top: 23px;
+}
+.s-results .result button {
+	padding: 10px 10px;
+}
+.s-results .result .registration {
+	padding: 10px 10px;
+}
+.s-comment textarea {
+	width: 81.5%;
+	margin: 0 8.5% 35px 10%;
+}
+}
+@media only screen and (max-width: 560px) {
+.s-parameters .p-item .responsive-img {
+	margin-top: 25px;
+}
+.s-results .result button {
+	padding: 8px 8px;
+}
+.s-results .result .registration {
+	padding: 8px 8px;
+}
+.s-comment textarea {
+	width: 80.5%;
+	margin: 0 8.5% 35px 11%;
+}
+}
+@media only screen and (max-width: 520px) {
+.s-parameters .p-item .sign {
+	font-size: 20px;
+}
+.s-parameters .quantity {
+	margin-top: 50px;
+}
+.s-delivery .delivery span {
+	margin-right: 30px;
+}
+}
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+.s-steps .step .name {
+	display: none;
+}
+.s-titles {
+  display: none;
+}
+.s-parameters .row {
+  border-top: 1px solid #000;
+}
+.s-parameters {
+	display: none;
+}
+.s-delivery .delivery {
+	margin-left: 40px;
+}
+.s-contact .c-title {
+	margin-left: 19px;
+}
+.s-delinfo .d-title {
+	margin-left: 19px;
+}
+.s-contact .block {
+	margin: 0 0 20px 0;
+}
+.s-contact input {
+	width: 90%;
+}
+.s-delinfo .block {
+	margin: 0 0 20px 0;
+}
+.s-delinfo input {
+	width: 90%;
+}
+.s-comment textarea {
+	width: 82%;
+	margin: 0 9% 35px 9%;
+}
+}
+@media only screen and (max-width: 420px) {
+.s-parameters-small a i {
+	margin-top: 0;
+}
+.s-delivery .delivery span {
+	margin-right: 15px;
+}
+.s-comment textarea {
+	width: 81%;
+	margin: 0 9% 35px 10%;
+}
+}
+@media only screen and (max-width: 380px) {
+.s-parameters-small .p-item .responsive-img {
+	margin-top: 5%;
+}
+.s-comment textarea {
+	width: 80%;
+	margin: 0 9% 35px 11%;
+}
+}
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+.s-parameters-small .p-item .responsive-img {
+	margin-top: 20%;
+}
+}
+@media only screen and (max-width: 300px) {
+.s-parameters-small .p-item .responsive-img {
+	margin-top: 30%;
+}
+}
+
+/*==========  Mobile First Method  ==========*/
+/* Custom, iPhone Retina */
+@media only screen and (min-width: 320px) {
+	/**/
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 482px) {
+.s-parameters-small {
+	display: none;
+}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+  /**/
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+  /**/
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
+  /**/
 }

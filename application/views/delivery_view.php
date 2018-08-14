@@ -1,7 +1,7 @@
 <section class="s-nav">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<a href="#">FAQ</a><i class="fa fa-angle-right"></i>
 					<a href="#">Условия доставки</a>
 			</div>
@@ -11,15 +11,15 @@
 <section class="s-conditions">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="title">
 					Наш интернет-магазин предлагает несколько вариантов доставки:
 				</div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
 				<a href="#" class="button toggle-text1">Курьерская доставка</a>
 			</div>
-			<div class="col-xs-12">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<nav class="button-text1">
 					<ul>
 						<li>
@@ -42,10 +42,10 @@
 					</ul>
 				</nav>			
 			</div>
-			<div class="col-md-3">
+			<div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
 				<a href="#" class="button toggle-text2">Почтовая доставка</a>
 			</div>
-			<div class="col-xs-12">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<nav class="button-text2">
 					<ul>
 						<li>
@@ -68,10 +68,10 @@
 					</ul>
 				</nav>
 			</div>
-			<div class="col-md-3">
+			<div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
 				<a href="#" class="button toggle-text3">Самовывоз</a>
 			</div>
-			<div class="col-xs-12">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<nav class="button-text3">
 					<ul>
 						<li>
@@ -82,7 +82,7 @@
 					</ul>
 				</nav>			
 			</div>
-			<div class="col-md-12">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<p class="note"><strong>ВАЖНО! </strong>Мы не несём ответственность за предоставление неверных данных для отправки заказа.</p>
 			</div>
 		</div>

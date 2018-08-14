@@ -45,7 +45,7 @@
 						$GeneralPhoto = $data["Products"][$i]["GeneralPhoto"];
 						$href = "/" . LanguageSelect::$lang . "/productcard/" . $data["Products"][$i]["id_product"];
 						echo <<<GENERAL_BLOCK_TOP
-							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
 							<ul class="topmenu">
 								<li>
 									<ul class="submenu">

@@ -1,7 +1,7 @@
 <section class="s-nav">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<a href="#">FAQ</a><i class="fa fa-angle-right"></i>
 					<a href="#">Гарантия на товар</a>
 			</div>
@@ -11,7 +11,7 @@
 <section class="s-conditions">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="title">
 					ВОЗВРАТ И ГАРАНТИЯ
 				</div>
@@ -26,10 +26,10 @@
 				<p>Вы вправе обменять или вернуть его в течение 7 дней со дня доставки вам заказа.</p>
 				<p class="note"><strong>ВАЖНО! </strong>Вернуть белье и купальник в интернет-магазин можно, только если вещь некачественная, с браком, либо при получении вы увидели, что она не соответствует описанию на сайте, не соответствует изображению на фото!</p>
 			</div>
-			<div class="col-md-4">
+			<div class="col-lg-4 col-md-5 col-sm-6 col-xs-12">
 				<a href="#" class="button toggle-text4">Правила обмена и возврата продукции надлежащего качества</a>
 			</div>
-			<div class="col-xs-12">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<nav class="button-text4">
 					<ul>
 						<li>
@@ -53,10 +53,10 @@
 					</ul>
 				</nav>			
 			</div>
-			<div class="col-md-4">
+			<div class="col-lg-4 col-md-5 col-sm-6 col-xs-12">
 				<a href="#" class="button toggle-text5">Правила обмена и возврата продукции ненадлежащего качества</a>
 			</div>
-			<div class="col-xs-12">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<nav class="button-text5">
 					<ul>
 						<li>
@@ -73,10 +73,10 @@
 					</ul>
 				</nav>
 			</div>
-			<div class="col-md-4">
+			<div class="col-lg-4 col-md-5 col-sm-6 col-xs-12">
 				<a href="#" class="button toggle-text6">ЭКСПЕРТИЗА ТОВАРА</a>
 			</div>
-			<div class="col-xs-12">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<nav class="button-text6">
 					<ul>
 						<li>
@@ -93,10 +93,10 @@
 					</ul>
 				</nav>			
 			</div>
-			<div class="col-md-4">
+			<div class="col-lg-4 col-md-5 col-sm-6 col-xs-12">
 				<a href="#" class="button toggle-text7">Возврат денежных средств</a>
 			</div>
-			<div class="col-xs-12">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<nav class="button-text7">
 					<ul>
 						<li>

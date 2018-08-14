@@ -212,7 +212,153 @@ h1, h2, h3, h4{
 }
 
 /*End of Hidden menu*/
+.toggle-mnu {
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin-top: 14px;
+}
+.toggle-mnu span:after, .toggle-mnu span:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+}
+.toggle-mnu span:after {
+  top: 18px;
+}
+.toggle-mnu span {
+  position: relative;
+  display: block;
+}
+.toggle-mnu span, .toggle-mnu span:after, .toggle-mnu span:before {
+  width: 100%;
+  height: 2px;
+  background-color: #dfbdaf;
+  transition: all 0.3s;
+  backface-visibility: hidden;
+  border-radius: 2px;
+}
+.toggle-mnu.on span {
+  background-color: transparent;
+}
+.toggle-mnu.on span:before {
+  transform: rotate(45deg) translate(-1px, 0px);
+}
+.toggle-mnu.on span:after {
+  transform: rotate(-45deg) translate(6px, -7px);
+}
 
+
+.toggle-mnu {
+	display: block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hidden-mnu {
+  background-color: #dfbdaf;
+  display: none;
+  position: relative;
+  top: 20px;
+}
+.hidden-mnu li {
+  display: block;
+}
+.hidden-mnu > ul {
+  padding: 20px 0;
+}
+.hidden-mnu > ul > li.active a {
+  text-decoration: underline;
+  color: #dfbdaf;
+}
+.hidden-mnu > ul > li > a {
+  padding: 15px 0;
+}
+.hidden-mnu > ul > li > a:hover {
+  color: #fff;
+  background-color: #303030;
+  text-decoration: none;
+}
+.hidden-mnu {
+	margin: 0;
+}
+
+.hidden-mnu a {
+	display: block;
+	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 12.5px;
+	color: #000;
+	text-align: center;
+	border-left: 1px solid #dfbdaf;
+	border-right: 1px solid #dfbdaf;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.hidden-mnu a:hover {
+	color: #303030;
+}
+
+.hidden-mnu .first {
+	border-left: none;
+}
+
+.hidden-mnu .last {
+	border-right: none;
+}
+
+.hidden-mnu i {
+	font-family: "FontAwesome";
+	color: #000;
+	padding-left: 3px;
+}
+.hidden-mnu ul {
+	list-style: none;
+	margin: 0 0 0;
+  padding: 0;
+}
+.hidden-mnu .topmenu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.hidden-mnu .submenu {
+  background: #fff;
+  position: absolute;
+  z-index: 5;
+  width: 100%;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin :0 0;
+  transition: .3s ease-in-out;
+  padding: 0;
+}
+.hidden-mnu .submenu a {
+  color: #000;
+  font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 12.5px;
+	text-transform: uppercase;
+	border-right: 1px solid #dfbdaf;
+  padding: 12px 10px;
+}
+
+.hidden-mnu .submenu a:hover {
+	background-color: #dfbdaf;
+	color: #fff;
+	text-decoration: none;
+	transition: .2s ease-in-out;
+}
+
+.hidden-mnu .submenu li:last-child a {
+	border-bottom: 2px solid #dfbdaf;
+}
+.hidden-mnu .topmenu > li:hover .submenu {
+	opacity: 1;
+  transform: scaleY(1);
+}
+/* End of Toggle Menu */
 
 .section-pink {
 	background-color: #dfbdaf;
@@ -408,13 +554,18 @@ h1, h2, h3, h4{
 .main_line .basket span {
 	margin-left: 65px;
 }
+.feedback .col-md-5 , .feedback .col-md-2 {
+	padding: 0;
+}
 .feedback .subscription .send-email input {
-	width: 230px;
+	width: 250px;
 }
 .feedback .subscription {
-	margin-left: 70px;
+	margin-left: 110px;
 }
-	
+.feedback .button-arrow {
+	margin-top: 72px;
+}
 }
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
@@ -455,7 +606,7 @@ h1, h2, h3, h4{
 	width: 175px;
 }
 .feedback .subscription {
-	margin-left: 50px;
+	margin-left: 100px;
 }
 .section-pink {
 	font-size: 12px;
@@ -469,37 +620,278 @@ h1, h2, h3, h4{
 .feedback .button-arrow {
 	margin-top: 61px;
 }
+.info p{
+	font-size: 14px;
 }
+}
+
 /* Small Devices, Tablets */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 766px) {
+.main_line .s_networks {
+	display: block;
+	text-align: center;
+}
 .main_line .s_networks img {
 	height: 20;
 	width: auto;
-	margin: 45px 30px;
+	margin: 25px 48px 0;
 }
-
 .main_line .s_networks svg {
 	height: 20;
 	width: auto;
-	margin: 45px 30px;
+	margin: 25px 48px 0;
+}
+.logo h1 {
+	font-size: 93px;
+}
+.main_line .basket span {
+	margin-left: 38%;
+	margin-top: 14px;
+}
+.main_line .basket img {
+	margin-top: 12px;
+	margin-right: 38%;
+	margin-bottom: 15px;
+}
+.main_line .basket svg {
+	margin-top: 12px;
+	margin-right: 38%;
+	margin-bottom: 15px;
+}
+.hidden-mnu ul {
+	padding: 15px 0;
+}
+.feedback .subscription .send-email input {
+	width: 220px;
+}
+.feedback .subscription {
+	margin-left: 50%;
+	margin-top: 10px;
+}
+.feedback .subscription .dop {
+	margin-bottom: 0;
+}
+.feedback .button-arrow {
+	margin-top: 44px;
+}
+.feedback .s_networks {
+	margin-top: 10px;
+}
+.feedback .s_networks img {
+	height: 28px;
+	width: auto;
+	margin: 0 6px;
+}
+.feedback .s_networks svg {
+	height: 28px;
+	width: auto;
+	margin: 0 6px;
+}
+.info p{
+	font-size: 11px;
+}
+}
+
+@media only screen and (max-width: 660px) {
+.feedback .button-arrow {
+	margin-left: 5%;
+	margin-top: 28px;
+}
+.feedback .subscription .send-email input {
+	width: 180px;
+}
+.feedback .subscription .lable {
+	font-size: 10px;
+	margin-bottom: 0;
 }
 }
 @media only screen and (max-width: 520px) {
-/**/
+.main_line .s_networks {
+	display: block;
+	text-align: center;
+}
+.main_line .s_networks img {
+	height: 20;
+	width: auto;
+	margin: 25px 40px 0;
+}
+.main_line .s_networks svg {
+	height: 20;
+	width: auto;
+	margin: 25px 40px 0;
+}
+.logo h1 {
+	font-size: 85px;
+}
+.main_line .basket span {
+	margin-left: 35%;
+	margin-top: 14px;
+}
+.main_line .basket img {
+	margin-top: 12px;
+	margin-right: 35%;
+}
+.main_line .basket svg {
+	margin-top: 12px;
+	margin-right: 35%;
+}
+.hidden-mnu ul {
+	margin-bottom: 0;
+	padding: 15px 0;
+}
+.feedback .subscription .dop {
+	display: none;
+}
+.feedback .s_networks {
+	margin-bottom: 10px;
+}
+.info p{
+	display: none;
+}
+.info span{
+	font-size: 14px;
+	border-top: 2px solid #fff;
+}
+.feedback .button-arrow {
+	margin-left: 10%;
+	margin-top: 28px;
+}
+.feedback .subscription .send-email input {
+	width: 160px;
+}
+.feedback .subscription .lable {
+	font-size: 10px;
+	margin-bottom: 0;
+	letter-spacing: 1px;
+}
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px) {
-/**/
+.main_line .s_networks {
+	display: block;
+	text-align: center;
+}
+.main_line .s_networks img {
+	height: 20;
+	width: auto;
+	margin: 25px 25px 0;
+}
+.main_line .s_networks svg {
+	height: 20;
+	width: auto;
+	margin: 25px 25px 0;
+}
+.logo h1 {
+	font-size: 65px;
+}
+.main_line .basket span {
+	margin-left: 29%;
+	margin-top: 14px;
+}
+.main_line .basket img {
+	margin-top: 12px;
+	margin-right: 29%;
+}
+.main_line .basket svg {
+	margin-top: 12px;
+	margin-right: 29%;
+}
+.hidden-mnu ul {
+	margin-bottom: 0;
+	padding: 15px 0;
+}
+.feedback .subscription {
+	margin-left: 47%;
+	margin-top: 10px;
+}
+}
+@media only screen and (max-width: 420px) {
+.feedback .subscription {
+	margin-left: 43%;
+	margin-top: 10px;
+}
+.feedback .button-arrow {
+	margin-left: 17%;
+	margin-top: 48px;
+}
+.feedback .subscription .lable {
+	font-size: 11px;
+}
+}
+@media only screen and (max-width: 370px) {
+.feedback .subscription {
+	margin-left: 40%;
+}
+.feedback .button-arrow {
+	margin-left: 20%;
+}
+.feedback .subscription .lable {
+	margin-left: 20%;
+}
+}
+@media only screen and (max-width: 340px) {
+.feedback .subscription {
+	margin-left: 37%;
+}
+.feedback .button-arrow {
+	margin-left: 23%;
+}
 }
 /* Custom, iPhone Retina */
 @media only screen and (max-width: 320px) {
-  /**/
+.main_line .s_networks {
+	display: block;
+	text-align: center;
+}
+.main_line .s_networks img {
+	height: 20;
+	width: auto;
+	margin: 25px 15px 0;
+}
+.main_line .s_networks svg {
+	height: 20;
+	width: auto;
+	margin: 25px 15px 0;
+}
+.logo h1 {
+	font-size: 50px;
+}
+.main_line .basket span {
+	margin-left: 22%;
+	margin-top: 14px;
+}
+.main_line .basket img {
+	margin-top: 12px;
+	margin-right: 22%;
+}
+.main_line .basket svg {
+	margin-top: 12px;
+	margin-right: 22%;
+}
+.hidden-mnu ul {
+	margin-bottom: 0;
+	padding: 15px 0;
+}
+.feedback .subscription {
+	margin-left: 33%;
+}
+.feedback .button-arrow {
+	margin-left: 25%;
+}
+}
+@media only screen and (max-width: 300px) {
+.feedback .subscription {
+	margin-left: 30%;
+}
+.feedback .button-arrow {
+	margin-left: 27%;
+}
 }
 
 /*==========  Mobile First Method  ==========*/
 /* Custom, iPhone Retina */
 @media only screen and (min-width: 320px) {
-  /**/
+	/**/
 }
 
 /* Extra Small Devices, Phones */

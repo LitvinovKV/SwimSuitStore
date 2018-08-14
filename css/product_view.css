@@ -147,13 +147,9 @@
 
 .carousel-pr .owl-controls {
 	left: 0;
-	bottom: 270px;
+	bottom: 250px;
 	width: 100%;
 	position: absolute;
-}
-
-.carousel-pr .owl-controls .owl-nav {
-	bottom: 240px;
 }
 
 .carousel-pr .owl-controls .owl-nav > div{
@@ -202,4 +198,144 @@
 	margin-right: 10px;
 	margin-left: auto;
 	padding: 0;
+}
+
+/* Custom Media Queries */
+@media only screen and (min-height: 899px) {
+
+}
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1400px) {
+/**/
+}
+@media only screen and (max-width: 1200px) {
+.carousel-pr .owl-controls {
+	bottom: 230px;
+}
+}
+@media only screen and (max-width: 1100px) {
+.carousel-pr .owl-controls {
+	bottom: 210px;
+}
+.carousel-pr .owl-controls .owl-nav > div{
+	font-size: 35px;
+	left: 20px;
+}
+.carousel-pr .owl-controls .owl-nav .owl-next {
+	right: 20px;
+	left: auto;
+}
+}
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+.carousel-pr .owl-controls {
+	bottom: 240px;
+}
+}
+@media only screen and (max-width: 850px) {
+.carousel-pr .owl-controls {
+	bottom: 220px;
+}
+}
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+.carousel-pr .owl-controls {
+	bottom: 190px;
+}
+}
+@media only screen and (max-width: 650px) {
+.carousel-pr .owl-controls {
+	bottom: 150px;
+}
+.carousel-pr .owl-controls .owl-nav > div{
+	font-size: 30px;
+	left: 10px;
+}
+.carousel-pr .owl-controls .owl-nav .owl-next {
+	right: 10px;
+	left: auto;
+}
+}
+@media only screen and (max-width: 520px) {
+.carousel-pr .owl-controls {
+	bottom: 120px;
+}
+.carousel-pr .owl-controls .owl-nav > div{
+	font-size: 28px;
+}
+}
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+/**/
+}
+@media only screen and (max-width: 420px) {
+.carousel-pr .owl-controls {
+	bottom: 100px;
+}
+.carousel-pr .owl-controls .owl-nav > div{
+	font-size: 25px;
+	left: 5px;
+}
+.carousel-pr .owl-controls .owl-nav .owl-next {
+	right: 5px;
+	left: auto;
+}
+}
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+.carousel-pr .owl-controls {
+	bottom: 80px;
+}
+.carousel-pr .owl-controls .owl-nav > div{
+	font-size: 20px;
+	left: 5px;
+}
+.carousel-pr .owl-controls .owl-nav .owl-next {
+	right: 5px;
+	left: auto;
+}
+}
+@media only screen and (max-width: 300px) {
+/**/
+}
+
+/*==========  Mobile First Method  ==========*/
+/* Custom, iPhone Retina */
+@media only screen and (min-width: 320px) {
+	/**/
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 480px) {
+  /**/
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+  /**/
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+  /**/
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
+/**/
+}
+@media only screen and (min-width: 1450px) {
+  .carousel-pr .owl-controls {
+	bottom: 270px;
+}
+}
+@media only screen and (min-width: 1600px) {
+  .carousel-pr .owl-controls {
+	bottom: 300px;
+}
+}
+@media only screen and (min-width: 1750px) {
+  .carousel-pr .owl-controls {
+	bottom: 350px;
+}
 }

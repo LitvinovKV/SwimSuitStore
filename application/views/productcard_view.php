@@ -4,7 +4,7 @@
 <section class="s-nav">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-5">
+			<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12">
 				<?
 					if (LanguageSelect::$lang === "RU") {
 						$FirstName = mb_strtoupper($data["path"]["RU"][0]);
@@ -32,7 +32,7 @@
 				<!-- <a href="#">Раздельные</a><i class="fa fa-angle-right"></i> -->
 				<!-- <a href="#">Трусики1</a> -->
 			</div>
-			<div class="col-md-7">
+			<div class="col-lg-7 col-md-7 col-sm-5 col-xs-12">
 				
 			</div>
 		</div>
@@ -42,7 +42,7 @@
 	<div class="container">
 		<div class="row">
 				<div class="photo">
-					<div class="col-md-1">
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
 						<div class="preview">
 							<!-- <a href="#"><img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="1"></a>
 							<a href="#"><img class="responsive-img" src="/images/products_images/Photo9.jpg" alt="2"></a>
@@ -59,7 +59,7 @@
 							?>
 						</div>
 					</div>
-					<div class="col-md-5">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
 						<div class="view">
 							<!-- <img class="big responsive-img" src="/images/products_images/Photo6.jpg" alt="Big photo"> -->
 							<? 
@@ -69,7 +69,7 @@
 						</div>
 					</div>
 				</div>
-			<div class="col-md-6">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<div class="details">
 					<!-- <h3>Трусики 1</h3> -->
 					<h3> <? echo $ProductName ?> </h3>
@@ -93,10 +93,20 @@
 					<!-- <p class="s-title">Размер</p> -->
 					<p class="s-title"><? echo LanguageSelect::$templateData["Size"] ?></p>
 					<div class="size">
-						<a href="#"><span>38</span></a>
-						<a href="#"><span>40</span></a>
-						<a href="#"><span>42</span></a>
-						<a href="#"><span>44</span></a>
+						<div class="first-part">
+							<div class="item-size"><a href="#"><span>38</span></a></div>
+							<div class="item-size"><a href="#"><span>XXS</span></a></div>
+							<div class="item-size"><a href="#"><span>40</span></a></div>
+							<div class="item-size"><a href="#"><span>XS</span><br></a></div>
+							<div class="item-size"><a href="#"><span>42</span></a></div>
+						</div>
+						<div class="last-part">
+							<div class="item-size"><a href="#"><span>S</span></a></div>
+							<div class="item-size"><a href="#"><span>44</span></a></div>
+							<div class="item-size"><a href="#"><span>M</span></a></div>
+							<div class="item-size"><a href="#"><span>46</span></a></div>
+							<div class="item-size"><a href="#"><span class="last">L</span></a></div>
+						</div>
 					</div>
 					<!-- <p class="status">Есть в наличии</p> -->
 					<p class="status">

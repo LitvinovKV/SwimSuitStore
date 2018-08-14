@@ -1,5 +1,11 @@
 $(document).ready(function() {
     
+    $(".toggle-mnu").click(function() {
+      $(this).toggleClass("on");
+      $(".hidden-mnu").slideToggle();
+      return false;
+    });
+
     $(".toggle-text1").click(function() {
       $(this).toggleClass("on");
       $(".button-text1").slideToggle();
@@ -51,16 +57,16 @@ $(document).ready(function() {
             items:2,
             mergeFit:true,
         },
-        520:{
-            items:2,
+        522:{
+            items:3,
             mergeFit:true,
         },
         768:{
-            items:2,
+            items:3,
             mergeFit:true,
         },
         992:{
-            items:4,
+            items:3,
             mergeFit:true,
         },
         1200:{
