@@ -215,36 +215,63 @@
 	margin-left: 5%;
 	margin-right: 5%;
 }
-.s-chart .hint .responsive-img {
+.s-chart .hint .chart-image {
 	display: block;
-	width: auto;
-	height: 500px;
-	margin-right: 50%;
+	margin-right: 27%;
+	margin-left: 10%;
+	margin-bottom: 40px;
+}
+.s-chart .hint .chart-image .responsive-img {
+	width: 100%;
+	height: auto;
 }
 .s-chart .hint .title {
 	margin-right: 10.5%;
+	margin-bottom: 20px;
 }
 .s-chart .hint .content {
 	display: block;
 	margin-right: 10%;
+	margin-bottom: 30px;
 }
 .s-chart .tb-size table td {
 	padding: 3px 30px;
 }
 }
+@media only screen and (max-width: 624px) {
+.s-chart .tb-size table td {
+	padding: 3px 20px;
+}
+}
+@media only screen and (max-width: 564px) {
+.s-chart .tb-size table td {
+	padding: 3px 15px;
+}
+}
 @media only screen and (max-width: 520px) {
-/**/
+.s-chart .tb-size table td {
+	padding: 3px 10px;
+}
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px) {
-/**/
+.s-chart .tb-size table td {
+	padding: 3px 5px;
+}
 }
 @media only screen and (max-width: 420px) {
-/**/
+.s-chart .tb-size table .pink {
+	padding: 3px 5px;
+}
 }
 /* Custom, iPhone Retina */
 @media only screen and (max-width: 320px) {
-/**/
+.s-chart .tb-size table td {
+	padding: 3px 0;
+}
+.s-chart .tb-size table .pink {
+	padding: 3px 0;
+}
 }
 @media only screen and (max-width: 300px) {
 /**/
@@ -274,6 +301,73 @@
 }
 
 /* Large Devices, Wide Screens */
-@media only screen and (min-width: 1200px) {
-  /**/
+@media only screen and (min-width: 1400px) {
+.s-chart {
+	background-position: 5% top;
+}
+}
+@media only screen and (min-width: 1600px) {
+.s-chart {
+	background-position: 8% top;
+	-webkit-background-size: 27% auto;
+	background-size: 27% auto;
+}
+.s-chart .tb-size table td {
+	padding: 3px 88px;
+}
+.s-chart .tb-size table .pink {
+	padding: 3px 44px;
+}
+.s-chart .tb-size p {
+  padding: 0 7%;
+}
+}
+@media only screen and (min-width: 1700px) {
+.s-chart {
+	background-position: 8% top;
+	-webkit-background-size: 27% auto;
+	background-size: 27% auto;
+}
+.s-chart .tb-size table td {
+	padding: 3px 88px;
+}
+.s-chart .tb-size table .pink {
+	padding: 3px 44px;
+}
+.s-chart .tb-size p {
+  padding: 0 10%;
+}
+}
+@media only screen and (min-width: 1800px) {
+.s-chart {
+	background-position: 8% top;
+	-webkit-background-size: 25% auto;
+	background-size: 25% auto;
+}
+.s-chart .tb-size table td {
+	padding: 3px 96px;
+}
+.s-chart .tb-size table .pink {
+	padding: 3px 48px;
+}
+.s-chart .tb-size p {
+  padding: 0 10%;
+}
+}
+@media only screen and (min-width: 1920px) {
+.s-chart {
+	background-position: 8% top;
+	-webkit-background-size: 22% auto;
+	background-size: 22% auto;
+}
+
+.s-chart .tb-size table td {
+	padding: 3px 96px;
+}
+.s-chart .tb-size table .pink {
+	padding: 3px 48px;
+}
+.s-chart .tb-size p {
+  padding: 0 13%;
+}
 }
