@@ -74,7 +74,9 @@
 					<!-- <h3>Трусики 1</h3> -->
 					<h3> <? echo $ProductName ?> </h3>
 					<!-- <p class="d-title">Описание</p> -->
-					<p class="d-title"> <? echo LanguageSelect::$templateData["Description"] ?> </p>
+					<div class="d-title">
+						<span> <? echo LanguageSelect::$templateData["Description"] ?> </span>
+					</div>
 					<!-- <p class="description">Эти трусики лучше всего подойдут для вас. Так как они самые клевые. Когда вы их надете Вы станете милашкой.</p> -->
 					<p class="description"> <? echo $Description ?> </p>
 					<!-- <p class="material">Материал:  бифлекс. Состав: 80 % лайкра, 20 % спандекс.</p> -->

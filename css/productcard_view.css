@@ -48,12 +48,15 @@
 	margin-top: 5px;
 }
 .details .d-title {
+	display: block;
+}
+
+.details .d-title span {
 	font-family: "MyriadPro-Regular", sans-serif;
 	font-size: 16.5px;
 	text-transform: uppercase;
 	color: #fff;
 	background-color: #000;
-	width: 31%;
 	padding: 5px 25px;
 }
 
@@ -233,10 +236,6 @@
 .details h3 {
 	font-size: 18px;
 }
-.details .d-title {
-	font-size: 15px;
-	padding: 5px 23px;
-}
 .details .description {
 	font-size: 16.5px;
 	margin-bottom: 15px;
@@ -291,12 +290,6 @@
 }
 .details h3 {
 	font-size: 15px;
-	margin-bottom: 10px;
-}
-.details .d-title {
-	font-size: 13px;
-	padding: 5px 17px;
-	margin-top: 10px;
 	margin-bottom: 10px;
 }
 .details .description {
@@ -360,9 +353,6 @@
 	margin: 0 13%;
 	margin-bottom: 30px;
 }
-.details .d-title {
-	width: 19%;
-}
 .carousel-shop .owl-controls .owl-nav > div{
 	left: 0;
 }
@@ -372,9 +362,6 @@
 }
 }
 @media only screen and (max-width: 720px) {
-.details .d-title {
-	width: 21%;
-}
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 190px;
 }
@@ -391,9 +378,6 @@
 	padding: 0 19.5% 0 2%;
 	margin-bottom: 30px;
 }
-.details .d-title {
-	width: 23%;
-}
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 175px;
 }
@@ -403,9 +387,6 @@
 }
 }
 @media only screen and (max-width: 590px) {
-.details .d-title {
-	width: 25%;
-}
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 160px;
 }
@@ -428,9 +409,6 @@
 	margin: 0 10%;
 	margin-bottom: 25px;
 }
-.details .d-title {
-	width: 27%;
-}
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 210px;
 }
@@ -452,9 +430,6 @@
 .product .details {
 	margin: 0 7%;
 	margin-bottom: 25px;
-}
-.details .d-title {
-	width: 29%;
 }
 .details .size .first-part {
 	display: -webkit-inline-box;
@@ -497,9 +472,6 @@
 	margin: 0 7%;
 	margin-bottom: 25px;
 }
-.details .d-title {
-	width: 30%;
-}
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 170px;
 }
@@ -511,9 +483,6 @@
 @media only screen and (max-width: 390px) {
 .product .photo .preview img {
 	padding: 0 14% 5.5px 35%;
-}
-.details .d-title {
-	width: 33%;
 }
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 160px;
@@ -528,9 +497,6 @@
 }
 .product .photo .preview img {
 	padding: 0 14% 5.5px 34%;
-}
-.details .d-title {
-	width: 36%;
 }
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 150px;
@@ -566,9 +532,6 @@
 	margin: 0 5%;
 	margin-bottom: 20px;
 }
-.details .d-title {
-	width: 38%;
-}
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 125px;
 }
@@ -587,9 +550,6 @@
 .product .photo .preview img {
 	padding: 0 14% 5.5px 29.5%;
 }
-.details .d-title {
-	width: 42%;
-}
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 115px;
 }
@@ -603,9 +563,6 @@
 }
 .product .photo .preview img {
 	padding: 0 14% 5.5px 28%;
-}
-.details .d-title {
-	width: 45%;
 }
 .s-carousel .carousel-shop .button {
 	right: 18%;
