@@ -1,4 +1,4 @@
-<section class="s-carousel">
+<section class="s-banner">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -41,7 +41,7 @@ BANNERS;
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 							<div class="shop">
 								<img class="responsive-img" src="$path" alt="shop1">
-								<div>
+								<div class="button-item">
 									<a href="$href" class="button">$buttonTitle</a>
 								</div>
 							</div>
@@ -59,13 +59,15 @@ HITS;
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<video controls="controls" poster="/images/general_images/video.jpg">
-					<source src="/images/video/video1.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-					<source src="/images/video/video1.mp4" type='video/ogg; codecs="theora, vorbis"'>
-   					<source src="/images/video/video1.mp4" type='video/webm; codecs="vp8, vorbis"'>
-				 	Тег video не поддерживается вашим браузером. 
-   				<a href="/images/video/video1.mp4">Скачайте видео</a>
-				</video>
+				<div class="video-item">
+					<video controls="controls" poster="/images/general_images/video.jpg">
+						<source src="/images/video/video1.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+						<source src="/images/video/video1.mp4" type='video/ogg; codecs="theora, vorbis"'>
+	   					<source src="/images/video/video1.mp4" type='video/webm; codecs="vp8, vorbis"'>
+					 	Тег video не поддерживается вашим браузером. 
+	   				<a href="/images/video/video1.mp4">Скачайте видео</a>
+					</video>
+				</div>
 			</div>
 		</div>
 	</div>

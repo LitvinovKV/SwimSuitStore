@@ -1,8 +1,8 @@
-.s-carousel .col-md-12 {
+.s-banner .col-md-12 {
 	padding: 0;
 }
 
-.s-carousel img {
+.s-banner img {
 	background-size: cover;
 	background-position: top center;
 	width: 100%;
@@ -66,7 +66,7 @@
 	background-color: #303030;
 }
 
-.s-carousel .button {
+.s-banner .carousel-images .button {
 	right: 110px;
 	bottom: 40px;
 }
@@ -108,30 +108,45 @@
 	letter-spacing: 6px;
 	color: #000;
 	text-align: center;
-	margin: 34px;
+	margin: 2.5%;
 }
 
 .s-shops .col-md-4 {
 	padding: 0;
 }
 
-.shop .responsive-img {
-	width: 100%;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-bottom: 15px;
+.s-shops .shop {
+	display: block;
+	position: relative;
+	padding: 0 2.3% 15px 2.3%;
+	text-align: center;
 }
 
-.shop .button {
+.shop .responsive-img {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+}
+
+.shop .button-item {
 	display: block;
-	bottom: 12%;
-	left: 30%;
+	position: relative;
+	z-index: 2;
+	margin-top: -25%;
+	margin-bottom: 30%;
+	text-align: center;
+}
+
+.shop .button-item .button {
+	position: relative;
 }
 
 .s-video .col-md-12 {
 	padding: 0;
-	margin-top: 80px;
-	margin-bottom: 40px;
+}
+
+.s-video .video-item {
+	margin: 3% 0;
 }
 
 .s-video video {
@@ -170,13 +185,9 @@
 .carousel-images .owl-controls .owl-nav {
 	bottom: 200px;
 }
-.s-carousel .button {
+.s-banner .carousel-images .button {
 	right: 8%;
 	bottom: 10%;
-}
-.shop .button {
-	bottom: 12%;
-	left: 27%;
 }
 .s-join .button {
 	bottom: 12%;
@@ -188,22 +199,13 @@
 .carousel-images .owl-controls .owl-nav {
 	bottom: 170px;
 }
-.s-carousel .button {
+.s-banner .carousel-images .button {
 	right: 8%;
 	bottom: 10%;
-}
-.shop .button {
-	bottom: 12%;
-	left: 24%;
 }
 .s-join .button {
 	bottom: 12%;
 	left: 8%;
-}
-.s-video .col-md-12 {
-	padding: 0;
-	margin-top: 40px;
-	margin-bottom: 20px;
 }
 .s-join .col-md-12 {
 	padding: 0;
@@ -223,11 +225,6 @@
 .s-slogan p {
 	font-size: 15px;
 	letter-spacing: 6px;
-	margin: 34px;
-}
-.shop .button {
-	bottom: 12%;
-	left: 21%;
 }
 }
 /* Small Devices, Tablets */
@@ -235,18 +232,9 @@
 .carousel-images .owl-controls .owl-nav {
 	bottom: 135px;
 }
-.s-carousel .button {
+.s-banner .carousel-images .button {
 	right: 5%;
 	bottom: 10%;
-}
-.s-slogan p {
-	font-size: 15px;
-	letter-spacing: 6px;
-	margin: 34px;
-}
-.shop .button {
-	bottom: 12%;
-	left: 18%;
 }
 }
 @media only screen and (max-width: 700px) {
@@ -258,31 +246,12 @@
 .carousel-images .owl-controls .owl-nav {
 	bottom: 115px;
 }
-.s-carousel .button {
+.s-banner .carousel-images .button {
 	right: 5%;
 	bottom: 10%;
 }
-.s-slogan p {
-	margin-top: 0;
-	margin-bottom: 24px;
 }
-.shop .button {
-	bottom: 12%;
-	left: 15%;
-}
-}
-@media only screen and (max-width: 590px) {
-.shop .button {
-	bottom: 12%;
-	left: 12%;
-}
-}
-@media only screen and (max-width: 560px) {
-.shop .button {
-	bottom: 12%;
-	left: 10%;
-}
-}
+
 @media only screen and (max-width: 520px) {
 .carousel-images .owl-controls .owl-nav {
 	bottom: 100px;
@@ -295,18 +264,10 @@
 	margin-bottom: 2%;
 	margin-right: 14px;
 }
-.s-slogan p {
-	margin-top: 0;
-	margin-bottom: 14px;
-}
-.s-carousel {
-	margin-bottom: 14px;
-}
-.shop .button {
+.shop .button-item .button {
 	position: relative;
-	left: 10px;
-	right: 10px;
 	border: 1px solid #dfbdaf;
+	padding: 5px 10px;
 }
 }
 /* Extra Small Devices, Phones */
@@ -318,7 +279,7 @@
 	margin-bottom: 1%;
 	margin-right: 14px;
 }
-.s-carousel .button {
+.s-banner .carousel-images .button {
 	padding: 5px 10px;
 	right: 3%;
 	bottom: 5%;
@@ -327,18 +288,31 @@
 	font-size: 13px;
 	letter-spacing: 4px;
 }
-.shop .button {
-	display: block;
+.shop .button-item {
+	margin-top: 8%;
+	margin-bottom: 10%;
+}
+.shop .button-item .button {
 	padding: 5px;
-	margin: 0 20px 0 0;
 	font-size: 10px;
 	letter-spacing: 2px;
-	text-align: center;
 }
+
 .s-join .button {
 	padding: 5px 10px;
 	left: 3%;
 	bottom: 5%;
+}
+}
+@media only screen and (max-width: 390px) {
+.shop .button-item .button {
+	letter-spacing: 1px;
+}
+}
+@media only screen and (max-width: 350px) {
+.shop .button-item .button {
+	font-size: 10px;
+	letter-spacing: 0;
 }
 }
 /* Custom, iPhone Retina */
@@ -358,7 +332,7 @@
 	margin-bottom: 1%;
 	margin-right: 8px;
 }
-.s-carousel .button {
+.s-banner .carousel-images .button {
 	padding: 0 3px;
 	right: 3%;
 	bottom: 5%;
@@ -367,15 +341,8 @@
 .s-slogan p {
 	font-size: 13px;
 	letter-spacing: 3px;
-	margin: 14px;
 }
-.shop .responsive-img {
-	width: 100%;
-	padding-left: 5px;
-	padding-right: 5px;
-	padding-bottom: 10px;
-}
-.shop .button {
+.shop .button-item .button {
 	padding: 0 3px;
 }
 .s-join .col-md-12 {
@@ -397,14 +364,11 @@
 	margin-bottom: 1%;
 	margin-right: 8px;
 }
-.s-carousel .button {
+.s-banner .carousel-images .button {
 	padding: 0 3px;
 	right: 3%;
 	bottom: 5%;
 	font-size: 10px;
-}
-.s-slogan p {
-	margin: 10px;
 }
 }
 
@@ -443,21 +407,18 @@
 	margin-right: auto;
 }
 }
+@media only screen and (min-width: 1400px) {
+.shop .button-item {
+	margin-top: -110px;
+}
+}
 @media only screen and (min-width: 1600px) {
 .carousel-images .owl-controls .owl-nav {
 	bottom: 280px;
-}
-.shop .button {
-	bottom: 12%;
-	left: 33%;
 }
 }
 @media only screen and (min-width: 1750px) {
 .carousel-images .owl-controls .owl-nav {
 	bottom: 300px;
-}
-.shop .button {
-	bottom: 12%;
-	left: 35%;
 }
 }

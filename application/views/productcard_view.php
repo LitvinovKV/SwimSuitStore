@@ -136,19 +136,27 @@
 			<div class="carousel-shop">
 					<div class="carousel-item">
 						<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="">
-						<a href="#" class="button">Shop now</a>
+						<div class="button-item">
+							<a href="#" class="button">Shop now</a>
+						</div>
 					</div>
 					<div class="carousel-item">
 						<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="">
-						<a href="#" class="button">Shop now</a>
+						<div class="button-item">
+							<a href="#" class="button">Shop now</a>
+						</div>
 					</div>
 					<div class="carousel-item">
 						<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="">
-						<a href="#" class="button">Shop now</a>
+						<div class="button-item">
+							<a href="#" class="button">Shop now</a>
+						</div>
 					</div>
 					<div class="carousel-item">
 						<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="">
-						<a href="#" class="button">Shop now</a>
+						<div class="button-item">
+							<a href="#" class="button">Shop now</a>
+						</div>
 					</div>
 			</div>
 		</div>

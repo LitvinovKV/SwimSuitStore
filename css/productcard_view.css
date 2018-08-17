@@ -168,11 +168,18 @@
 	margin-bottom: 30px;
 }
 
-.carousel-shop .responsive-img {
-	width: 100%;
-	padding: 40px 30px;
+.carousel-shop .carousel-item {
+	display: block;
+	text-align: center;
+	padding: 14% 10%;
+	margin-bottom: 14%;
 }
 
+.carousel-shop .responsive-img {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+}
  /* Owl Carousel */
 .carousel-shop {
 	position: relative;
@@ -211,11 +218,19 @@
 	left: auto;
 }
 
-.s-carousel .carousel-shop .button {
-	right: 85px;
-	bottom: 90px;
-	padding: 8px 24px;
+.carousel-shop .carousel-item .button-item {
+	display: block;
+	position: relative;
+	z-index: 2;
+	margin-top: -25%;
 }
+
+.carousel-shop .carousel-item .button-item .button {
+	padding: 8px 24px;
+	position: relative;
+	margin-bottom: 10%;
+}
+
 /* End of Owl Carousel */
 
 /* Custom Media Queries */
@@ -275,10 +290,6 @@
 	right: -5px;
 	left: auto;
 }
-.s-carousel .carousel-shop .button {
-	right: 30%;
-	bottom: 20%;
-}
 }
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
@@ -335,10 +346,6 @@
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 210px;
 }
-.s-carousel .carousel-shop .button {
-	right: 25%;
-	bottom: 20%;
-}
 }
 /* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {
@@ -365,10 +372,6 @@
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 190px;
 }
-.s-carousel .carousel-shop .button {
-	right: 22%;
-	bottom: 20%;
-}
 }
 @media only screen and (max-width: 660px) {
 .product .photo .preview img {
@@ -381,24 +384,18 @@
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 175px;
 }
-.s-carousel .carousel-shop .button {
-	right: 20%;
-	bottom: 20%;
+.carousel-shop .carousel-item .button-item .button {
+	padding: 8px 14px;
 }
 }
 @media only screen and (max-width: 590px) {
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 160px;
 }
-.s-carousel .carousel-shop .button {
-	padding: 4px 12px;
-	right: 24%;
-	bottom: 20%;
-}
 }
 @media only screen and (max-width: 560px) {
-.s-carousel .carousel-shop .button {
-	right: 22%;
+	.carousel-shop .carousel-item .button-item .button {
+	padding: 8px 8px;
 }
 }
 @media only screen and (max-width: 520px) {
@@ -411,11 +408,6 @@
 }
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 210px;
-}
-.s-carousel .carousel-shop .button {
-	padding: 8px 24px;
-	right: 25%;
-	bottom: 20%;
 }
 }
 /* Extra Small Devices, Phones */
@@ -446,18 +438,10 @@
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 190px;
 }
-.s-carousel .carousel-shop .button {
-	padding: 8px 24px;
-	right: 23%;
-	bottom: 20%;
-}
 }
 @media only screen and (max-width: 440px) {
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 180px;
-}
-.s-carousel .carousel-shop .button {
-	right: 21%;
 }
 }
 @media only screen and (max-width: 420px) {
@@ -475,10 +459,6 @@
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 170px;
 }
-.s-carousel .carousel-shop .button {
-	right: 26%;
-	padding: 4px 12px;
-}
 }
 @media only screen and (max-width: 390px) {
 .product .photo .preview img {
@@ -486,9 +466,6 @@
 }
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 160px;
-}
-.s-carousel .carousel-shop .button {
-	right: 24%;
 }
 }
 @media only screen and (max-width: 360px) {
@@ -501,19 +478,14 @@
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 150px;
 }
-.s-carousel .carousel-shop .button {
-	right: 22%;
-}
-.carousel-shop .responsive-img {
-	padding: 20px 20px;
+.carousel-shop .carousel-item .button-item .button {
+	padding: 1px 2px;
+	font-size: 11px;
 }
 }
 @media only screen and (max-width: 360px) {
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 135px;
-}
-.s-carousel .carousel-shop .button {
-	right: 20%;
 }
 }
 /* Custom, iPhone Retina */
@@ -535,9 +507,6 @@
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 125px;
 }
-.s-carousel .carousel-shop .button {
-	right: 22%;
-}
 }
 @media only screen and (max-width: 300px) {
 .s-nav a {
@@ -553,9 +522,6 @@
 .carousel-shop .owl-controls .owl-nav {
 	bottom: 115px;
 }
-.s-carousel .carousel-shop .button {
-	right: 20%;
-}
 }
 @media only screen and (max-width: 280px) {
 .s-nav a {
@@ -563,9 +529,6 @@
 }
 .product .photo .preview img {
 	padding: 0 14% 5.5px 28%;
-}
-.s-carousel .carousel-shop .button {
-	right: 18%;
 }
 }
 
