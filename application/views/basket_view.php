@@ -148,11 +148,28 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<p class="delivery">
-						<span class="title">Доставка <br class="hidden-lg hidden-md hidden-sm"></span>
-						<input type="radio" name="post" value="sdek"><span class="sdek">Сдек</span>
-						<input type="radio" name="post" value="post_ru" checked><span class="post_ru">Почта России</span>
-					</p>
+					<div class="delivery">
+						<span class="title">Доставка</span>
+						<div class="delivery-types">
+							<div class="radio-item">
+								<div class="input-item">
+									<input type="radio" name="post" value="sdek">
+								</div>
+								<div class="radio-name">
+									<span class="sdek">Сдек</span>
+								</div>
+							</div>
+							<div class="radio-item">
+								<div class="input-item">
+									<input type="radio" name="post" value="post_ru" checked>
+								</div>
+								<div class="radio-name">
+									<span class="post_ru">Почта России</span>
+								</div>
+							</div>
+						</div>
+						
+					</div>
 				</div>
 			</div>
 		</div>

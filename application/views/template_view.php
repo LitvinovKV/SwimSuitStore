@@ -69,8 +69,10 @@
 						</div>
 						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
 							<div class="basket">
-								<span>0</span>
-								<a href="#" class="bs"> <img class="img-svg" src="/images/s_networks/icon-basket.svg" alt="Baske"></a>
+								<div class="shop-count"><span>0</span></div>
+								<div class="basket-img">
+									<a href="#" class="bs"><img class="img-svg" src="/images/s_networks/icon-basket.svg" alt="Baske"></a>
+								</div>
 							</div>
 						</div>
 						<div class="col-xs-6">
@@ -216,19 +218,21 @@
 						<div class="feedback">
 								<div class="container">
 										<div class="row">
-											<div class="col-lg-4 col-md-5 col-sm-5 col-xs-8">
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 												<div class="subscription">
 													<p class="lable"> <? echo LanguageSelect::$templateData['OtherSentences'][0]; ?> </p>
 													<div class="send-email">
-														<input type="email" id="e-mail" maxLength="75" placeholder="Введите E-mail...">
+														<div class="input-item">
+															<input type="email" id="e-mail" maxLength="75" placeholder="Введите E-mail...">
+														</div>
+														<div class="button-item">
+															<button class="button-arrow" onClick="saveEmail()"><i class="fa fa-angle-right"></i></button>
+														</div>
 													</div>
 													<p class="dop"> <? echo LanguageSelect::$templateData['OtherSentences'][1]; ?> </p>
 												</div>
 											</div>
-											<div class="col-lg-3 col-md-2 col-sm-2 col-xs-4">
-												<button class="button-arrow" onClick="saveEmail()"><i class="fa fa-angle-right"></i></button>
-											</div>
-											<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 													<div class="s_networks">
 														<p class="hidden-xs"> <? echo LanguageSelect::$templateData['OtherSentences'][2]; ?> </p>
 														<a href="https://vk.com/swiund" class="vk"><img class="img-svg" src="/images/s_networks/icon-vk.svg" alt="Vkontakte"></a>
@@ -237,7 +241,6 @@
 														<a href="https://api.whatsapp.com/send?phone=79998744766" class="wa"><img class="img-svg" src="/images/s_networks/icon-wa.svg" alt="Whatsapp"></a>
 													</div>
 											</div>
-											<div class="col-lg-1 col-md-1 offset1"></div>
 										</div>
 								</div>
 						</div>

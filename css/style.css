@@ -86,35 +86,35 @@ h1, h2, h3, h4{
 }
 
 .main_line .basket {
-	display: block;
+	display: -webkit-inline-box;;
+	position: relative;
+	float: right;
+	margin-top: 45px;
 }
 
-.main_line .basket span {
-	float: left;
+.main_line .basket .shop-count {
+	display: block;
+	margin-top: 5px;
+	margin-right: 10px;
+}
+
+.main_line .basket .shop-count span {
 	font-family: "MyriadPro-Regular", sans-serif;
 	font-size: 12.5px;
 	color: #fff;
 	border-radius: 50%;
 	background-color: #dfbdaf;
-	padding-top: 3px;
-	padding-left: 8px;
-	padding-right: 8px;
-	padding-bottom: 3px;
-	margin: 47px 0 0 100px;
+	padding: 4px 8px;
 }
 
 .main_line .basket img {
 	height: 25;
 	width: auto;
-	float: right;
-	margin: 45px 5px 0 0;
 }
 
 .main_line .basket svg {
 	height: 25;
 	width: auto;
-	float: right;
-	margin: 45px 5px 0 0;
 }
 
 .main_line .basket a path {
@@ -372,25 +372,24 @@ h1, h2, h3, h4{
 	display: block;
 	text-align: center;
 	margin-top: 30px;
-	margin-left: 84px;
 }
 
 .feedback .subscription .lable {
 	font-size: 18px;
 	letter-spacing: 2px;
-	margin-bottom: 7px;
+	margin-right: 8%;
 }
 
 .feedback .subscription .dop {
 	letter-spacing: 1px;
 	margin-top: 5px;
 	margin-bottom: 20px;
+	margin-right: 8%;
 }
 
 .feedback .subscription .send-email {
-	display: inline-block;
+	display: -webkit-inline-box;
 	position: relative;
-	margin-top: 8px;
 }
 .feedback .subscription .send-email input {
 	position: relative;
@@ -419,14 +418,10 @@ h1, h2, h3, h4{
 	outline-color: #92847f;
 }
 
-.feedback .col-md-3 {
-	padding: 0;
-}
-
-.feedback .button-arrow {
+.feedback .subscription .send-email .button-item {
 	display: block;
-	margin-top: 71px;
-	margin-left: 0;
+	margin-top: 1px;
+	margin-left: 10px;
 }
 
 .feedback button {
@@ -436,11 +431,7 @@ h1, h2, h3, h4{
 	border-radius: 50%;
 	background-color: #303030;
 	font-size: 32px;
-	padding-right: 0;
-	padding-left: 0;
-	padding-top: 0;
-	padding-bottom: 0;
-	margin-left: 5px;
+	padding: 0;
 	transition: all .5s ease-in-out;
 	-webkit-transition: all .5s ease-in-out;
 	box-shadow: 0 3px 20px rgba(0,0,0,.25),
@@ -487,13 +478,13 @@ h1, h2, h3, h4{
 .feedback .s_networks img {
 	height: 35px;
 	width: auto;
-	margin: 0 9px;
+	margin: 3px 9px;
 }
 
 .feedback .s_networks svg {
 	height: 35px;
 	width: auto;
-	margin: 0 9px;
+	margin: 3px 9px;
 }
 
 .feedback .s_networks a path {
@@ -551,21 +542,6 @@ h1, h2, h3, h4{
 /**/
 }
 @media only screen and (max-width: 1200px) {
-.main_line .basket span {
-	margin-left: 65px;
-}
-.feedback .col-md-5 , .feedback .col-md-2 {
-	padding: 0;
-}
-.feedback .subscription .send-email input {
-	width: 250px;
-}
-.feedback .subscription {
-	margin-left: 110px;
-}
-.feedback .button-arrow {
-	margin-top: 72px;
-}
 }
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
@@ -582,14 +558,7 @@ h1, h2, h3, h4{
 .logo h1 {
 	font-size: 93px;
 }
-.main_line .basket span {
-	margin-left: 30px;
-	margin-top: 27px;
-}
-.main_line .basket img {
-	margin-top: 25px;
-}
-.main_line .basket svg {
+.main_line .basket {
 	margin-top: 25px;
 }
 .feedback .s_networks img {
@@ -602,23 +571,24 @@ h1, h2, h3, h4{
 	width: auto;
 	margin: 0 6px;
 }
-.feedback .subscription .send-email input {
-	width: 175px;
-}
-.feedback .subscription {
-	margin-left: 100px;
-}
 .section-pink {
 	font-size: 12px;
 }
 .feedback .subscription .lable {
 	font-size: 13px;
+	margin-right: 12%;
+}
+.feedback .subscription .send-email input {
+	width: 230px;
+}
+.feedback .subscription .send-email .button-item {
+	margin-top: 0;
+}
+.feedback .subscription .dop {
+	margin-right: 12%;
 }
 .feedback .s_networks {
 	font-size: 13px;
-}
-.feedback .button-arrow {
-	margin-top: 61px;
 }
 .info p{
 	font-size: 14px;
@@ -626,7 +596,7 @@ h1, h2, h3, h4{
 }
 
 /* Small Devices, Tablets */
-@media only screen and (max-width: 766px) {
+@media only screen and (max-width: 767px) {
 .main_line .s_networks {
 	display: block;
 	text-align: center;
@@ -644,35 +614,29 @@ h1, h2, h3, h4{
 .logo h1 {
 	font-size: 93px;
 }
-.main_line .basket span {
-	margin-left: 38%;
-	margin-top: 14px;
-}
-.main_line .basket img {
+.main_line .basket {
+	position: relative;
+	float: none;
 	margin-top: 12px;
-	margin-right: 38%;
-	margin-bottom: 15px;
-}
-.main_line .basket svg {
-	margin-top: 12px;
-	margin-right: 38%;
-	margin-bottom: 15px;
+	margin-left: 43%;
 }
 .hidden-mnu ul {
 	padding: 15px 0;
 }
-.feedback .subscription .send-email input {
-	width: 220px;
-}
 .feedback .subscription {
-	margin-left: 50%;
 	margin-top: 10px;
+	margin-left: 6%;
+}
+.feedback .subscription .lable {
+	font-size: 13px;
+	margin-right: 7%;
+}
+.feedback .subscription .send-email .button-item {
+	margin-top: -2px;
 }
 .feedback .subscription .dop {
 	margin-bottom: 0;
-}
-.feedback .button-arrow {
-	margin-top: 44px;
+	margin-right: 7%;
 }
 .feedback .s_networks {
 	margin-top: 10px;
@@ -693,16 +657,18 @@ h1, h2, h3, h4{
 }
 
 @media only screen and (max-width: 660px) {
-.feedback .button-arrow {
-	margin-left: 5%;
-	margin-top: 28px;
-}
-.feedback .subscription .send-email input {
-	width: 180px;
+.feedback .subscription {
+	margin-left: 7%;
 }
 .feedback .subscription .lable {
-	font-size: 10px;
-	margin-bottom: 0;
+	margin-bottom: 7px;
+	margin-right: 8%;
+}
+.feedback .subscription .send-email input {
+	width: 200px;
+}
+.feedback .subscription .dop {
+	margin-right: 8%;
 }
 }
 @media only screen and (max-width: 520px) {
@@ -723,21 +689,16 @@ h1, h2, h3, h4{
 .logo h1 {
 	font-size: 85px;
 }
-.main_line .basket span {
-	margin-left: 35%;
-	margin-top: 14px;
-}
-.main_line .basket img {
-	margin-top: 12px;
-	margin-right: 35%;
-}
-.main_line .basket svg {
-	margin-top: 12px;
-	margin-right: 35%;
-}
 .hidden-mnu ul {
 	margin-bottom: 0;
 	padding: 15px 0;
+}
+.feedback .subscription {
+	margin-left: 8%;
+}
+.feedback .subscription .lable {
+	margin-bottom: 5px;
+	margin-right: 10%;
 }
 .feedback .subscription .dop {
 	display: none;
@@ -751,18 +712,6 @@ h1, h2, h3, h4{
 .info span{
 	font-size: 14px;
 	border-top: 2px solid #fff;
-}
-.feedback .button-arrow {
-	margin-left: 10%;
-	margin-top: 28px;
-}
-.feedback .subscription .send-email input {
-	width: 160px;
-}
-.feedback .subscription .lable {
-	font-size: 10px;
-	margin-bottom: 0;
-	letter-spacing: 1px;
 }
 }
 /* Extra Small Devices, Phones */
@@ -784,57 +733,36 @@ h1, h2, h3, h4{
 .logo h1 {
 	font-size: 65px;
 }
-.main_line .basket span {
-	margin-left: 29%;
-	margin-top: 14px;
-}
-.main_line .basket img {
-	margin-top: 12px;
-	margin-right: 29%;
-}
-.main_line .basket svg {
-	margin-top: 12px;
-	margin-right: 29%;
-}
 .hidden-mnu ul {
 	margin-bottom: 0;
 	padding: 15px 0;
 }
 .feedback .subscription {
-	margin-left: 47%;
-	margin-top: 10px;
+	margin-left: 9%;
+}
+.feedback .subscription .lable {
+	margin-right: 11%;
 }
 }
 @media only screen and (max-width: 420px) {
-.feedback .subscription {
-	margin-left: 43%;
-	margin-top: 10px;
-}
-.feedback .button-arrow {
-	margin-left: 17%;
-	margin-top: 48px;
+	.feedback .subscription {
+	margin-left: 10%;
 }
 .feedback .subscription .lable {
-	font-size: 11px;
+	margin-right: 12%;
 }
 }
-@media only screen and (max-width: 370px) {
-.feedback .subscription {
-	margin-left: 40%;
-}
-.feedback .button-arrow {
-	margin-left: 20%;
+@media only screen and (max-width: 380px) {
+	.feedback .subscription {
+	margin-left: 12%;
 }
 .feedback .subscription .lable {
-	margin-left: 20%;
+	margin-right: 14%;
 }
 }
-@media only screen and (max-width: 340px) {
-.feedback .subscription {
-	margin-left: 37%;
-}
-.feedback .button-arrow {
-	margin-left: 23%;
+@media only screen and (max-width: 350px) {
+.feedback .subscription .lable {
+	margin-right: 16%;
 }
 }
 /* Custom, iPhone Retina */
@@ -856,35 +784,28 @@ h1, h2, h3, h4{
 .logo h1 {
 	font-size: 50px;
 }
-.main_line .basket span {
-	margin-left: 22%;
-	margin-top: 14px;
-}
-.main_line .basket img {
-	margin-top: 12px;
-	margin-right: 22%;
-}
-.main_line .basket svg {
-	margin-top: 12px;
-	margin-right: 22%;
-}
 .hidden-mnu ul {
 	margin-bottom: 0;
 	padding: 15px 0;
 }
 .feedback .subscription {
-	margin-left: 33%;
+	margin-left: 14%;
 }
-.feedback .button-arrow {
-	margin-left: 25%;
+.feedback .subscription .lable {
+	font-size: 11px;
+	letter-spacing: 1px;
+	margin-right: 18%;
+}
+.feedback .subscription .send-email input {
+	width: 170px;
 }
 }
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 280px) {
 .feedback .subscription {
-	margin-left: 30%;
+	margin-left: 16%;
 }
-.feedback .button-arrow {
-	margin-left: 27%;
+.feedback .subscription .lable {
+	margin-right: 20%;
 }
 }
 

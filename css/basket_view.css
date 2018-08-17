@@ -289,11 +289,30 @@
 }
 
 .s-delivery .delivery {
+	display: -webkit-inline-box;
 	font-family: "MyriadPro-Regular", sans-serif;
   font-size: 14.5px;
 	color: #000;
 	text-transform: uppercase;
-	margin-left: 74px;
+	margin: 10px 0 10px 74px;
+}
+
+.s-delivery .delivery .delivery-types {
+	display: -webkit-inline-box;
+}
+
+.s-delivery .delivery .delivery-types .radio-item {
+	display: -webkit-inline-box;
+}
+
+.s-delivery .delivery .delivery-types .radio-item .input-item {
+	display: block;
+	margin-top: 1px;
+}
+
+.s-delivery .delivery .delivery-types .radio-item .radio-name {
+	display: block;
+	margin-top: -1px;
 }
 
 .s-delivery .delivery span {
@@ -864,8 +883,8 @@
 .s-parameters-small a i {
 	margin-top: 0;
 }
-.s-delivery .delivery span {
-	margin-right: 15px;
+.s-delivery .delivery {
+	display: block;
 }
 .s-comment textarea {
 	width: 81%;
