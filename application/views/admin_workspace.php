@@ -27,7 +27,7 @@
             <div style="margin-top: 0.5%; margin-left: 5%" class="ButtonBlock" hidden>
                 <button type="button" class="btn btn-light" onclick="FormHidden(0, 'AddForms')">Категорию</button>
                 <button type="button" class="btn btn-light" onclick="FormHidden(1, 'AddForms')">Подкатегорию</button>
-                <button type="button" class="btn btn-light" onclick="FormHidden(2, 'AddForms')">Цвет</button>
+                <button type="button" class="btn btn-light" onclick="FormHidden(2, 'AddForms')">Цвет с фото</button>
                 <button type="button" class="btn btn-light" onclick="FormHidden(3, 'AddForms')">Размер</button>
                 <button type="button" class="btn btn-light" onclick="FormHidden(4, 'AddForms')">Продукт</button>
                 <button type="button" class="btn btn-light" onclick="FormHidden(5, 'AddForms')">Подкатегорию к продукту</button>
@@ -59,10 +59,17 @@
                     <button type="button" class="btn btn-primary btnforms" onclick="addSubcategoryInDB()">Добавить</button>
                 </form>
                 
-                <form hidden class="AddForms">
-                    <label for="example-text-input" class="col-form-label">Название цвета</label>
-                    <input class="form-control labelWidth" type="text" placeholder="Название цвета" id="AddNewColor">
-                    <button type="button" class="btn btn-primary btnforms" onclick="addColorInDB()">Добавить</button>
+                <form hidden action="/adminpanel_queries.php" method="POST" enctype="multipart/form-data" class="AddForms">
+                    <label for="example-text-input" class="col-form-label">Название цвета на русском</label>
+                    <input class="form-control labelWidth" type="text" placeholder="Название цвета на русском" name="AddNewColorNameRu">
+                    
+                    <label for="example-text-input" class="col-form-label">Название цвета на английском</label>
+                    <input class="form-control labelWidth" type="text" placeholder="Название цвета на английском" name="AddNewColorNameEng">
+
+                    <label for="example-text-input" class="col-form-label">Путь к картинке с цветом в виде кружочка</label>
+                    <input type="file" class="form-control-file" name="ColorPhoto" accept="image/png">
+
+                    <button type="submit" class="btn btn-primary btnforms">Добавить</button>
                 </form>
                 
                 <form hidden class="AddForms">
@@ -228,17 +235,29 @@ BOTTOMFORM;
                     <button type="button" class="btn btn-primary btnforms" onclick="RedactSubcategoryName()">Редактировать</button>
                 </form>
                 
-                <form hidden class="UpdateForms">
-                    <select class="form-control SelectWidth" onchange="changeJS(this.value, ChangedColorName)" name="OldColorName">
+                <form hidden action="/adminpanel_queries.php" method="POST" enctype="multipart/form-data" class="UpdateForms">
+                    <select class="form-control SelectWidth" onchange="changeJS(this.value, ChangedColorName)" name="ShowColorById">
                         <option hidden>Выберите цвет</option>
                         <? 
                             for ($i = 0; $i < count($data["colors"]); $i++)
-                                echo  "<option>" . $data["colors"][$i] . "</option>";
+                                echo  "<option>" . $data["colors"][$i]["id"] . "</option>";
                         ?>
                     </select>
-                    <label for="example-text-input" class="col-form-label">Редактировать название цвета</label>
-                    <input class="form-control labelWidth" type="text" name="ChangedColorName">
-                    <button type="button" class="btn btn-primary btnforms" onclick="RedactColorName()">Редактировать</button>
+                    <button type="button" class="btn btn-primary btnforms" onclick="ShowColorInformation()">Отобразить данные</button><br>
+                    
+                    <label for="example-text-input" class="col-form-label">Название цвета на русском</label>
+                    <input class="form-control labelWidth" type="text" placeholder="Название цвета на русском" name="ShowColorNameRu">
+                    
+                    <label for="example-text-input" class="col-form-label">Название цвета на английском</label>
+                    <input class="form-control labelWidth" type="text" placeholder="Название цвета на английском" name="ShowColorNameEng">
+                    
+                    <label for="example-text-input" class="col-form-label">Фотография</label>
+                    <img src="" name="ShowColorPhoto"><br>
+                    
+                    <label for="example-text-input" class="col-form-label">Путь к картинке с цветом в виде кружочка</label>
+                    <input type="file" class="form-control-file" name="RedactColorPhoto" accept="image/png">
+
+                    <button type="submit" class="btn btn-primary btnforms">Редактировать данные</button><br>
                 </form>
                 
                 <form hidden class="UpdateForms">
@@ -327,7 +346,7 @@ BOTTOMFORM;
                         <option hidden>Выберите цвет</option>
                         <? 
                             for ($i = 0; $i < count($data["colors"]); $i++)
-                                echo  "<option>" . $data["colors"][$i] . "</option>";
+                                echo  "<option>" . $data["colors"][$i]["id"] . "</option>";
                         ?>
                     </select>
                     <button type="button" class="btn btn-primary btnforms" onclick="DeleteCurrentColor()">Удалить</button>
@@ -349,7 +368,7 @@ BOTTOMFORM;
                         <option hidden>Выберите цвет</option>
                         <? 
                             for ($i = 0; $i < count($data["colors"]); $i++)
-                                echo  "<option>" . $data["colors"][$i] . "</option>";
+                                echo  "<option>" . $data["colors"][$i]["id"] . "</option>";
                         ?>
                     </select>
                     <select class="form-control SelectWidth" name="DeletePC_Product">
@@ -516,6 +535,7 @@ BOTTOMFORM;
             5. Ожидаемый размер нижнего баннера: <br>
             6. Ожидаемый размер фотографий : <br>
             7. Кол-во фотографий у одного продукта должно быть > 2 <br>
+            8. Кружочек для цвета должен быть размером ...  и формата только png<br>
             </label>
 </body>
 </html>

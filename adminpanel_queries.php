@@ -183,15 +183,43 @@
     }
 
     // Отловить добавление нового цвета в БД
-    if(isset($_POST["ColorName"]) === true) {
-        if(checkNewNameInDBTable($_POST["ColorName"], "color", "name") === false) {
-            if (addNewDataInBD("color", "name", $_POST["ColorName"]) === true)
-                echo "Новый цвет успешно добавлен в БД";
-            else
-                echo "Проблема отправки запроса на сервер, повторите попытку.";
-        }
-        else
-            echo "Данное название в БД уже имеется.";
+    // if(isset($_POST["ColorName"]) === true) {
+    //     if(checkNewNameInDBTable($_POST["ColorName"], "color", "name") === false) {
+    //         if (addNewDataInBD("color", "name", $_POST["ColorName"]) === true)
+    //             echo "Новый цвет успешно добавлен в БД";
+    //         else
+    //             echo "Проблема отправки запроса на сервер, повторите попытку.";
+    //     }
+    //     else
+    //         echo "Данное название в БД уже имеется.";
+    // }
+
+    if(isset($_FILES["ColorPhoto"]) === true && isset($_POST["AddNewColorNameRu"]) === true && isset($_POST["AddNewColorNameEng"]) === true) {
+         // $flag - для цикла, чтобы не выйти из него пока не будет сгенирированно уникальное имя
+         $flag = false;
+         // Переменная для хранения имени файла
+         $fileName = "";
+         while ($flag != true) {
+             // сгенерировать новое название файла (уникальное)
+             $fileName = getUniqNameFile($_FILES["ColorPhoto"]["name"]);
+             $flag = nameInDir($fileName, "images/s_networks");
+         }
+         // полный путь файла
+         $nameDir = getcwd() . "/images/s_networks/" . basename($fileName);
+        //  var_dump($nameDir);
+        //  var_dump($_FILES["ColorPhoto"]);
+         if (move_uploaded_file($_FILES["ColorPhoto"]["tmp_name"], $nameDir) === false) {
+             echo "<h3>Ошибка загрузки файла на сервер, повторите попытку!</h3>";
+             exit;
+         }
+
+        $nameRu = $_POST["AddNewColorNameRu"];
+        $nameEng = $_POST["AddNewColorNameEng"];
+        $sql_query = "INSERT INTO `color`(`name`, `name_eng`, `path_name`) VALUES ('" . $nameRu . "', '" . $nameEng . "', '" .
+        $fileName . "')";
+        $connection = setConnectionToDB();
+        $connection->query($sql_query);
+        header('location:  http://' . $_SERVER['HTTP_HOST'] . '/admin/workspace');
     }
 
     // Отловить добавление нового цвета в БД
@@ -285,8 +313,8 @@
         }
         // полный путь файла
         $nameDir = getcwd() . "/images/general_images/" . basename($fileName);
-        var_dump($nameDir);
-        var_dump($_FILES["BannerPhoto"]);
+        // var_dump($nameDir);
+        // var_dump($_FILES["BannerPhoto"]);
         if (move_uploaded_file($_FILES["BannerPhoto"]["tmp_name"], $nameDir) === false) {
             echo "<h3>Ошибка загрузки файла на сервер, повторите попытку!</h3>";
             exit;
@@ -496,8 +524,18 @@ DBQUERY;
         $connection->query($sql_query);
         $sql_query = "DELETE FROM `product_size` WHERE `id_product` = " . $id_product;
         $connection->query($sql_query);
+
+        // Удалить фотографии из системы
+        $sql_query = "SELECT `name` FROM `photo` WHERE `id_product` = " . $id_product;
+        $res = $connection->query($sql_query);
+        for($i = 0; $i < $res->num_rows; $i++) {
+            $res->data_seek($i);
+            $name = $res->fetch_assoc()["name"];
+            unlink(getcwd() . "/images/products_images/" . $name);
+        }
         $sql_query = "DELETE FROM `photo` WHERE `id_product` = " . $id_product;
         $connection->query($sql_query);
+        
         $sql_query = "DELETE FROM `product_subcategory` WHERE `id_product` = " . $id_product;
         $connection->query($sql_query);
         $sql_query = "DELETE FROM `product` WHERE `id_product` =" . $id_product;
@@ -531,6 +569,7 @@ DBQUERY;
         for($i = 0; $i < count($PhotoNames); $i++) {
             $sql_query = "DELETE FROM `photo` WHERE `name` = '" . $PhotoNames[$i] . "'";
             $connection->query($sql_query);
+            unlink(getcwd() . "/images/products_images/" . $PhotoNames[$i]);
         }
         echo "Выбранные фотографии успешно удалены!";
     }
@@ -576,5 +615,48 @@ ORDERQUERY;
         else
             echo "Ошибка при удалении заказа, повторите снова.";
         return;
+    }
+
+
+    if(isset($_POST["IdColorForReturnInformation"]) === true) {
+        $connection = setConnectionToDB();
+        $sql_query = "SELECT * FROM `color` WHERE id_color = " . $_POST["IdColorForReturnInformation"];
+        $res = $connection->query($sql_query);
+        $res = $res->fetch_assoc();
+        echo $res["id_color"] . "//" . $res["name"] . "//" . $res["name_eng"] . "//" . $res["path_name"];
+    }
+
+    if(isset($_FILES["RedactColorPhoto"]) === true && isset($_POST["ShowColorNameRu"]) === true && isset($_POST["ShowColorNameEng"]) === true) {
+        $nameRu = $_POST["ShowColorNameRu"];
+        $nameEng = $_POST["ShowColorNameEng"];
+        
+        $connection = setConnectionToDB();
+        // Удалить старую фотографию из системы
+        $sql_query = "SELECT `path_name` FROM `color` WHERE `id_color` = " . $_POST["ShowColorById"];
+        $nameColorPath = $connection->query($sql_query)->fetch_assoc()["path_name"];
+        unlink(getcwd() . "/images/s_networks/" . $nameColorPath);
+         
+        // $flag - для цикла, чтобы не выйти из него пока не будет сгенирированно уникальное имя
+        $flag = false;
+        // Переменная для хранения имени файла
+        $fileName = "";
+        while ($flag != true) {
+            // сгенерировать новое название файла (уникальное)
+            $fileName = getUniqNameFile($_FILES["RedactColorPhoto"]["name"]);
+            $flag = nameInDir($fileName, "images/s_networks");
+        }
+        // полный путь файла
+        $nameDir = getcwd() . "/images/s_networks/" . basename($fileName);
+         if (move_uploaded_file($_FILES["RedactColorPhoto"]["tmp_name"], $nameDir) === false) {
+            echo "<h3>Ошибка загрузки файла на сервер, повторите попытку!</h3>";
+            exit;
+        }
+        
+        // Записать данные в БД
+        $connection = setConnectionToDB();
+        $sql_query = "UPDATE `color` SET `name` = '" . $nameRu . "', `name_eng` = '" . $nameEng . "', `path_name` = '" . $fileName . "' WHERE `id_color` = " . $_POST["ShowColorById"];
+        $connection->query($sql_query);
+ 
+         header('location:  http://' . $_SERVER['HTTP_HOST'] . '/admin/workspace');
     }
 ?>

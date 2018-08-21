@@ -86,29 +86,55 @@
 					<!-- <p class="color"><span class="color-title">Цвет</span> <i class="fa fa-angle-right"></i> <span class="color-name">Розовый</span></p> -->
 					<p class="color"><span class="color-title"><? echo LanguageSelect::$templateData["Color"] ?></span> <i class="fa fa-angle-right"></i> <span class="color-name">Розовый</span></p>
 					<div class="color-circle">
+						<!-- <a class="circle" href="#"><img src="/images/s_networks/circle.png" alt=""></a>
 						<a class="circle" href="#"><img src="/images/s_networks/circle.png" alt=""></a>
 						<a class="circle" href="#"><img src="/images/s_networks/circle.png" alt=""></a>
 						<a class="circle" href="#"><img src="/images/s_networks/circle.png" alt=""></a>
-						<a class="circle" href="#"><img src="/images/s_networks/circle.png" alt=""></a>
-						<a class="circle" href="#"><img src="/images/s_networks/circle.png" alt=""></a>
-					</div>
+						<a class="circle" href="#"><img src="/images/s_networks/circle.png" alt=""></a> -->
+
+						<label>
+							<input type='radio' value='1' name='radio_color' id="color_1"/>
+							<img src="/images/s_networks/circle.png" alt="">
+						</label>
+
+						<label>
+							<input type='radio' value='1' name='radio_color' id="color_1"/>
+							<img src="/images/s_networks/circle.png" alt="">
+						</label>
+
+
 					<!-- <p class="s-title">Размер</p> -->
 					<p class="s-title"><? echo LanguageSelect::$templateData["Size"] ?></p>
 					<div class="size">
 						<div class="first-part">
-							<div class="item-size"><a href="#"><span>38</span></a></div>
-							<div class="item-size"><a href="#"><span>XXS</span></a></div>
+							
+							<div class="item-size">
+								<input type='radio' value='1' name='radio' id="size_1" />
+        						<label for='size_1'><span>38</span></label>
+							</div>
+
+							<div class="item-size">
+								<input type='radio' value='2' name='radio' id="size_2" />
+								<label for='size_2'><span>40</span></label>
+							</div>
+
+							<div class="item-size">
+								<input type='radio' value='3' name='radio' id="size_3" />
+								<label for='size_3'><span>XXS</span></label>
+							</div>
+
+							<!-- <div class="item-size"><a href="#"><span>XXS</span></a></div>
 							<div class="item-size"><a href="#"><span>40</span></a></div>
 							<div class="item-size"><a href="#"><span>XS</span><br></a></div>
-							<div class="item-size"><a href="#"><span>42</span></a></div>
+							<div class="item-size"><a href="#"><span>42</span></a></div> -->
 						</div>
-						<div class="last-part">
+						<!-- <div class="last-part">
 							<div class="item-size"><a href="#"><span>S</span></a></div>
 							<div class="item-size"><a href="#"><span>44</span></a></div>
 							<div class="item-size"><a href="#"><span>M</span></a></div>
 							<div class="item-size"><a href="#"><span>46</span></a></div>
 							<div class="item-size"><a href="#"><span class="last">L</span></a></div>
-						</div>
+						</div> -->
 					</div>
 					<!-- <p class="status">Есть в наличии</p> -->
 					<p class="status">
