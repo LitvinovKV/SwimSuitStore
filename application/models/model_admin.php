@@ -10,7 +10,7 @@
 
         function getData() {
             return array(
-                "colors" => $this->getSimpleQueryFromDB("name", "color"),
+                "colors" => $this->getColors(),
                 "sizes" => $this->getSimpleQueryFromDB("name", "size"),
                 "id_products" => $this->getSimpleQueryFromDB("id_product", "product"),
                 "categories" => $this->getSimpleQueryFromDB("name", "category"),
@@ -110,6 +110,24 @@ SECONDQUERY;
             for($i = 0; $i < $res->num_rows; $i++) {
                 $res->data_seek($i);
                 array_push($result, $res->fetch_assoc());
+            }
+            return $result;
+        }
+
+        // Метод, который возвращает массив с полной информацией по цветам
+        private function getColors() {
+            $sql_query = "SELECT * FROM `color`";
+            $res = $this->connection->query($sql_query);
+            $result = [];
+            for($i = 0; $i < $res->num_rows; $i++) {
+                $res->data_seek($i);
+                $color = $res->fetch_assoc();
+                array_push($result, array(
+                    "id" => $color["id_color"],
+                    "name_ru" => $color["name"],
+                    "name_eng" => $color["name_eng"],
+                    "path" => $color["path_name"]
+                ));
             }
             return $result;
         }

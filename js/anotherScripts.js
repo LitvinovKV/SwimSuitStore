@@ -34,3 +34,4 @@ function addBasket() {
     if (XHR.status === 200)
         alert(XHR.responseText);
 }
+

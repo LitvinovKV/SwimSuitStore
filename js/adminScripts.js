@@ -212,6 +212,32 @@ function RedactColorName(ChangedColorName = document.getElementsByName("ChangedC
     sendSimpleDoubleHTTP("RedactColorName", ChangedColorName, "OldColorName", OldColorName);
 }
 
+function ShowColorInformation(idColor = document.getElementsByName("ShowColorById")[0].value) {
+    
+    if(idColor.length === 0) {
+        alert("Вы не заполнили форму!");
+    }
+
+    let XHR = new XMLHttpRequest();
+    // Настроить POST запрос
+    XHR.open("POST", "/adminpanel_queries.php", true);
+    XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // Отправить запрос
+    let body = "IdColorForReturnInformation=" + idColor;
+    XHR.send(body);
+    // Если запрос имеет статус 200 (успешно обработан)
+    XHR.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            // Разбить строку, которая пришла в качестве ответа на массив строк
+            let answer = this.responseText.split("//");
+            let colorPath = "/images/s_networks/" + answer[3];
+            document.getElementsByName("ShowColorNameRu")[0].value = answer[1];
+            document.getElementsByName("ShowColorNameEng")[0].value = answer[2];
+            document.getElementsByName("ShowColorPhoto")[0].src = colorPath;
+        }
+    }
+}
+
 // Ф-ия отправки запроса на сервер, чтобы редактировать название размера в БД
 function RedactSizeName(ChangedSizeName = document.getElementsByName("ChangedSizeName")[0].value, 
     OldSizeName = document.getElementsByName("OldSizeName")[0].value) {
