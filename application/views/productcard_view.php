@@ -49,23 +49,33 @@
 							<a href="#"><img class="responsive-img" src="/images/products_images/Photo13.jpg" alt="3"></a>
 							<a href="#"><img class="responsive-img" src="/images/products_images/Photo9.jpg" alt="4"></a> -->
 
-							<?
+							<img class="demo responsive-img" src="/images/products_images/Photo9.jpg" onclick="currentSlide(1)"  id="defaultOpen" alt="4">
+							<img class="demo responsive-img" src="/images/products_images/Photo6.jpg" onclick="currentSlide(2)" alt="4">
+							<img class="demo responsive-img" src="/images/products_images/Photo13.jpg" onclick="currentSlide(3)" alt="4">
+							<img class="demo responsive-img" src="/images/products_images/Photo9.jpg" onclick="currentSlide(4)" alt="4">
+
+							<!--<?
 
 								for ($i = 0; $i < count($data["photos"]); $i++) {
 									echo "<a href=\"#\"><img class=\"responsive-img\" src=\"/images/products_images/". 
 										$data["photos"][$i] . "\"alt=" . ($i + 1) . "></a>";
 								}
 
-							?>
+							?>-->
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
 						<div class="view">
 							<!-- <img class="big responsive-img" src="/images/products_images/Photo6.jpg" alt="Big photo"> -->
-							<? 
+
+							<img class="big responsive-img" src="/images/products_images/Photo9.jpg" alt="Big photo">
+							<img class="big responsive-img" src="/images/products_images/Photo6.jpg" alt="Big photo">
+							<img class="big responsive-img" src="/images/products_images/Photo13.jpg" alt="Big photo">
+							<img class="big responsive-img" src="/images/products_images/Photo9.jpg" alt="Big photo">
+							<!--<? 
 								echo "<img class=\"big responsive-img\" src=\"/images/products_images/" . 
 									$data["generalPhoto"] . "\"alt=\"Big photo\">"; 
-							?>
+							?>-->
 						</div>
 					</div>
 				</div>

@@ -25,6 +25,7 @@ h1, h2, h3, h4{
 }
 
 .logo h1 {
+	font-family: "HunterRiver-Regular", sans-serif;
 	text-align: center;
 	font-size: 117px;
 	color: #000;

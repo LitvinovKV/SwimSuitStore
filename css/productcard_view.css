@@ -20,7 +20,14 @@
 	margin-bottom: 30px;
 }
 
+.product .photo .preview:after {
+	content: "";
+  display: table;
+  clear: both;
+}
+
 .product .photo .preview img {
+	cursor: pointer;
 	width: 100%;
 	height: auto;
 	padding: 0 35px 7px 40px;
@@ -31,6 +38,7 @@
 }
 
 .product .photo .big {
+	display: none;
 	width: 100%;
 	padding-right: 10px;
 	margin-bottom: 20px;
@@ -348,7 +356,7 @@
 }
 }
 /* Small Devices, Tablets */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 766px) {
 .product .photo .preview img {
 	padding: 0 6.5% 7px 53%;
 }
