@@ -569,13 +569,13 @@
 
 /* ------- */
  
-div > input[type="radio"] {
+.item-size > input[type="radio"] {
 	visibility: hidden;
 	height: 0;
 	width: 0;
 }
 
-div > label {
+.item-size > label {
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
@@ -583,22 +583,22 @@ div > label {
 	height: 26px; /* ATTANTION!! ЭТО ДЛЯ ТОГО ЧТОБЫ РАССКРАШИВАЛСЯ ЦЕЛЫЙ БЛОК */
 }
 
-div > input[type="radio"]:checked + label{
+.item-size > input[type="radio"]:checked + label{
 	background-color: #e5bcad;
 }
 
-label > input {
+.color-circle label > input {
 	visibility: hidden;
 	height: 0;
 	width: 0;
 }
 
-label > input + img{
+.color-circle label > input + img{
 	cursor:pointer;
 	border:2px solid transparent;
 }
 
-label > input[type="radio"]:checked + img{
+.color-circle label > input[type="radio"]:checked + img{
 	border: 2px solid black;
 	border-radius: 20px; /* ATTANTION!! ЭТО ДЛЯ ТОГО ЧТОБЫ ВЫДЕЛЕНИЕ БЫЛО ПО КРУЖОЧКУ ЦВЕТА */
 }

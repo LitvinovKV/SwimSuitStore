@@ -111,7 +111,7 @@
 							<input type='radio' value='1' name='radio_color' id="color_1"/>
 							<img src="/images/s_networks/circle.png" alt="">
 						</label>
-
+					</div>
 
 					<!-- <p class="s-title">Размер</p> -->
 					<p class="s-title"><? echo LanguageSelect::$templateData["Size"] ?></p>
