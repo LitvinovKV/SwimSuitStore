@@ -34,9 +34,38 @@
                 "sizes" => $arraySize,
                 "generalPhoto" => $this->getGeneralPhotoProduct($id_product),
                 "photos" => $this->getPhotoProduct($id_product),
-                "path" => $this->getHrefsProduct($id_product)
+                "path" => $this->getHrefsProduct($id_product),
+                "products" => $this->getProducts($id_product)
             );
             return $result;
+        }
+
+        private function getProducts($id_product) {
+
+            // Получить все подкатегории выбранного продукта
+            $sql_query = "SELECT `id_subcategory` FROM `product_subcategory` WHERE `id_product` =" .  $id_product;
+            $res = $this->connection->query($sql_query);
+            $Result = [];
+            for($i = 0; $i < $res->num_rows; $i++) {
+                $res->data_seek($i);
+                $id_subcategory = $res->fetch_assoc()["id_subcategory"];
+                // Получить идентификатор продукта из подкатегории
+                $sql_query = "SELECT `id_product` FROM `product_subcategory` WHERE `id_subcategory` = " . $id_subcategory;
+                $res2 = $this->connection->query($sql_query);
+                for($j = 0; $j < $res2->num_rows; $j++) {
+                    $res2->data_seek($j);
+                    $id_product = $res2->fetch_assoc()["id_product"];
+
+                    // Получить фотографии товара по идентификатору
+                    $sql_query = "SELECT `name` FROM `photo` WHERE `id_product` = " . $id_product . " AND `is_general` = 1";
+                    $res3 = $this->connection->query($sql_query);
+                    array_push($Result, array(
+                        "id" => $id_product,
+                        "photo" => $this->connection->query($sql_query)->fetch_assoc()["name"]
+                    ));
+                }
+            }
+            return $Result;
         }
 
         private function getColorName($id_color) {

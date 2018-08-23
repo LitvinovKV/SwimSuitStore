@@ -27,7 +27,7 @@
             <div style="margin-top: 0.5%; margin-left: 5%" class="ButtonBlock" hidden>
                 <button type="button" class="btn btn-light" onclick="FormHidden(0, 'AddForms')">Категорию</button>
                 <button type="button" class="btn btn-light" onclick="FormHidden(1, 'AddForms')">Подкатегорию</button>
-                <button type="button" class="btn btn-light" onclick="FormHidden(2, 'AddForms')">Цвет с фото</button>
+                <button type="button" class="btn btn-light" onclick="FormHidden(2, 'AddForms')">Кружочек цвета</button>
                 <button type="button" class="btn btn-light" onclick="FormHidden(3, 'AddForms')">Размер</button>
                 <button type="button" class="btn btn-light" onclick="FormHidden(4, 'AddForms')">Продукт</button>
                 <button type="button" class="btn btn-light" onclick="FormHidden(5, 'AddForms')">Подкатегорию к продукту</button>
@@ -119,7 +119,7 @@
                         <option hidden>Выберите цвет для продукта</option>
                         <? 
                             for ($i = 0; $i < count($data["colors"]); $i++)
-                                echo  "<option>" . $data["colors"][$i] . "</option>";
+                                echo  "<option>" . $data["colors"][$i]["id"] . "</option>";
                         ?>
                     </select>
                     <select class="form-control SelectWidth" name="AddProductIdForColor">
@@ -183,7 +183,7 @@ HEADFORM;
                     </select>
                     <button type="button" class="btn btn-primary btnforms" onclick="AddNewProductHit()">Сделать хитом</button>
 BOTTOMFORM;
-                if ($data["hits"] < 3)
+                if ($data["hits"][0] < 3)
                     echo $forms;
                 else
                     echo "ТОВАРОВ, ЯВЛЯЮЩИМИСЯ ХИТОМ РОВНО 3! УДАЛИТЕ ТОВАР, ЧТОБЫ ДОБАВИТЬ НОВЫЙ ХИТ!";
@@ -203,7 +203,7 @@ BOTTOMFORM;
                 <button type="button" class="btn btn-light" onclick="FormHidden(2, 'UpdateForms')">Цвет</button>
                 <button type="button" class="btn btn-light" onclick="FormHidden(3, 'UpdateForms')">Размер</button>
                 <button type="button" class="btn btn-light" onclick="FormHidden(4, 'UpdateForms')">Продукт</button>
-                <button type="button" class="btn btn-light" onclick="FormHidden(5, 'UpdateForms')">Хит</button>
+                <button type="button" class="btn btn-light" onclick="FormHidden(5, 'UpdateForms')">Убрать хит</button>
             </div>
 
             <!-- ФОРМА -->
@@ -304,6 +304,19 @@ BOTTOMFORM;
                     
                     <button type="button" class="btn btn-primary btnforms" onclick="RedactInformationAboutlProduct()">Редактировать</button>
                 </form>
+            
+            <form hidden class="UpdateForms">
+                <select class="form-control SelectWidth" onchange="selectProduct(this.value)" name="HitProductRedact">
+                    <option hidden>Выберите идентфиикатор продукта</option>
+                       <?
+                           for ($i = 0; $i < count($data["products"]); $i++) {
+                                if ($data["products"][$i]["Hit"] === "1")
+                                    echo  "<option>" . $data["products"][$i]["id"] . "</option>";
+                           }
+                        ?>
+                </select>
+                <button type="button" class="btn btn-primary btnforms" onclick="DeleteHit()">Убрать хит</button>
+            </form>
             
             </div>
         </div>
@@ -536,6 +549,7 @@ BOTTOMFORM;
             6. Ожидаемый размер фотографий : <br>
             7. Кол-во фотографий у одного продукта должно быть > 2 <br>
             8. Кружочек для цвета должен быть размером ...  и формата только png<br>
+            9. Фотографий у продукта не должно быть > 5 (<= 4 РЕКОМЕНДОВАННО!) <br>
             </label>
 </body>
 </html>

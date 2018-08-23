@@ -49,10 +49,23 @@
 							<a href="#"><img class="responsive-img" src="/images/products_images/Photo13.jpg" alt="3"></a>
 							<a href="#"><img class="responsive-img" src="/images/products_images/Photo9.jpg" alt="4"></a> -->
 
-							<img class="demo responsive-img" src="/images/products_images/Photo9.jpg" onclick="currentSlide(1)"  id="defaultOpen" alt="4">
+							<?php
+								$general = $data["generalPhoto"];
+								echo <<< GENERALPHOTO
+								<img class="demo responsive-img" src="/images/products_images/$general" onclick="currentSlide(1)"  id="defaultOpen" alt="4">						
+GENERALPHOTO;
+								for($i = 0; $i < count($data["photos"]); $i++) {
+									$photo = $data["photos"][$i];
+									$number = $i + 2;
+									echo <<< PHOTO
+										<img class="demo responsive-img" src="/images/products_images/$photo" onclick="currentSlide($number)"  id="defaultOpen" alt="4">
+PHOTO;
+								}
+							?>
+							<!-- <img class="demo responsive-img" src="/images/products_images/Photo9.jpg" onclick="currentSlide(1)"  id="defaultOpen" alt="4">
 							<img class="demo responsive-img" src="/images/products_images/Photo6.jpg" onclick="currentSlide(2)" alt="4">
 							<img class="demo responsive-img" src="/images/products_images/Photo13.jpg" onclick="currentSlide(3)" alt="4">
-							<img class="demo responsive-img" src="/images/products_images/Photo9.jpg" onclick="currentSlide(4)" alt="4">
+							<img class="demo responsive-img" src="/images/products_images/Photo9.jpg" onclick="currentSlide(4)" alt="4"> -->
 
 							<!--<?
 
@@ -68,10 +81,25 @@
 						<div class="view">
 							<!-- <img class="big responsive-img" src="/images/products_images/Photo6.jpg" alt="Big photo"> -->
 
-							<img class="big responsive-img" src="/images/products_images/Photo9.jpg" alt="Big photo">
+							<?php
+								$general = $data["generalPhoto"];
+								echo <<< GENERALPHOTO
+								<img class="big responsive-img" src="/images/products_images/$general" alt="Big photo">					
+GENERALPHOTO;
+								for($i = 0; $i < count($data["photos"]); $i++) {
+									$photo = $data["photos"][$i];
+									echo <<< PHOTO
+									<img class="big responsive-img" src="/images/products_images/$photo" alt="Big photo">
+PHOTO;
+								}
+							?>
+
+							<!-- <img class="big responsive-img" src="/images/products_images/Photo9.jpg" alt="Big photo">
 							<img class="big responsive-img" src="/images/products_images/Photo6.jpg" alt="Big photo">
 							<img class="big responsive-img" src="/images/products_images/Photo13.jpg" alt="Big photo">
-							<img class="big responsive-img" src="/images/products_images/Photo9.jpg" alt="Big photo">
+							<img class="big responsive-img" src="/images/products_images/Photo9.jpg" alt="Big photo"> -->
+
+
 							<!--<? 
 								echo "<img class=\"big responsive-img\" src=\"/images/products_images/" . 
 									$data["generalPhoto"] . "\"alt=\"Big photo\">"; 
@@ -170,30 +198,58 @@
 	<div class="container">
 		<div class="row">
 			<div class="carousel-shop">
+					
+					<?php
+
+						for($i = 0; $i < count($data["products"]); $i++) {
+							$id = $data["products"][$i]["id"];
+							if ($id === $data["main"]["id_product"]) continue;
+							$photo = $data["products"][$i]["photo"];
+							if (LanguageSelect::$lang === "RU")
+								$href = "/RU/productcard/" . $id;
+							else
+								$href = "/ENG/productcard/" . $id;
+							
+							echo <<< PHOTO
+								<div class="carousel-item">
+								<img class="responsive-img" src="/images/products_images/$photo" alt="">
+								<div class="button-item">
+									<a href="$href" class="button">Shop now</a>
+								</div>
+							</div>
+PHOTO;
+						}
+
+					?>
+
+					<!-- <div class="carousel-item">
+						<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="">
+						<div class="button-item">
+							<a href="#" class="button">Shop now</a>
+						</div>
+					</div>
+
 					<div class="carousel-item">
 						<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="">
 						<div class="button-item">
 							<a href="#" class="button">Shop now</a>
 						</div>
 					</div>
+
 					<div class="carousel-item">
 						<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="">
 						<div class="button-item">
 							<a href="#" class="button">Shop now</a>
 						</div>
 					</div>
+
 					<div class="carousel-item">
 						<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="">
 						<div class="button-item">
 							<a href="#" class="button">Shop now</a>
 						</div>
-					</div>
-					<div class="carousel-item">
-						<img class="responsive-img" src="/images/products_images/Photo6.jpg" alt="">
-						<div class="button-item">
-							<a href="#" class="button">Shop now</a>
-						</div>
-					</div>
+					</div> -->
+
 			</div>
 		</div>
 	</div>

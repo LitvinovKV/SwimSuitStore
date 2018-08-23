@@ -73,12 +73,14 @@
                     array_push($Pictures, $res->fetch_assoc()["name"]);
                 }
 
+                $hit = $this->getSimpleQueryFromDB("is_hit", "product");
                 array_push($result, array(
                     "id" => $id_products[$i],
                     "photos" => $Pictures,
                     "subcategories" => $this->simpleQueryForProduct($id_products[$i], "product_subcategory", "subcategory", "id_subcategory"),
                     "Colors" => $this->simpleQueryForProduct($id_products[$i], "product_color", "color", "id_color"),
-                    "Sizes" => $this->simpleQueryForProduct($id_products[$i], "product_size", "size", "id_size")
+                    "Sizes" => $this->simpleQueryForProduct($id_products[$i], "product_size", "size", "id_size"),
+                    "Hit" => $hit[$i]
                 ));
             }
             return $result;

@@ -515,3 +515,13 @@ function DeleteCurrentOrder(OrderId = document.getElementsByName("DeleteOrdersId
 
     sendSimpleHTTP("DeleteCurrentOrder", OrderId);
 }
+
+// Ф-ия которая удаляет знамение ХИТ у товара
+function DeleteHit(ProductId = document.getElementsByName("HitProductRedact")[0].value) {
+    if (ProductId.length === 0) {
+        alert("Вы не выбрали продукт.");
+        return;
+    }
+
+    sendSimpleHTTP("DeleteHitProduct", ProductId);
+}

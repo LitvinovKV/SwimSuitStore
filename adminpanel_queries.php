@@ -659,4 +659,14 @@ ORDERQUERY;
  
          header('location:  http://' . $_SERVER['HTTP_HOST'] . '/admin/workspace');
     }
+
+    if(isset($_POST["DeleteHitProduct"]) === true) {
+        $connection = setConnectionToDB();
+
+        $sql_query = "UPDATE `product` SET `is_hit` = '0' WHERE `id_product` = " . $_POST["DeleteHitProduct"];
+        if ($connection->query($sql_query) === true)
+            echo "Выбранный товар теперь не является хитом.";
+        else
+            echo "Ошибка изменения хита в базе данных. Попробуйте снова.";
+    }
 ?>
