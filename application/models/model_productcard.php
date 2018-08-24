@@ -17,7 +17,11 @@
             $res = $this->connection->query($sql_query);
             for ($i = 0; $i < $res->num_rows; $i++) {
                 $res->data_seek($i);
-                array_push($arrayColor, $this->getColorName($res->fetch_assoc()["id_color"]));
+                $id_color = $res->fetch_assoc()["id_color"];
+                array_push($arrayColor, array(
+                    "name" => $this->getColorName($id_color),
+                    "image" => $this->getColorPathName($id_color)
+                ));
             }
 
             $arraySize = [];
@@ -71,6 +75,12 @@
         private function getColorName($id_color) {
             $sql_query = "SELECT name FROM color WHERE id_color = " . $id_color;
             $result = $this->connection->query($sql_query)->fetch_assoc()["name"];
+            return $result;
+        }
+
+        private function getColorPathName($id_color) {
+            $sql_query = "SELECT `path_name` FROM `color` WHERE `id_color` = " . $id_color;
+            $result = $this->connection->query($sql_query)->fetch_assoc()["path_name"];
             return $result;
         }
 

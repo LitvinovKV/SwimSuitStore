@@ -25,13 +25,41 @@ function saveEmail(EmailName = document.getElementById("e-mail").value,
 
 }
 
+function increaseCountBasket() {
+    let countBasket = document.getElementById("ProductCountInBasket");
+    countBasket.textContent = ++countBasket.textContent;
+}
 
+// document.addEventListener("DOMContentLoaded", increaseCountBasket);
+
+
+// Реакция на нажатие кнопки "Добавить в корзину"
+// Отсылает запрос на сервер, запрос на добавление товара в корзину
 function addBasket() {
-    let Flag = true;
+    increaseCountBasket();
+    let productID = document.getElementById("hiddenIdProduct").textContent;
+    let ProductSize = document.getElementById("NameSize").textContent;
+    let ProductColor = document.getElementById("NameColor").textContent;
+    if (ProductColor.length === 0 || ProductSize.length === 0) {
+        alert("Вы не выбрали размер или цвет товара!");
+        return;
+    }
     let XHR = new XMLHttpRequest();
-    XHR.open("GET", "/queries.php?SessionTest=" + Flag, false);
+    console.log(productID);
+    console.log(ProductSize);
+    console.log(ProductColor);
+    XHR.open("GET", "/queries.php?AddToBasketID=" + productID + "&AddToBasketSize=" + ProductSize + 
+    "&AddToBasketColor=" + ProductColor, false);
     XHR.send();
     if (XHR.status === 200)
         alert(XHR.responseText);
 }
 
+// Реакция на нажатие кнопки для выбора цвета в карточке продукта
+function changeColor(NewColor) {
+    document.getElementById("NameColor").textContent = NewColor;
+}
+
+function changeSize(NewSize) {
+    document.getElementById("NameSize").textContent = NewSize;
+}

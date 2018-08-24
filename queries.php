@@ -43,14 +43,50 @@
     }
 
     // Проверка кнопки добавления в корзину
-    if (isset($_GET["SessionTest"])) {
-        if ($_GET["SessionTest"] === "true") {
-            
-            echo "SUCCESS!";
+    // Basket = [
+    //     [id, count, color, size], ...    
+    // ]
+    if (isset($_GET["AddToBasketID"]) === true && isset($_GET["AddToBasketSize"]) === true && isset($_GET["AddToBasketColor"]) === true) {
+        $ProductID = $_GET["AddToBasketID"];
+        $Color = $_GET["AddToBasketColor"];
+        $Size = $_GET["AddToBasketSize"];
+
+        if (array_key_exists("Basket", $_SESSION) === true) {
+            $Basket = $_SESSION["Basket"];
+            $flagProductInBasket = false;
+
+            for($i = 0; $i < count($Basket); $i++) {
+                if ($Basket[$i]["id"] === $ProductID && $Basket[$i]["size"] === $Size && $Basket[$i]["color"] === $Color) {
+                    $flagProductInBasket = true;
+                    $_SESSION["Basket"][$i]["count"]++;
+                    break;
+                }
+            }
+
+            if ($flagProductInBasket === false) {
+                    array_push($_SESSION["Basket"], array(
+                        "id" => $ProductID,
+                        "count" => 1,
+                        "size" => $Size,
+                        "color" => $Color
+                    ));
+            }
         }
         else {
-            echo "FAULT";
+            $_SESSION["Basket"] = [];
+            array_push($_SESSION["Basket"], array(
+                "id" => $ProductID,
+                "count" => 1,
+                "size" => $Size,
+                "color" => $Color
+            ));
         }
-        return;
+        
+
+        if (array_key_exists("count", $_SESSION) === true)
+            $_SESSION["count"]++;
+        else
+            $_SESSION["count"] = 1;
+        echo "Товар успешно добавлен в корзину";
     }
 ?>

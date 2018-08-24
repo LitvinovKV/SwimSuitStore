@@ -122,31 +122,59 @@ PHOTO;
 					<!-- <p class="price">4999 <span>₽</span></p> -->
 					<p class="price"><? echo $Price ?></p>
 					<!-- <p class="color"><span class="color-title">Цвет</span> <i class="fa fa-angle-right"></i> <span class="color-name">Розовый</span></p> -->
-					<p class="color"><span class="color-title"><? echo LanguageSelect::$templateData["Color"] ?></span> <i class="fa fa-angle-right"></i> <span class="color-name">Розовый</span></p>
+					<p class="color"><span class="color-title"><? echo LanguageSelect::$templateData["Color"] ?></span> <i class="fa fa-angle-right"></i> <span class="color-name" id="NameColor"></span></p>
 					<div class="color-circle">
 						<!-- <a class="circle" href="#"><img src="/images/s_networks/circle.png" alt=""></a>
 						<a class="circle" href="#"><img src="/images/s_networks/circle.png" alt=""></a>
 						<a class="circle" href="#"><img src="/images/s_networks/circle.png" alt=""></a>
 						<a class="circle" href="#"><img src="/images/s_networks/circle.png" alt=""></a>
 						<a class="circle" href="#"><img src="/images/s_networks/circle.png" alt=""></a> -->
+						
+						<?php
+						
+						for($i = 0; $i < count($data["colors"]); $i++) {
+							$imageName = $data["colors"][$i]["name"];
+							$imagePath = $data["colors"][$i]["image"];
+							echo <<< COLORS
+								<label>
+									<input type='radio' value='1' name='radio_color' id="color_1"/>
+									<img src="/images/s_networks/$imagePath" onclick="changeColor('$imageName')">
+								</label>
+COLORS;
+						}
+							
+					?>
 
-						<label>
+						<!-- <label>
 							<input type='radio' value='1' name='radio_color' id="color_1"/>
-							<img src="/images/s_networks/circle.png" alt="">
+							<img src="/images/s_networks/circle.png" alt="hm1">
 						</label>
 
 						<label>
 							<input type='radio' value='1' name='radio_color' id="color_1"/>
-							<img src="/images/s_networks/circle.png" alt="">
-						</label>
+							<img src="/images/s_networks/circle.png" alt="hm2">
+						</label> -->
 					</div>
 
 					<!-- <p class="s-title">Размер</p> -->
-					<p class="s-title"><? echo LanguageSelect::$templateData["Size"] ?></p>
+					<p class="s-title"><? echo LanguageSelect::$templateData["Size"] ?> <i class="fa fa-angle-right"></i> <span class="color-name" id="NameSize"></span></p>
 					<div class="size">
 						<div class="first-part">
 							
-							<div class="item-size">
+							<?php
+								for($i = 0; $i < count($data["sizes"]); $i++) {
+									$sizeName = $data["sizes"][$i];
+									$value = $i + 1;
+									echo <<< SIZE
+										<div class="item-size">
+											<input type='radio' value='$value' name='radio' id="size_$value" />
+											<label for='size_$value' onclick="changeSize('$sizeName')"><span>$sizeName</span></label>
+										</div>										
+SIZE;
+								}
+							?>
+
+							<!-- <div class="item-size">
 								<input type='radio' value='1' name='radio' id="size_1" />
         						<label for='size_1'><span>38</span></label>
 							</div>
@@ -159,7 +187,7 @@ PHOTO;
 							<div class="item-size">
 								<input type='radio' value='3' name='radio' id="size_3" />
 								<label for='size_3'><span>XXS</span></label>
-							</div>
+							</div> -->
 
 							<!-- <div class="item-size"><a href="#"><span>XXS</span></a></div>
 							<div class="item-size"><a href="#"><span>40</span></a></div>
@@ -253,4 +281,6 @@ PHOTO;
 			</div>
 		</div>
 	</div>
+	
+	<span hidden="true" id="hiddenIdProduct"><? echo $data["main"]["id_product"] ?></span>
 </section>

@@ -1,5 +1,10 @@
 <?php session_start();
-		
+	// $_SESSION["Basket"] = [];
+	// var_dump($_SESSION);
+
+	// unset($_SESSION["count"]);
+	// unset($_SESSION["Basket"]);
+
 	// var_dump($_SESSION);
 
 	// Удалить значение из сессии
@@ -69,7 +74,14 @@
 						</div>
 						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
 							<div class="basket">
-								<div class="shop-count"><span>0</span></div>
+								<div class="shop-count"><span id="ProductCountInBasket">
+								<? 
+									if (array_key_exists("count", $_SESSION) === false) 
+										echo 0;
+									else
+										echo $_SESSION["count"];  
+								?>
+								</span></div>
 								<div class="basket-img">
 									<a href="#" class="bs"><img class="img-svg" src="/images/s_networks/icon-basket.svg" alt="Baske"></a>
 								</div>
