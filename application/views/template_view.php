@@ -1,6 +1,6 @@
 <?php session_start();
 	// $_SESSION["Basket"] = [];
-	// var_dump($_SESSION);
+	var_dump($_SESSION);
 
 	// unset($_SESSION["count"]);
 	// unset($_SESSION["Basket"]);
@@ -83,7 +83,7 @@
 								?>
 								</span></div>
 								<div class="basket-img">
-									<a href="#" class="bs"><img class="img-svg" src="/images/s_networks/icon-basket.svg" alt="Baske"></a>
+									<a <?echo "href=/" . LanguageSelect::$lang . "/basket" ?> class="bs"><img class="img-svg" src="/images/s_networks/icon-basket.svg" alt="Baske"></a>
 								</div>
 							</div>
 						</div>

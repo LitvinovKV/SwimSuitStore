@@ -56,7 +56,18 @@
                 "Color" => "ЦВЕТ",
                 "Description" => "ОПИСАНИЕ",
                 "InAvailable" => "ЕСТЬ В НАЛИЧИИ",
-                "NoAvailable" => "НЕТ В НАЛИЧИИ"
+                "NoAvailable" => "НЕТ В НАЛИЧИИ",
+                "BasketName" => "Корзина",
+                "BasketFirst" => "КОРЗИНА ТОВАРОВ",
+                "BasketSecond" => "ОФОРМИТЬ ЗАКАЗ",
+                "BasketThird" => "ПРОВЕРКА ЗАКАЗА",
+                "BasketColumnFirst" => "Товар",
+                "BasketColumnSecond" => "ЦЕНА",
+                "BasketColumnThird" => "КОЛИЧЕСТВО",
+                "BasketColumnFourth" => "СУММА",
+                "BasketFirstButton" => "ОБНОВИТЬ КОРЗИНУ",
+                "BasketSecondButton" => "ОФОРМЛЕНИЕ ЗАКАЗА",
+                "BasketThirdButton" => "ОФОРМИТЬ ЗАКАЗ"
             );
             self::$lang = "RU";
         }
@@ -92,7 +103,19 @@
                 "Color" => "COLOR",
                 "Description" => "DESCRIPTION",
                 "InAvailable" => "ARE AVAILABLE",
-                "NoAvailable" => "NOT AVAILABLE"
+                "NoAvailable" => "NOT AVAILABLE",
+                "BasketName" => "Basket",
+                "BasketFirst" => "BASKET WITH THINGS",
+                "BasketSecond" => "ORDERING",
+                "BasketThird" => "CHECK ORDER",
+                "BasketColumnFirst" => "PRODUCT",
+                "BasketColumnSecond" => "PRICE",
+                "BasketColumnThird" => "QUANTITY",
+                "BasketColumnFourth" => "SUBTOTAL",
+                "BasketFirstButton" => "UPDATE BASKET",
+                "BasketSecondButton" => "ORDERING",
+                "BasketThirdButton" => "CHECKOUT"
+
             );
             self::$lang = "ENG";
         }

@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<a href="#">Корзина</a>
+					<a <? echo "href=/" . LanguageSelect::$lang . "/basket";?> ><? echo LanguageSelect::$templateData["BasketName"]; ?></a>
 			</div>
 		</div>
 	</div>
@@ -12,17 +12,17 @@
 		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 				<div class="item-step">
-					<a class="step tablink" onclick="openTab(event, 'Basket')" id="defaultOpen"><span class="number">1</span><span class="name">Корзина<br class="hidden-lg hidden-md"> товаров</span></a>
+					<a class="step tablink" onclick="openTab(event, 'Basket')" id="defaultOpen"><span class="number">1</span><span class="name"><?if (LanguageSelect::$lang === "RU") echo "Корзина"; else echo "Basket";?><br class="hidden-lg hidden-md"><?if (LanguageSelect::$lang === "RU") echo " товаров"; else echo " products";?></span></a>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 				<div class="item-step">
-					<a class="step tablink" onclick="openTab(event, 'Registration')"><span class="number">2</span><span class="name">Оформление<br class="hidden-lg hidden-md"> заказа</span></a>
+					<a class="step tablink" onclick="openTab(event, 'Registration')"><span class="number">2</span><span class="name"><?if (LanguageSelect::$lang === "RU") echo "Оформление"; else echo "Ordering";?><br class="hidden-lg hidden-md"> <?if (LanguageSelect::$lang === "RU") echo " заказа"; else echo "";?></span></a>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 				<div class="item-step">
-					<a class="step tablink" onclick="openTab(event, 'Check')"><span class="number">3</span><span class="name">Проверка<br class="hidden-lg hidden-md"> заказа</span></a>
+					<a class="step tablink" onclick="openTab(event, 'Check')"><span class="number">3</span><span class="name"><?if (LanguageSelect::$lang === "RU") echo "Проверка"; else echo "Check";?><br class="hidden-lg hidden-md"> <?if (LanguageSelect::$lang === "RU") echo " заказа"; else echo " order";?></span></a>
 				</div>
 			</div>
 		</div>
@@ -35,22 +35,22 @@
 				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 offset2"></div>
 				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 					<div class="parameter-title">
-						Product
+						<? echo LanguageSelect::$templateData["BasketColumnFirst"]; ?>
 					</div>
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 					<div class="parameter-title">
-						Price
+					<? echo LanguageSelect::$templateData["BasketColumnSecond"]; ?>
 					</div>
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 					<div class="parameter-title">
-						Quantity
+					<? echo LanguageSelect::$templateData["BasketColumnThird"]; ?>
 					</div>
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 					<div class="parameter-title">
-						Subtotal
+					<? echo LanguageSelect::$templateData["BasketColumnFourth"]; ?>
 					</div>
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 offset2"></div>
@@ -130,13 +130,13 @@
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
 					<div class="result">
 						<p class="title-sum">Subtotal</p>
-						<button>Обновить корзину</button>
+						<button><? echo LanguageSelect::$templateData["BasketFirstButton"]; ?></button>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
 					<div class="result">
 						<p class="result-sum">2800 <span>руб</span></p>
-						<button class="registration">Оформление заказа</button>
+						<button class="registration"><? echo LanguageSelect::$templateData["BasketSecondButton"]; ?></button>
 					</div>
 				</div>
 			</div>
@@ -149,14 +149,14 @@
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="delivery">
-						<span class="title">Доставка</span>
+						<span class="title"><? if (LanguageSelect::$lang === "RU") echo "ДОСТАВКА"; else echo "DELIVERY"; ?></span>
 						<div class="delivery-types">
 							<div class="radio-item">
 								<div class="input-item">
 									<input type="radio" name="post" value="sdek">
 								</div>
 								<div class="radio-name">
-									<span class="sdek">Сдек</span>
+									<span class="sdek"> <?if (LanguageSelect::$lang === "RU") echo "СДЕК"; else echo "CDEK"; ?></span>
 								</div>
 							</div>
 							<div class="radio-item">
@@ -164,7 +164,7 @@
 									<input type="radio" name="post" value="post_ru" checked>
 								</div>
 								<div class="radio-name">
-									<span class="post_ru">Почта России</span>
+									<span class="post_ru"><? if (LanguageSelect::$lang === "RU") echo "ПОЧТА РОССИИ"; else echo "POST OF RUSSIA"; ?></span>
 								</div>
 							</div>
 						</div>
@@ -178,7 +178,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<p class="c-title">Контактная информация</p>
+					<p class="c-title"><? if (LanguageSelect::$lang === "RU") echo "Контактная информация"; else echo "Contact information"; ?></p>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="block">
@@ -187,7 +187,16 @@
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="block">
-						<span class="required">*</span><input type="tel" placeholder="Номер телефона" required>
+					<?
+						if (LanguageSelect::$lang === "RU") echo <<< PHONE
+							<span class="required">*</span><input type="tel" placeholder="Номер телефона" required>						
+PHONE;
+						else
+						echo <<< PHONE
+							<span class="required">*</span><input type="tel" placeholder="Telephone number" required>						
+PHONE;
+					?>
+						<!-- <span class="required">*</span><input type="tel" placeholder="Номер телефона" required> -->
 					</div>
 				</div>
 			</div>
@@ -197,28 +206,48 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<p class="d-title">Информация для доставки</p>
+					<p class="d-title"><? if (LanguageSelect::$lang === "RU") echo "Информация для доставки"; else echo "Delivery Information"; ?></p>
+				</div>
+				<?
+					if (LanguageSelect::$lang === "RU") {
+						$name = "Имя";
+						$country = "Страна";
+						$adress = "Адрес";
+						$secondName = "Фамилия";
+						$city = "Город";
+						$index = "Индекс";
+						$comment = "Коментарий к заказу";
+					}
+					else {
+						$name = "Name";
+						$country = "Country";
+						$adress = "Adress";
+						$secondName = "Second Name";
+						$city = "City";
+						$index = "Index";
+						$comment = "Comment to the order";
+					}
+				?>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="block">
+						<span class="required">*</span><input type="text" placeholder="<?echo $name;?>" required>
+					</div>
+					<div class="block">
+						<span class="required">*</span><input type="text" placeholder="<?echo $country;?>" required>
+					</div>
+					<div class="block">
+						<span class="required">*</span><input type="text" placeholder="<?echo $adress;?>" required>
+					</div>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="block">
-						<span class="required">*</span><input type="text" placeholder="Имя" required>
+						<span class="required">*</span><input type="text" placeholder="<?echo $secondName;?>" required>
 					</div>
 					<div class="block">
-						<span class="required">*</span><input type="text" placeholder="Страна" required>
+						<span class="required">*</span><input type="text" placeholder="<?echo $city;?>" required>
 					</div>
 					<div class="block">
-						<span class="required">*</span><input type="text" placeholder="Адрес" required>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-					<div class="block">
-						<span class="required">*</span><input type="text" placeholder="Фамилия" required>
-					</div>
-					<div class="block">
-						<span class="required">*</span><input type="text" placeholder="Город" required>
-					</div>
-					<div class="block">
-						<span class="required">*</span><input type="text" placeholder="Индекс" required>
+						<span class="required">*</span><input type="text" placeholder="<?echo $index?>" required>
 					</div>
 				</div>
 			</div>
@@ -228,7 +257,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<textarea name="comment" class="comment" rows="4" placeholder="Комментарий"></textarea>
+					<textarea name="comment" class="comment" rows="4" placeholder="<?echo $comment?>"></textarea>
 				</div>
 			</div>
 		</div>
@@ -237,7 +266,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<button class="button-reg">Оформление заказа</button>
+					<button class="button-reg"><?echo LanguageSelect::$templateData["BasketSecondButton"];?></button>
 				</div>
 			</div>
 		</div>
@@ -248,10 +277,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-					<p class="phrase-left">Для завершения заказа оплата не требуется</p>
+					<p class="phrase-left"><?if (LanguageSelect::$lang === "RU") echo "Для завершения заказа оплата не требуется"; else echo "To complete the order, no payment is required";?></p>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-					<p class="phrase-right"><strong>Важно! </strong>Проверьте контактную информацию</p>
+					<p class="phrase-right"><strong><? if (LanguageSelect::$lang === "RU") echo "Важно!"; else echo "Attantion!"; ?> </strong><? if(LanguageSelect::$lang === "RU") echo "Проверьте контактную информацию"; else echo "Check contact information";?></p>
 				</div>
 			</div>
 		</div>
@@ -260,7 +289,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<button class="button-reg">Оформить заказ</button>
+					<button class="button-reg"><?echo LanguageSelect::$templateData["BasketThirdButton"];?></button>
 				</div>
 			</div>
 		</div>
