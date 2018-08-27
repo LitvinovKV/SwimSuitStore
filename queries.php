@@ -46,10 +46,20 @@
     // Basket = [
     //     [id, count, color, size], ...    
     // ]
-    if (isset($_GET["AddToBasketID"]) === true && isset($_GET["AddToBasketSize"]) === true && isset($_GET["AddToBasketColor"]) === true) {
+    if (isset($_GET["AddToBasketID"]) === true && isset($_GET["AddToBasketSize"]) === true && 
+    isset($_GET["AddToBasketColor"]) === true && isset($_GET["AddToBasketPhoto"]) === true && 
+    isset($_GET["AddToBasketPrice"]) === true) {
         $ProductID = $_GET["AddToBasketID"];
         $Color = $_GET["AddToBasketColor"];
         $Size = $_GET["AddToBasketSize"];
+        $Photo = $_GET["AddToBasketPhoto"];
+        $Price = $_GET["AddToBasketPrice"];
+
+        $connection = setConnectionToDB();
+        $sql_query = "SELECT * FROM `product` WHERE `id_product` = " . $ProductID;
+        $res = $connection->query($sql_query)->fetch_assoc();
+        $priceRU = $res["price_ru"];
+        $priceENG = $res["price_eng"];
 
         if (array_key_exists("Basket", $_SESSION) === true) {
             $Basket = $_SESSION["Basket"];
@@ -68,7 +78,10 @@
                         "id" => $ProductID,
                         "count" => 1,
                         "size" => $Size,
-                        "color" => $Color
+                        "color" => $Color,
+                        "photo" => $Photo,
+                        "priceRU" => $priceRU,
+                        "priceENG" => $priceENG
                     ));
             }
         }
@@ -78,7 +91,10 @@
                 "id" => $ProductID,
                 "count" => 1,
                 "size" => $Size,
-                "color" => $Color
+                "color" => $Color,
+                "photo" => $Photo,
+                "priceRU" => $priceRU,
+                "priceENG" => $priceENG
             ));
         }
         

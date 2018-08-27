@@ -57,7 +57,104 @@
 				</div>
 		</div>
 	</section>
-	<section class="s-parameters">
+
+	<?
+		$ColorAbbreviation = LanguageSelect::$templateData["Color"];
+		$SizeAbbreviation = LanguageSelect::$templateData["Size"];
+
+		if (array_key_exists("Basket", $_SESSION) === true) {
+			$Basket = $_SESSION["Basket"];
+			for ($i = 0; $i < count($Basket); $i++) {
+				$idProduct = $Basket[$i]["id"];
+				$sizeProduct = $Basket[$i]["size"];
+				$countProduct = $Basket[$i]["count"];
+				$colorProduct = $Basket[$i]["color"];
+				$photoProduct = $Basket[$i]["photo"];
+				if(LanguageSelect::$lang === "RU") {
+					$summProduct = $countProduct * $Basket[$i]["priceRU"];
+					$priceProduct = $Basket[$i]["priceRU"];
+					$symbol = "₽";
+				}
+				else {
+					$summProduct = $countProduct * $Basket[$i]["priceENG"];
+					$priceProduct = $Basket[$i]["priceENG"];
+					$symbol = "$";
+				}
+				echo <<< PRODUCT
+				<section class="s-parameters">
+				<div class="container">
+					<div class="row">
+						<div class="first-colomn col-lg-2 col-md-2 col-sm-2 col-xs-2">
+							<div class="p-item">
+								<img class="responsive-img" src="/images/products_images/1.jpg" alt="Product">
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+							<div class="p-item text">
+								<p class="name">Трусики1</p>
+								<p><span>Цвет:<br class="hidden-lg hidden-md hidden-sm"></span><span class="color">Желтый</span></p>
+								<p class="size"><span>Размер:</span><span class="size-value">xs</span></p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+							<div class="p-item text">
+								<p class="small"><span class="price">2800</span><span> руб</span></p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+							<div class="p-item text quantity">
+								<a class="small sign" href="#">–</a>
+								<input type="text" value="1">
+								<a class="small sign" href="#">+</a>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+							<div class="p-item text">
+								<p class="small"><span class="sum">2800</span><span> руб</span></p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+							<div class="p-item text">
+								<a  class="small" href="#"><i class="fa fa-trash"></i></a>
+							</div>
+						</div>
+					</div>
+		
+				</div>
+			</section>
+		
+			<section class="s-parameters-small">
+				<div class="container">
+					<div class="row">
+						<div class="first-colomn col-xs-6">
+							<div class="p-item">
+								<img class="responsive-img" src="/images/products_images/1.jpg" alt="Product">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="p-items">
+								<p class="name">Трусики1</p>
+								<p><span>Цвет:</span><span class="color">Желтый</span></p>
+								<p class="size"><span>Размер:</span><span class="size-value">xs</span></p>
+								<p class="small"><span class="price">2800</span><span> руб</span></p>
+								<div class="p-item text quantity">
+									<a class="small sign" href="#">–</a>
+									<input type="text" value="1">
+									<a class="small sign" href="#">+</a>
+								</div>
+								<p class="small"><span class="sum">2800</span><span> руб</span></p>
+								<a  class="small" href="#"><i class="fa fa-trash"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+PRODUCT;
+			}
+		}
+	?>
+	
+	<!-- <section class="s-parameters">
 		<div class="container">
 			<div class="row">
 				<div class="first-colomn col-lg-2 col-md-2 col-sm-2 col-xs-2">
@@ -95,8 +192,10 @@
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</section>
+
 	<section class="s-parameters-small">
 		<div class="container">
 			<div class="row">
@@ -122,7 +221,8 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
+
 	<section class="s-results">
 		<div class="container">
 			<div class="row">

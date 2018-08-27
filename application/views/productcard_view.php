@@ -120,7 +120,7 @@ PHOTO;
 					<!-- <p class="material">Материал:  бифлекс. Состав: 80 % лайкра, 20 % спандекс.</p> -->
 					<p class="material"><? echo $Material ?></p>
 					<!-- <p class="price">4999 <span>₽</span></p> -->
-					<p class="price"><? echo $Price ?></p>
+					<p class="price" id="ProductPrice"><? echo $Price ?></p>
 					<!-- <p class="color"><span class="color-title">Цвет</span> <i class="fa fa-angle-right"></i> <span class="color-name">Розовый</span></p> -->
 					<p class="color"><span class="color-title"><? echo LanguageSelect::$templateData["Color"] ?></span> <i class="fa fa-angle-right"></i> <span class="color-name" id="NameColor"></span></p>
 					<div class="color-circle">
@@ -283,4 +283,5 @@ PHOTO;
 	</div>
 	
 	<span hidden="true" id="hiddenIdProduct"><? echo $data["main"]["id_product"] ?></span>
+	<span hidden="true" id="hiddenGeneralPhoto"><? echo $data["generalPhoto"] ?></span>
 </section>

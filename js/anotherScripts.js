@@ -40,6 +40,8 @@ function addBasket() {
     let productID = document.getElementById("hiddenIdProduct").textContent;
     let ProductSize = document.getElementById("NameSize").textContent;
     let ProductColor = document.getElementById("NameColor").textContent;
+    let GeneralPhoto = document.getElementById("hiddenGeneralPhoto").textContent;
+    let ProductPrice = document.getElementById("ProductPrice").textContent;
     if (ProductColor.length === 0 || ProductSize.length === 0) {
         alert("Вы не выбрали размер или цвет товара!");
         return;
@@ -49,7 +51,7 @@ function addBasket() {
     console.log(ProductSize);
     console.log(ProductColor);
     XHR.open("GET", "/queries.php?AddToBasketID=" + productID + "&AddToBasketSize=" + ProductSize + 
-    "&AddToBasketColor=" + ProductColor, false);
+    "&AddToBasketColor=" + ProductColor + "&AddToBasketPhoto=" + GeneralPhoto + "&AddToBasketPrice=" + ProductPrice, false);
     XHR.send();
     if (XHR.status === 200)
         alert(XHR.responseText);
