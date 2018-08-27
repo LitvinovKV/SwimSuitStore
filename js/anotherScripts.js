@@ -65,3 +65,67 @@ function changeColor(NewColor) {
 function changeSize(NewSize) {
     document.getElementById("NameSize").textContent = NewSize;
 }
+
+// parametrs = [size_product, "color_product", "count_product"]
+// count in HTML : class[...].childNodes[1].childNodes[1].childNodes[3].firstChild
+function minusProduct(className, Parametrs, thisSymbol) {
+    let params = Parametrs.split('_');
+    if (params[2] === 0) {
+        alert("Ошибка / ERROR!");
+        return;
+    }
+
+    let cls = document.getElementsByClassName(className);
+    // console.log(cls[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[9].childNodes[3].value);
+    // console.log(cls[0].childNodes[1].childNodes[1].childNodes[7].childNodes[1].childNodes[3].value);
+    if (cls[0].childNodes[1].childNodes[1].childNodes[7].childNodes[1].childNodes[3].value <= 0 || 
+        cls[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[9].childNodes[3].value <= 0) {
+        alert("Ошибка / Error!");
+        return;
+    }
+    cls[0].childNodes[1].childNodes[1].childNodes[7].childNodes[1].childNodes[3].value--;
+    cls[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[9].childNodes[3].value--;
+
+    // summ = price * count
+    cls[0].childNodes[1].childNodes[1].childNodes[9].childNodes[1].childNodes[1].childNodes[0].textContent = 
+        cls[0].childNodes[1].childNodes[1].childNodes[5].childNodes[1].childNodes[1].childNodes[0].textContent * 
+        cls[0].childNodes[1].childNodes[1].childNodes[7].childNodes[1].childNodes[3].value;
+    cls[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[11].childNodes[0].textContent =
+        cls[0].childNodes[1].childNodes[1].childNodes[9].childNodes[1].childNodes[1].childNodes[0].textContent;
+
+    document.getElementsByClassName("result-sum")[0].textContent = 
+        parseInt(document.getElementsByClassName("result-sum")[0].textContent) -
+        parseInt(cls[0].childNodes[1].childNodes[1].childNodes[5].childNodes[1].childNodes[1].childNodes[0].textContent) + " " + thisSymbol;
+}
+
+function plusProduct(className, Parametrs, thisSymbol) {
+    let params = Parametrs.split('_');
+    if (params[2] === 0) {
+        alert("Ошибка / ERROR!");
+        return;
+    }
+
+    let cls = document.getElementsByClassName(className);
+    // console.log(cls[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[9].childNodes[3].value);
+    // console.log(cls[0].childNodes[1].childNodes[1].childNodes[7].childNodes[1].childNodes[3].value);
+    cls[0].childNodes[1].childNodes[1].childNodes[7].childNodes[1].childNodes[3].value++;
+    cls[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[9].childNodes[3].value++;
+
+    // summ = price * count
+    cls[0].childNodes[1].childNodes[1].childNodes[9].childNodes[1].childNodes[1].childNodes[0].textContent = 
+        cls[0].childNodes[1].childNodes[1].childNodes[5].childNodes[1].childNodes[1].childNodes[0].textContent * 
+        cls[0].childNodes[1].childNodes[1].childNodes[7].childNodes[1].childNodes[3].value;
+    cls[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[11].childNodes[0].textContent =
+        cls[0].childNodes[1].childNodes[1].childNodes[9].childNodes[1].childNodes[1].childNodes[0].textContent;
+
+    // document.getElementsByClassName("result-sum")[0].textContent += 
+    //     cls[0].childNodes[1].childNodes[1].childNodes[5].childNodes[1].childNodes[1].childNodes[0].textContent;
+
+    document.getElementsByClassName("result-sum")[0].textContent =
+        parseInt(document.getElementsByClassName("result-sum")[0].textContent) +
+        parseInt(cls[0].childNodes[1].childNodes[1].childNodes[5].childNodes[1].childNodes[1].childNodes[0].textContent) + " " + thisSymbol; 
+}
+
+function DeleteProduct(IdProduct) {
+    console.log(IdProduct);
+}

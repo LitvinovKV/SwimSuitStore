@@ -62,6 +62,9 @@
 		$ColorAbbreviation = LanguageSelect::$templateData["Color"];
 		$SizeAbbreviation = LanguageSelect::$templateData["Size"];
 
+		$TotalPrice = 0;
+		if (LanguageSelect::$lang === "RU") $symbol = "₽";
+		else $symbol = "$";
 		if (array_key_exists("Basket", $_SESSION) === true) {
 			$Basket = $_SESSION["Basket"];
 			for ($i = 0; $i < count($Basket); $i++) {
@@ -73,49 +76,51 @@
 				if(LanguageSelect::$lang === "RU") {
 					$summProduct = $countProduct * $Basket[$i]["priceRU"];
 					$priceProduct = $Basket[$i]["priceRU"];
-					$symbol = "₽";
+					$TotalPrice += $summProduct;
 				}
 				else {
 					$summProduct = $countProduct * $Basket[$i]["priceENG"];
 					$priceProduct = $Basket[$i]["priceENG"];
-					$symbol = "$";
+					$TotalPrice += $summProduct;
 				}
+				$className = $idProduct . "_" . $i;
+				$glueParametr = $sizeProduct . "_" . $colorProduct . "_" . $countProduct;
 				echo <<< PRODUCT
-				<section class="s-parameters">
+				<section class="s-parameters $className">
 				<div class="container">
 					<div class="row">
 						<div class="first-colomn col-lg-2 col-md-2 col-sm-2 col-xs-2">
 							<div class="p-item">
-								<img class="responsive-img" src="/images/products_images/1.jpg" alt="Product">
+								<img class="responsive-img" src="/images/products_images/$photoProduct" alt="Product">
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 							<div class="p-item text">
-								<p class="name">Трусики1</p>
-								<p><span>Цвет:<br class="hidden-lg hidden-md hidden-sm"></span><span class="color">Желтый</span></p>
-								<p class="size"><span>Размер:</span><span class="size-value">xs</span></p>
+								<p class="name">$idProduct</p>
+								<p><span>$ColorAbbreviation:<br class="hidden-lg hidden-md hidden-sm"></span><span class="color">$colorProduct</span></p>
+								<p class="size"><span>$SizeAbbreviation:</span><span class="size-value">$sizeProduct</span></p>
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 							<div class="p-item text">
-								<p class="small"><span class="price">2800</span><span> руб</span></p>
+								<p class="small"><span class="price">$priceProduct</span><span> $symbol</span></p>
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 							<div class="p-item text quantity">
-								<a class="small sign" href="#">–</a>
-								<input type="text" value="1">
-								<a class="small sign" href="#">+</a>
+								<a class="small sign" onclick="minusProduct('$className', '$glueParametr', '$symbol')" style="cursor: pointer;">–</a>
+								<input type="text" value="$countProduct">
+								<a class="small sign" onclick="plusProduct('$className' , '$glueParametr', '$symbol')" style="cursor: pointer;">+</a>
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 							<div class="p-item text">
-								<p class="small"><span class="sum">2800</span><span> руб</span></p>
+								<p class="small"><span class="sum">$summProduct</span><span> $symbol</span></p>
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 							<div class="p-item text">
-								<a  class="small" href="#"><i class="fa fa-trash"></i></a>
+								<a  class="small" style="cursor: pointer;" onclick="DeleteProduct('$glueParametr')"><i class="fa fa-trash"></i></a>
 							</div>
 						</div>
 					</div>
@@ -123,27 +128,27 @@
 				</div>
 			</section>
 		
-			<section class="s-parameters-small">
+			<section class="s-parameters-small $className">
 				<div class="container">
 					<div class="row">
 						<div class="first-colomn col-xs-6">
 							<div class="p-item">
-								<img class="responsive-img" src="/images/products_images/1.jpg" alt="Product">
+								<img class="responsive-img" src="/images/products_images/$photoProduct" alt="Product">
 							</div>
 						</div>
 						<div class="col-xs-6">
 							<div class="p-items">
-								<p class="name">Трусики1</p>
-								<p><span>Цвет:</span><span class="color">Желтый</span></p>
-								<p class="size"><span>Размер:</span><span class="size-value">xs</span></p>
-								<p class="small"><span class="price">2800</span><span> руб</span></p>
+								<p class="name">$idProduct</p>
+								<p><span>$ColorAbbreviation:</span><span class="color">$colorProduct</span></p>
+								<p class="size"><span>$SizeAbbreviation:</span><span class="size-value">$sizeProduct</span></p>
+								<p class="small"><span class="price">$priceProduct</span><span> $symbol</span></p>
 								<div class="p-item text quantity">
-									<a class="small sign" href="#">–</a>
-									<input type="text" value="1">
-									<a class="small sign" href="#">+</a>
+									<a class="small sign"onclick="minusProduct('$className', '$glueParametr', '$symbol')" style="cursor: pointer;">–</a>
+									<input type="text" value="$countProduct">
+									<a class="small sign" nclick="plusProduct('$className', '$glueParametr', '$symbol')" style="cursor: pointer;">+</a>
 								</div>
-								<p class="small"><span class="sum">2800</span><span> руб</span></p>
-								<a  class="small" href="#"><i class="fa fa-trash"></i></a>
+								<p class="small"><span class="sum">$summProduct</span><span> $symbol</span></p>
+								<a  class="small" style="cursor: pointer;" onclick="DeleteProduct('$glueParametr')"><i class="fa fa-trash"></i></a>
 							</div>
 						</div>
 					</div>
@@ -229,13 +234,13 @@ PRODUCT;
 				<div class="col-lg-6 col-md-6 col-sm-6 offset6"></div>
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
 					<div class="result">
-						<p class="title-sum">Subtotal</p>
+						<p class="title-sum"><? echo LanguageSelect::$templateData["BasketColumnFourth"] ?></p>
 						<button><? echo LanguageSelect::$templateData["BasketFirstButton"]; ?></button>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
 					<div class="result">
-						<p class="result-sum">2800 <span>руб</span></p>
+						<p class="result-sum"><?echo $TotalPrice?> <span><?echo $symbol?></span></p>
 						<button class="registration"><? echo LanguageSelect::$templateData["BasketSecondButton"]; ?></button>
 					</div>
 				</div>
