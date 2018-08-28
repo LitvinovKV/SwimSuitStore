@@ -68,6 +68,7 @@
 		if (array_key_exists("Basket", $_SESSION) === true) {
 			$Basket = $_SESSION["Basket"];
 			for ($i = 0; $i < count($Basket); $i++) {
+				if ($Basket[$i]["count"] === 0) continue;
 				$idProduct = $Basket[$i]["id"];
 				$sizeProduct = $Basket[$i]["size"];
 				$countProduct = $Basket[$i]["count"];
@@ -86,7 +87,7 @@
 				$className = $idProduct . "_" . $i;
 				$glueParametr = $sizeProduct . "_" . $colorProduct . "_" . $countProduct;
 				echo <<< PRODUCT
-				<section class="s-parameters $className">
+				<section class="s-parameters $className allproducts">
 				<div class="container">
 					<div class="row">
 						<div class="first-colomn col-lg-2 col-md-2 col-sm-2 col-xs-2">
@@ -120,7 +121,7 @@
 						</div>
 						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 							<div class="p-item text">
-								<a  class="small" style="cursor: pointer;" onclick="DeleteProduct('$glueParametr')"><i class="fa fa-trash"></i></a>
+								<a  class="small" style="cursor: pointer;" onclick="DeleteProduct('$className', '$glueParametr', '$symbol')"><i class="fa fa-trash"></i></a>
 							</div>
 						</div>
 					</div>
@@ -128,7 +129,7 @@
 				</div>
 			</section>
 		
-			<section class="s-parameters-small $className">
+			<section class="s-parameters-small $className allproducts">
 				<div class="container">
 					<div class="row">
 						<div class="first-colomn col-xs-6">
@@ -148,7 +149,7 @@
 									<a class="small sign" nclick="plusProduct('$className', '$glueParametr', '$symbol')" style="cursor: pointer;">+</a>
 								</div>
 								<p class="small"><span class="sum">$summProduct</span><span> $symbol</span></p>
-								<a  class="small" style="cursor: pointer;" onclick="DeleteProduct('$glueParametr')"><i class="fa fa-trash"></i></a>
+								<a  class="small" style="cursor: pointer;" onclick="DeleteProduct('$className', '$glueParametr', '$symbol')"><i class="fa fa-trash"></i></a>
 							</div>
 						</div>
 					</div>
@@ -201,7 +202,7 @@ PRODUCT;
 		</div>
 	</section>
 
-	<section class="s-parameters-small">
+	<section class="s-parameters-small allproducts">
 		<div class="container">
 			<div class="row">
 				<div class="first-colomn col-xs-6">
@@ -235,13 +236,13 @@ PRODUCT;
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
 					<div class="result">
 						<p class="title-sum"><? echo LanguageSelect::$templateData["BasketColumnFourth"] ?></p>
-						<button><? echo LanguageSelect::$templateData["BasketFirstButton"]; ?></button>
+						<!-- <button><? echo LanguageSelect::$templateData["BasketFirstButton"]; ?></button> -->
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
 					<div class="result">
-						<p class="result-sum"><?echo $TotalPrice?> <span><?echo $symbol?></span></p>
-						<button class="registration"><? echo LanguageSelect::$templateData["BasketSecondButton"]; ?></button>
+						<p class="result-sum" name="resultSum"><?echo $TotalPrice?> <span><?echo $symbol?></span></p>
+						<!-- <button class="registration"><? echo LanguageSelect::$templateData["BasketSecondButton"]; ?></button> -->
 					</div>
 				</div>
 			</div>
@@ -287,18 +288,18 @@ PRODUCT;
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="block">
-						<span class="required">*</span><input type="email" placeholder="E-mail" required>
+						<span class="required">*</span><input type="email" placeholder="E-mail" name ="email" required>
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="block">
 					<?
 						if (LanguageSelect::$lang === "RU") echo <<< PHONE
-							<span class="required">*</span><input type="tel" placeholder="Номер телефона" required>						
+							<span class="required">*</span><input type="tel" placeholder="Номер телефона" name ="telephone" required>						
 PHONE;
 						else
 						echo <<< PHONE
-							<span class="required">*</span><input type="tel" placeholder="Telephone number" required>						
+							<span class="required">*</span><input type="tel" placeholder="Telephone number" name ="telephone" required>						
 PHONE;
 					?>
 						<!-- <span class="required">*</span><input type="tel" placeholder="Номер телефона" required> -->
@@ -329,30 +330,30 @@ PHONE;
 						$adress = "Adress";
 						$secondName = "Second Name";
 						$city = "City";
-						$index = "Index";
+						$index = "Postcode / ZIP";
 						$comment = "Comment to the order";
 					}
 				?>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="block">
-						<span class="required">*</span><input type="text" placeholder="<?echo $name;?>" required>
+						<span class="required">*</span><input type="text" placeholder="<?echo $name;?>" name ="name" required>
 					</div>
 					<div class="block">
-						<span class="required">*</span><input type="text" placeholder="<?echo $country;?>" required>
+						<span class="required">*</span><input type="text" placeholder="<?echo $country;?>" name ="country" required>
 					</div>
 					<div class="block">
-						<span class="required">*</span><input type="text" placeholder="<?echo $adress;?>" required>
+						<span class="required">*</span><input type="text" placeholder="<?echo $adress;?>" name ="adress" required>
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="block">
-						<span class="required">*</span><input type="text" placeholder="<?echo $secondName;?>" required>
+						<span class="required">*</span><input type="text" placeholder="<?echo $secondName;?>" name ="secondName" required>
 					</div>
 					<div class="block">
-						<span class="required">*</span><input type="text" placeholder="<?echo $city;?>" required>
+						<span class="required">*</span><input type="text" placeholder="<?echo $city;?>" name ="city" required>
 					</div>
 					<div class="block">
-						<span class="required">*</span><input type="text" placeholder="<?echo $index?>" required>
+						<span class="required">*</span><input type="text" placeholder="<?echo $index?>" name ="index" required>
 					</div>
 				</div>
 			</div>
@@ -371,7 +372,7 @@ PHONE;
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<button class="button-reg"><?echo LanguageSelect::$templateData["BasketSecondButton"];?></button>
+					<!-- <button class="button-reg"><?echo LanguageSelect::$templateData["BasketSecondButton"];?></button> -->
 				</div>
 			</div>
 		</div>
@@ -394,7 +395,7 @@ PHONE;
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<button class="button-reg"><?echo LanguageSelect::$templateData["BasketThirdButton"];?></button>
+					<button class="button-reg" onclick="AddOrder(<?echo "'" . $symbol . "'"?>)"><?echo LanguageSelect::$templateData["BasketThirdButton"];?></button>
 				</div>
 			</div>
 		</div>

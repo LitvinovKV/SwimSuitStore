@@ -105,4 +105,91 @@
             $_SESSION["count"] = 1;
         echo "Товар успешно добавлен в корзину";
     }
+
+    if (isset($_POST["DeleteFromBasketId"]) === true && isset($_POST["DeleteFromBasketSize"]) === true 
+    && isset($_POST["DeleteFromBasketColor"]) === true) {
+        $_SESSION["count"]--;
+        $idProduct = $_POST["DeleteFromBasketId"];
+        $sizeProduct = $_POST["DeleteFromBasketSize"];
+        $colorProduct = $_POST["DeleteFromBasketColor"];
+        for ($i = 0; $i < count($_SESSION["Basket"]); $i++) {
+            if ($_SESSION["Basket"][$i]["id"] === $idProduct && $_SESSION["Basket"][$i]["size"] === $sizeProduct &&
+            $_SESSION["Basket"][$i]["color"] === $colorProduct) {
+                $_SESSION["Basket"][$i]["count"]--;
+                return;
+            }
+        }
+    }
+
+    if (isset($_POST["AddProductInBasketId"]) === true && isset($_POST["AddProductInBasketSize"]) === true && 
+    isset($_POST["AddProductInBasketColor"]) === true) {
+        $_SESSION["count"]++;
+        $idProduct = $_POST["AddProductInBasketId"];
+        $sizeProduct = $_POST["AddProductInBasketSize"];
+        $colorProduct = $_POST["AddProductInBasketColor"];
+        for ($i = 0; $i < count($_SESSION["Basket"]); $i++) {
+            if ($_SESSION["Basket"][$i]["id"] === $idProduct && $_SESSION["Basket"][$i]["size"] === $sizeProduct &&
+            $_SESSION["Basket"][$i]["color"] === $colorProduct) {
+                $_SESSION["Basket"][$i]["count"]++;
+                return;
+            }
+        }
+    }
+
+    if (isset($_POST["DeleteProductInBasketId"]) === true && isset($_POST["DeleteProductInBasketSize"]) === true && 
+    isset($_POST["DeleteProductInBasketColor"]) === true) {
+        $idProduct = $_POST["DeleteProductInBasketId"];
+        $sizeProduct = $_POST["DeleteProductInBasketSize"];
+        $colorProduct = $_POST["DeleteProductInBasketColor"];
+        for ($i = 0; $i < count($_SESSION["Basket"]); $i++) {
+            if ($_SESSION["Basket"][$i]["id"] === $idProduct && $_SESSION["Basket"][$i]["size"] === $sizeProduct &&
+            $_SESSION["Basket"][$i]["color"] === $colorProduct) {
+                $_SESSION["count"] -= $_SESSION["Basket"][$i]["count"];
+                $_SESSION["Basket"][$i]["count"] = 0;
+                return;
+            }
+        }
+    }
+
+    if (isset($_POST["AddOrderEmail"]) === true && isset($_POST["AddOrderTelephone"]) === true 
+    && isset($_POST["AddOrderName"]) === true && isset($_POST["AddOrderCountry"]) == true && 
+    isset($_POST["AddOrderAdress"]) === true && isset($_POST["AddOrderSecondName"]) === true && 
+    isset($_POST["AddOrderCity"]) == true && isset($_POST["AddOrderIndex"]) === true && 
+    isset($_POST["AddOrderDescription"]) === true && isset($_POST["AddOrderTotalSumm"]) === true && 
+    isset($_POST["AddOrderDelivery"]) === true) {
+        $fullName = $_POST["AddOrderSecondName"] . " " . $_POST["AddOrderName"];
+        $desctiption = $_POST["AddOrderDescription"];
+        $desctiption .= "<br><br> Товары:<br>";
+        if (array_key_exists("Basket", $_SESSION) === true) {
+            for($i = 0; $i < count($_SESSION["Basket"]); $i++) {
+                if ($_SESSION["Basket"][$i]["count"] === 0) continue;
+                $productString = "->Товар №" . ($i + 1) . 
+                "<br>Идентификатор товара : " . $_SESSION["Basket"][$i]["id"] . 
+                "<br>Кол-во товара : " . $_SESSION["Basket"][$i]["count"] . 
+                "<br>Размер товара : " . $_SESSION["Basket"][$i]["size"] . 
+                "<br>Цвет товара : " . $_SESSION["Basket"][$i]["color"] . 
+                "<br>Цена в рублях за еденицу товара : " . $_SESSION["Basket"][$i]["priceRU"] . 
+                "<br>Цена в долларах за еденицу товара : " . $_SESSION["Basket"][$i]["priceENG"];
+                $desctiption .= $productString . "<br>";
+            }
+            $desctiption .= "Доставка : " . $_POST["AddOrderDelivery"] . "<br>Сумма заказа : " . $_POST["AddOrderTotalSumm"] . "<br>";
+
+            $connection = setConnectionToDB();
+            $sql_query = "INSERT INTO `orders` (`full_name`, `adress`, `phone_number`, `post_index`, `description`) VALUES " . 
+            "('" . $fullName . "', '". $_POST["AddOrderAdress"] . "', '". $_POST["AddOrderTelephone"] . "', '" . 
+            $_POST["AddOrderIndex"] . "', '". $desctiption . "')";
+            if($connection->query($sql_query) === true)
+                echo "Ваш заказ успешно оформлен! / Your order has been successfully registered!";
+            else
+                echo "Проблемы на сервере. Проверьте данные и попробуйте снова! / Problems on the server. Check the data and try again!";
+        }
+        else {
+            echo "У Вас нет продуктор в корзине! / You haven't got products in basket";
+        }
+    }
+
+    if (isset($_POST["ClearAllBaskets"]) === true) {
+        unset($_SESSION["count"]);
+	    unset($_SESSION["Basket"]);
+    }
 ?>
