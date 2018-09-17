@@ -48,6 +48,19 @@ $(document).ready(function() {
       return false;
     });
 
+    $(".toggle-text8").click(function() {
+      $(this).toggleClass("on");
+      $(".button-text8").slideToggle();
+      return false;
+    });
+
+    $(".toggle-text9").click(function() {
+      $(this).toggleClass("on");
+      $(".button-text9").slideToggle();
+      return false;
+    });
+
+
     $(".carousel-shop").owlCarousel({
         loop: true,
         nav: true,

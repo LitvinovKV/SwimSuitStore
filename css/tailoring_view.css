@@ -1,0 +1,72 @@
+.s-measure .image_measure .responsive-img {
+	width: 100%;
+	height: auto;
+	margin-bottom: 30px;
+}
+
+.s-measure .constant-text {
+	margin: 0 20px;
+}
+
+.s-measure .title span{
+	font-family: "MyriadPro-Regular", sans-serif;
+  font-size: 16.5px;
+  letter-spacing: 0;
+	color: #fff;
+	text-transform: uppercase;
+	background-color: #000;
+	border: none;
+	padding: 6px 16px;
+}
+
+.s-measure .title-button {
+	margin-top: 20px;
+}
+
+.s-measure .constant-text .plus {
+	position: relative;
+	color: #fff;
+	background-color: #dfbdaf;
+	padding: 0 5px 2px 6px;
+	border-radius: 50%;
+	margin: 0 10px 0 33px;
+}
+
+.s-measure .text p {
+	display: block;
+	color: #000;
+}
+
+.s-measure .line > div{
+	display: -webkit-inline-box;
+}
+
+.s-measure .line .circle {
+	display: block;
+	width: 10px;
+	height: 10px;
+	background-color: #dfbdaf;
+	border-radius: 50%;
+	margin: 10px 10px 0 0;
+}
+
+.s-measure .line .color-measure {
+	margin: 17px 15px 0 0;
+}
+
+.s-measure .line img {
+	width: 100%;
+	height: auto;
+}
+
+.s-measure .button-text8 .line p {
+	margin: 5px 0;
+}
+
+.s-measure .toggle-text8, .s-measure .toggle-text9 {
+  margin: 50px 0 20px 0;
+}
+
+.s-measure .button-text8, .s-measure .button-text9 {
+  display: none;
+}

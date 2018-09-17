@@ -32,7 +32,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/guarantee_view.css" />
 	<link rel="stylesheet" type="text/css" href="/css/chart_view.css" />
 	<link rel="stylesheet" type="text/css" href="/css/patterns_view.css" />
-	<link rel="stylesheet" type="text/css" href="/css/custom_tailoring_view.css" />
+	<link rel="stylesheet" type="text/css" href="/css/tailoring_view.css" />
 	<link rel="stylesheet" type="text/css" href="/css/font-awesome.css" />
 	<link rel="stylesheet" type="text/css" href="/css/owl.carousel.css" />
 	<link rel="stylesheet" type="text/css" href="/css/cssBootstrap.css"/>
