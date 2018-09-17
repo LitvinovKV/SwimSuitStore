@@ -19,7 +19,8 @@
             "underpants" => "Трусы",
             "body" => "Боди",
             "swimwearshares" => "Акции Купальники",
-            "underwearshares" => "Акции Нижнее белье"
+            "underwearshares" => "Акции Нижнее белье",
+            "sleepwear" => "Пижамы"
         );
         public static $CategoryArray = ["patterns", "swimwear", "underwear"];
         public static $SubCategoryArray = ["swimsuit", "two_piece", "printed", "one_piece", "bra",
@@ -35,14 +36,14 @@
                 ),
                 "UnderWearCatName" => array(
                     "Name" => "НИЖНЕЕ БЕЛЬЕ",
-                    "Elements" => ["ВСЕ", "БЮСТГАЛТЕРЫ", "ТРУСЫ", "БОДИ", "АКЦИИ"],
-                    "Hrefs" => ["", "bra", "underpants", "body", "underwearshares"]
+                    "Elements" => ["ВСЕ", "БЮСТГАЛТЕРЫ", "ТРУСЫ", "БОДИ", "ПИЖАМЫ", "АКЦИИ"],
+                    "Hrefs" => ["", "bra", "underpants", "body", "sleepwear", "underwearshares"]
                 ),
                 "PatternsCatName" => "ПРИНТЫ",
                 "FAQCatName" => array(
                     "Name" => "FAQ",
-                    "Elements" => ["УСЛОВИЯ ОПЛАТЫ", "УСЛОВАИЯ ДОСТАВКИ", "ГАРАНТИЯ НА ТОВАР", "РАЗМЕРНАЯ СЕТКА"],
-                    "Hrefs" => ["payment", "delivery", "guarantee", "chart"]
+                    "Elements" => ["УСЛОВИЯ ОПЛАТЫ", "УСЛОВАИЯ ДОСТАВКИ", "ГАРАНТИЯ НА ТОВАР", "РАЗМЕРНАЯ СЕТКА", "ИНДИВИДУАЛЬНЫЙ ПОШИВ"],
+                    "Hrefs" => ["payment", "delivery", "guarantee", "chart", "tailoring"]
                 ),
                 "ReviewsCatName" => "ОТЗЫВЫ",
                 "AboutCatName" => "О НАС",
@@ -82,14 +83,14 @@
                 ),
                 "UnderWearCatName" => array(
                     "Name" => "UNDERWEAR",
-                    "Elements" => ["ALL", "BRA", "UNDERPANTS", "BODY", "SHARES"],
-                    "Hrefs" => ["", "bra", "underpants", "body", "underwearshares"]
+                    "Elements" => ["ALL", "BRA", "UNDERPANTS", "BODY", "Sleepwear", "SHARES"],
+                    "Hrefs" => ["", "bra", "underpants", "body", "sleepwear", "underwearshares"]
                 ),
                 "PatternsCatName" => "PATTERNS",
                 "FAQCatName" => array(
                     "Name" => "FAQ",
-                    "Elements" => ["TERMS OF PAYMENT", "TERMS OF DELIVERY", "PRODUCT GUARANTEE", "SIZE CHART"],
-                    "Hrefs" => ["payment", "delivery", "guarantee", "chart"]
+                    "Elements" => ["TERMS OF PAYMENT", "TERMS OF DELIVERY", "PRODUCT GUARANTEE", "SIZE CHART", "UNIQUE TAILORING"],
+                    "Hrefs" => ["payment", "delivery", "guarantee", "chart", "tailoring"]
                 ),
                 "ReviewsCatName" => "REVIEWS",
                 "AboutCatName" => "ABOUT US",
