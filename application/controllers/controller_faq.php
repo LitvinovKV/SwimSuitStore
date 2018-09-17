@@ -29,6 +29,11 @@
             $data = "THIS IS SIZE CHART PAGE!";
             $this->view->generate("chart_view.php", "template_view.php", $data);
         }
+
+        function action_tailoring() {
+            $data = "THIS IS UNIQUE TAILORING PAGE!";
+            $this->view->generate("tailoring_view.php", "template_view.php", $data);
+        }
     }
 
 ?>
