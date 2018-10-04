@@ -61,6 +61,39 @@ $(document).ready(function() {
     });
 
 
+    $(".carousel-pattern").owlCarousel({
+        loop: true,
+        nav: true,
+        navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
+        responsive:{
+        0:{
+            items:2,
+            mergeFit:true,
+        },
+        522:{
+            items:3,
+            mergeFit:true,
+        },
+        768:{
+            items:3,
+            mergeFit:true,
+        },
+        992:{
+            items:3,
+            mergeFit:true,
+        },
+        1200:{
+            items:4,
+            mergeFit:true,
+        },
+        1400:{
+            items:4,
+            mergeFit:true,
+        }
+    }
+    });
+
+
     $(".carousel-shop").owlCarousel({
         loop: true,
         nav: true,

@@ -5,7 +5,7 @@
 }
 
 .s-measure .constant-text {
-	margin: 0 20px;
+	margin: 0 20px 35px 0;
 }
 
 .s-measure .title span{
@@ -19,8 +19,21 @@
 	padding: 6px 16px;
 }
 
-.s-measure .title-button {
-	margin-top: 20px;
+.s-measure .button {
+	border: 1px solid #000;
+	box-shadow: 0 4px 0 #000;
+}
+
+.s-measure .button:hover {
+	background-color: #303030;
+	color: #fff;
+	text-decoration: none;
+}
+
+.s-measure .button:focus , .s-measure .button:active {
+	background-color: #000;
+	color: #fff;
+	transform: translateY(2px);
 }
 
 .s-measure .constant-text .plus {
@@ -39,6 +52,10 @@
 
 .s-measure .line > div{
 	display: -webkit-inline-box;
+}
+
+.s-measure .line {
+	margin-right: 10%;
 }
 
 .s-measure .line .circle {
@@ -64,7 +81,7 @@
 }
 
 .s-measure .toggle-text8, .s-measure .toggle-text9 {
-  margin: 50px 0 20px 0;
+  margin: 30px 0 20px 0;
 }
 
 .s-measure .button-text8, .s-measure .button-text9 {

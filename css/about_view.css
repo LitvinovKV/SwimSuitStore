@@ -1,0 +1,84 @@
+.about .title p {
+	margin: 0;
+}
+
+.about .title {
+	display: block;
+	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 25px;
+	text-align: center;
+	color: #000;
+	text-transform: uppercase;
+	margin: 40px 0 0 0;
+}
+
+.about .creators p {
+	margin: 0;
+}
+
+.about .creators {
+	display: block;
+	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 20.8px;
+	text-align: center;
+	color: #000;
+	margin: 8px 0 45px 0;
+}
+
+.about .about-image {
+	display: block;
+	float: left;
+	margin: 0 4% 2% 10%;
+}
+
+.responsive-img {
+	width: 100%;
+	height: auto;
+}
+
+.about .about-description {
+	display: block;
+	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 20.8px;
+	text-align: center;
+	color: #000;
+	line-height: 25px;
+	margin: 0 10% 0 10%;
+}
+
+.swiund-insta .title {
+	display: block;
+	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 20.8px;
+	text-align: center;
+	color: #000;
+	margin: 40px 0 0 0;
+}
+
+.swiund-insta .insta-image {
+	margin-bottom: 30px;
+}
+
+.swiund-insta {
+	margin-bottom: 40px;
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+.about .about-image {
+	margin: 0 4% 2% 0;
+}
+.about .about-description {
+	margin: 3% 0 0 0;
+}
+}
+
+@media only screen and (max-width: 560px) {
+.about .about-image {
+	float: none;
+	margin: 0 10% 2% 10%;
+}
+.about .about-description {
+	margin: 5% 5% 0 5%;
+}
+}

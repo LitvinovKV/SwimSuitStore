@@ -1,0 +1,157 @@
+.pattern {
+	display: block;
+	margin: 50px 0 70px 0;
+}
+
+.pattern .view {
+	margin-left: 7.7%;
+}
+
+.pattern .details .description {
+	border-bottom: 1px solid #000;
+	padding-bottom: 20px;
+}
+
+.pattern .details .design {
+	font-family: "MyriadPro-Regular", sans-serif;
+  font-size: 16.5px;
+  color: #000;
+  text-transform: uppercase;
+  margin-top: 25px;
+}
+
+.pattern .details .design-creator {
+	text-transform: none;
+}
+
+.carousel-pattern .carousel-item {
+	display: block;
+  text-align: center;
+  padding: 14% 10%;
+}
+
+ /* Owl Carousel */
+.carousel-pattern {
+	position: relative;
+}
+
+.carousel-pattern .owl-controls {
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	position: absolute;
+}
+
+.carousel-pattern .owl-controls .owl-nav {
+	position: absolute;
+	width: 100%;
+	bottom: 185px;
+}
+
+.carousel-pattern .owl-controls .owl-nav > div{
+	position: absolute;
+	left: -10px;
+	font-size: 45px;
+	font-family: "MyriadPro-Regular", sans-serif;
+	color: #303030;
+	opacity: .7;
+	font-weight: normal;
+	transition: all .3s ease;
+}
+
+.carousel-pattern .owl-controls .owl-nav > div:hover {
+	color: #dfbdaf;
+}
+
+.carousel-pattern .owl-controls .owl-nav .owl-next {
+	right: -10px;
+	left: auto;
+}
+
+/* End of Owl Carousel */
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
+.carousel-pattern .owl-controls .owl-nav {
+	bottom: 200px;
+}
+}
+
+@media only screen and (max-width: 992px) {
+.carousel-pattern .owl-controls .owl-nav {
+	bottom: 160px;
+}
+}
+
+@media only screen and (max-width: 768px) {
+.pattern {
+	margin-top: 30px;
+}
+.pattern .view {
+	margin: 5% 20%;
+}
+.carousel-pattern .owl-controls .owl-nav {
+	bottom: 160px;
+}
+.carousel-pattern .owl-controls .owl-nav > div{
+	left: 0;
+}
+.carousel-pattern .owl-controls .owl-nav .owl-next {
+	right: 0;
+	left: auto;
+}
+}
+
+@media only screen and (max-width: 720px) {
+.carousel-pattern .owl-controls .owl-nav {
+	bottom: 150px;
+}
+}
+@media only screen and (max-width: 660px) {
+.carousel-pattern .owl-controls .owl-nav {
+	bottom: 135px;
+}
+}
+
+@media only screen and (max-width: 590px) {
+.carousel-pattern .owl-controls .owl-nav {
+	bottom: 125px;
+}
+.pattern {
+	margin-bottom: 30px;
+}
+}
+@media only screen and (max-width: 522px) {
+.carousel-pattern .owl-controls .owl-nav {
+	bottom: 160px;
+}
+}
+@media only screen and (max-width: 480px) {
+.carousel-pattern .owl-controls .owl-nav {
+	bottom: 145px;
+}
+}
+
+@media only screen and (max-width: 420px) {
+.carousel-pattern .owl-controls .owl-nav {
+	bottom: 135px;
+}
+.pattern .view {
+	margin: 5% 7%;
+}
+}
+@media only screen and (max-width: 380px) {
+.carousel-pattern .owl-controls .owl-nav {
+	bottom: 120px;
+}
+}
+@media only screen and (max-width: 340px) {
+.carousel-pattern .owl-controls .owl-nav {
+	bottom: 110px;
+}
+}
+@media only screen and (max-width: 300px) {
+.carousel-pattern .owl-controls .owl-nav {
+	bottom: 100px;
+}
+}

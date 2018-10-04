@@ -45,8 +45,8 @@
 					</p>
 				</div>
 			</div>
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<a href="#" class="title toggle-text8"><span>Как снять мерки</span></a>
+			<div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
+				<a href="#" class="button toggle-text8"><span>Как снять мерки</span></a>
 			</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<nav class="text button-text8">
@@ -95,8 +95,8 @@
 					</ul>
 				</nav>			
 			</div>
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<a href="#" class="title toggle-text9"><span>Мерки</span></a>
+			<div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
+				<a href="#" class="button toggle-text9"><span>Мерки</span></a>
 			</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<nav class="text button-text9">
@@ -110,8 +110,8 @@
 							</div>
 							<div class="line">
 								<div>
-									<div class="color-measure"><img src="/images/measure/green.jpg" alt="Red"></div>
-									<p>Обхват груди четвёртый.  Лента вокруг туловища под грудью, параллельно установочному поясу на талии.</p>
+									<div class="color-measure"><img src="/images/measure/green.jpg" alt="Red"></div><p>Обхват груди четвёртый.  Лента вокруг туловища под грудью, параллельно установочному поясу на талии.</p>
+									
 								</div>
 							</div>
 							<div class="line">

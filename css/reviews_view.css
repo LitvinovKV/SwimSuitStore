@@ -1,0 +1,14 @@
+.s-reviews .col-lg-3,
+.s-reviews .col-md-3,
+.s-reviews .col-sm-4,
+.s-reviews .col-xs-6 {
+	padding: 0;
+}
+
+.s-reviews {
+	margin-bottom: 30px;
+}
+
+.s-reviews .item .review-image {
+	margin: 2% 1%;
+}
