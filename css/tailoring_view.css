@@ -87,3 +87,9 @@
 .s-measure .button-text8, .s-measure .button-text9 {
   display: none;
 }
+
+@media only screen and (max-width: 286px) {
+	.s-measure .title span{
+  font-size: 15px;
+}
+}

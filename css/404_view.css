@@ -1,0 +1,50 @@
+.section-error .container {
+	padding: 15px 0;
+	overflow: hidden;
+}
+
+.section-error .col-lg-12,
+.section-error .col-md-12,
+.section-error .col-sm-12,
+.section-error .col-xs-12 {
+	padding: 0;
+}
+
+.error {
+	background-image: url(/images/error.jpg);
+	background-position: top center;
+	background-size: cover;
+	overflow: hidden;
+	width: 100%;
+	height: 1083px;
+}
+
+@media only screen and (max-width: 1920px) {
+	.error {
+		height: 1083px;
+	}
+}
+
+@media only screen and (max-width: 1400px) {
+	.error {
+		height: 883px;
+	}
+}
+
+@media only screen and (max-width: 992px) {
+	.error {
+		height: 683px;
+	}
+}
+
+@media only screen and (max-width: 780px) {
+	.error {
+		height: 483px;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.error {
+		height: 283px;
+	}
+}
