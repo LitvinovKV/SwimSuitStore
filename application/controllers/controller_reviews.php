@@ -4,10 +4,11 @@
         
         function __construct() {
             $this->view = new View();
+            $this->model = new Model_Reviews();
         }
 
         function action_index() {
-            $data = "THIS IS REVIEWS PAGE!";
+            $data = $this->model->getData();
             $this->view->generate("reviews_view.php", "template_view.php", $data);
         }
     }

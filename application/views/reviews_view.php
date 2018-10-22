@@ -1,10 +1,11 @@
-<? var_dump($data); ?>
-
 <section class="s-nav">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<a href="#">Reviews</a>
+			<?
+				echo "<a href='/" . LanguageSelect::$lang . "/reviews'>" . 
+					((LanguageSelect::$lang === "RU") ? "Отзывы" : "Reviews") . "</a>";
+			?>
 			</div>
 		</div>
 	</div>
@@ -12,62 +13,24 @@
 <section class="s-reviews">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="item">
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="review-image">
-							<img class="responsive-img" src="/images/reviews/1.jpg" alt="Review">
+
+			<?
+				for($i = 0; $i < count($data); $i++) {
+					$imageURL = $data[$i]["HrefPic"];
+					$InstURL = $data[$i]["HrefInst"];
+					echo <<< Pictures
+						<div class="item">
+							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+								<div class="review-image">
+									<a href="$InstURL"">
+									<img class="responsive-img" src="$imageURL" alt="Review">
+									</a>
+								</div>
+							</div>
 						</div>
-					</div>
-			</div>
-			<div class="item">
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="review-image">
-							<img class="responsive-img" src="/images/reviews/1.jpg" alt="Review">
-						</div>
-					</div>
-			</div>
-			<div class="item">
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="review-image">
-							<img class="responsive-img" src="/images/reviews/1.jpg" alt="Review">
-						</div>
-					</div>
-			</div>
-			<div class="item">
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="review-image">
-							<img class="responsive-img" src="/images/reviews/1.jpg" alt="Review">
-						</div>
-					</div>
-			</div>
-			<div class="item">
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="review-image">
-							<img class="responsive-img" src="/images/reviews/1.jpg" alt="Review">
-						</div>
-					</div>
-			</div>
-			<div class="item">
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="review-image">
-							<img class="responsive-img" src="/images/reviews/1.jpg" alt="Review">
-						</div>
-					</div>
-			</div>
-			<div class="item">
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="review-image">
-							<img class="responsive-img" src="/images/reviews/1.jpg" alt="Review">
-						</div>
-					</div>
-			</div>
-			<div class="item">
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="review-image">
-							<img class="responsive-img" src="/images/reviews/1.jpg" alt="Review">
-						</div>
-					</div>
-			</div>
+Pictures;
+				}
+			?>
 		</div>
 	</div>
 </section>

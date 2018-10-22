@@ -127,9 +127,8 @@
        
         // Записать данные в БД
         $connection = setConnectionToDB();
-        $sql_query = "INSERT INTO `photo` (`name`, `id_product`, `is_general`) VALUES ('" . 
-            $fileName . "', " . $_POST["ProductId"] . ", " . 0 . ")";
-        $connection->query($sql_query);
+        $sql_query = "INSERT INTO `photo` (`name`, `id_product`) VALUES ('" . 
+            $fileName . "', " . $_POST["ProductId"] . ")";
 
         header('location:  http://' . $_SERVER['HTTP_HOST'] . '/admin/workspace');
     }
@@ -668,5 +667,37 @@ ORDERQUERY;
             echo "Выбранный товар теперь не является хитом.";
         else
             echo "Ошибка изменения хита в базе данных. Попробуйте снова.";
+    }
+
+    if(isset($_POST["AddHrefDisk"]) === true && isset($_POST["AddHrefInst"]) === true) {
+        $connection = setConnectionToDB();
+
+        $sql_query = "INSERT INTO `reviews`(`HrefPic`, `HrefInst`) VALUES ('" 
+            . $_POST["AddHrefDisk"] . "', '" . $_POST["AddHrefInst"] . "')";
+        if ($connection->query($sql_query) == true)
+            echo "Отзыв успешно добавлен.";
+        else
+            echo "Ошибка при добавлении отзыва. Попробуйте снова";
+    }
+
+    if(isset($_POST["DeleteReviews"]) === true) {
+        $connection = setConnectionToDB();
+        $values = explode(',', $_POST["DeleteReviews"]);
+
+        $flag = true;
+        $index = 0;
+        for($i = 0; $i < count($values); $i++) {
+            $sql_query = "DELETE FROM `reviews` WHERE `ID_Reviews` = " . $values[$i];
+
+            if($connection->query($sql_query) === false) {
+                $flag = false;
+                $index = $values[$i];
+            }
+        }
+
+        if ($flag === false)
+            echo "Не получилось удалить " . $index . " фотографию. Попробуйте снова";
+        else
+            echo "Удаление прошло успешно.";
     }
 ?>

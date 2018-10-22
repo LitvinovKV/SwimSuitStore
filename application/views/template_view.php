@@ -1,6 +1,5 @@
 <?php session_start();
 	// $_SESSION["Basket"] = [];
-	var_dump($_SESSION);
 
 	// unset($_SESSION["count"]);
 	// unset($_SESSION["Basket"]);

@@ -1,6 +1,3 @@
-
-<!-- <?php var_dump($data) ?> -->
-
 <section class="about">
 	<div class="container">
 		<div class="row">
@@ -32,38 +29,21 @@
 					<p>Мы в INSTAGRAM @SWIUND</p>
 				</div>
 			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-				<div class="insta-image">
-					<a href="#"><img class="responsive-img" src="/images/about/instagram/1.jpg" alt="Post"></a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-				<div class="insta-image">
-					<a href="#"><img class="responsive-img" src="/images/about/instagram/2.jpg" alt="Post"></a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-				<div class="insta-image">
-					<a href="#"><img class="responsive-img" src="/images/about/instagram/3.jpg" alt="Post"></a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-				<div class="insta-image">
-					<a href="#"><img class="responsive-img" src="/images/about/instagram/4.jpg" alt="Post"></a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-				<div class="insta-image">
-					<a href="#"><img class="responsive-img" src="/images/about/instagram/5.jpg" alt="Post"></a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-				<div class="insta-image">
-					<a href="#"><img class="responsive-img" src="/images/about/instagram/6.jpg" alt="Post"></a>
-				</div>
-			</div>
+
+			<?
+				$res = file_get_contents("https://api.instagram.com/v1/users/self/media/recent?access_token=8240707827.0ff88cd.a9d2b8a310ce47e8b7c83b44c6b22c76&count=6");
+				foreach (json_decode($res)->data as $post) {
+					$image = $post->images->standard_resolution->url;
+					$url = $post->link;
+					echo <<<INSTA
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+							<div class="insta-image">
+								<a href="$url"><img class="responsive-img" src="$image" alt="Post"></a>
+							</div>
+						</div>
+INSTA;
+				}
+			?>
 		</div>
 	</div>
-</section> 
-
-<? var_dump($data); ?>
+</section>

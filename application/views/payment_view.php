@@ -2,8 +2,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-					<a href="#">FAQ</a><i class="fa fa-angle-right"></i>
-					<a href="#">Условия оплаты</a>
+				<?
+					echo "<a href='/" . LanguageSelect::$lang . "/faq'>FAQ</a><i class='fa fa-angle-right'></i>";
+					echo "<a href='/" . LanguageSelect::$lang . "/faq/payment'>" . 
+						((LanguageSelect::$lang === "RU") ? "Условия оплаты" : "terms of payment") . "</a>";
+				?>
 			</div>
 		</div>
 	</div>
@@ -19,5 +22,3 @@
 		</div>
 	</div>
 </section>
-
-<? var_dump($data); ?>

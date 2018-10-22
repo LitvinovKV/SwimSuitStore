@@ -525,3 +525,34 @@ function DeleteHit(ProductId = document.getElementsByName("HitProductRedact")[0]
 
     sendSimpleHTTP("DeleteHitProduct", ProductId);
 }
+
+// Добавление отзыва
+function AddReviews(HrefDisk = document.getElementsByName("AddHrefDisk")[0].value, 
+    HrefInst = document.getElementsByName("AddHrefInst")[0].value) {
+        if(HrefDisk.length === 0 || HrefInst.length === 0) {
+            alert("Вы не ввели данные");
+            return;
+        }
+        
+        sendSimpleDoubleHTTP("AddHrefDisk", HrefDisk, "AddHrefInst", HrefInst);
+}
+
+function DeleteReviews(elements = document.getElementsByName("photoReviews")) {
+    let checkedElements = [];
+    
+    // Получить только те элементы, который были выбраны администратором (помечены флажком)
+    let k = 0;
+    for(i = 0; i < elements.length; i++) {
+        if (elements[i].checked === true) {
+            checkedElements[k] = elements[i].value;
+            k++;
+        }
+    }
+
+    if (checkedElements.length === 0) {
+        alert("Вы не выбрали ни одной фотографии!");
+        return;
+    }
+
+    sendSimpleHTTP("DeleteReviews", checkedElements);
+}

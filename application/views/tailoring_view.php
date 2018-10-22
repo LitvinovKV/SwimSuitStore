@@ -2,8 +2,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<a href="#">FAQ</a><i class="fa fa-angle-right"></i>
-					<a href="#">Индивидуальный пошив</a>
+				<?
+					echo "<a href='/" . LanguageSelect::$lang . "/faq'>FAQ</a><i class='fa fa-angle-right'></i>";
+					echo "<a href='/" . LanguageSelect::$lang . "/faq/tailoring'>" . 
+						((LanguageSelect::$lang === "RU") ? "ИНДИВИДУАЛЬНЫЙ ПОШИВ" : "Unique tailoring") . "</a>";
+				?>
 			</div>
 		</div>
 	</div>
@@ -145,5 +148,3 @@
 		</div>
 	</div>
 </section>
-
-<? var_dump($data) ?>

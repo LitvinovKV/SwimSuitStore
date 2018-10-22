@@ -4,7 +4,6 @@
     // то перекинуть на страницу логирования
     if (isset($_SESSION["UserLogin"]) === false) header('location:  http://' . $_SERVER['HTTP_HOST'] . '/admin/login');
     require_once "adminpanel_queries.php";
-    // var_dump($data);
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +35,8 @@
                 <button type="button" class="btn btn-light" onclick="FormHidden(8, 'AddForms')">Фотографию к продукту</button>
                 <button type="button" class="btn btn-light" onclick="FormHidden(9, 'AddForms')">Баннер</button>
                 <button type="button" class="btn btn-light" onclick="FormHidden(10, 'AddForms')">Хит</button>
+                <button type="button" class="btn btn-light" onclick="FormHidden(11, 'AddForms')">Отзыв</button>
+
             </div>
 
             <!-- ФОРМЫ -->
@@ -189,6 +190,14 @@ BOTTOMFORM;
                     echo "ТОВАРОВ, ЯВЛЯЮЩИМИСЯ ХИТОМ РОВНО 3! УДАЛИТЕ ТОВАР, ЧТОБЫ ДОБАВИТЬ НОВЫЙ ХИТ!";
                 ?>
                 </form>
+
+                <form hidden class="AddForms">
+                    <label for="example-text-input" class="col-form-label">Ссылка через просмотр кода и тег img(6 + по идее)</label>
+                    <input class="form-control labelWidth" type="text" placeholder="Ссылка через просмотр кода и тег img(6 + по идее)" name="AddHrefDisk">
+                    <label for="example-text-input" class="col-form-label">Ссылка на инстаграмм</label>
+                    <input class="form-control labelWidth" type="text" placeholder="Ссылка на инстаграмм" name="AddHrefInst">
+                    <button type="button" class="btn btn-primary btnforms" onclick="AddReviews()">Добавить</button>
+                </form>
             </div>
         </div>
     </div>
@@ -335,6 +344,7 @@ BOTTOMFORM;
                 <button type="button" class="btn btn-light" onclick="FormHidden(3, 'DeleteForms')">Размер у продукта</button>
                 <button type="button" class="btn btn-light" onclick="FormHidden(4, 'DeleteForms')">Продукт</button>
                 <button type="button" class="btn btn-light" onclick="FormHidden(5, 'DeleteForms')">Фотографию продукта</button>
+                <button type="button" class="btn btn-light" onclick="FormHidden(6, 'DeleteForms')">Отзыв</button>
             </div>
 
             <!-- ФОРМА -->
@@ -437,6 +447,16 @@ BOTTOMFORM;
                     </div>
                     <button type="button" class="btn btn-primary btnforms" onclick="DeleteProductPictures()">Удалить</button>
                 </form>
+
+                <form hidden class="DeleteForms">
+                    <?
+                        for ($i = 0; $i < count($data["reviews"]); $i++) {
+                            echo "<input type=\"checkbox\" name=\"photoReviews\" value=\"" . $data['reviews'][$i]["id"] . "\"/>" . 
+                                "<img src=" . $data['reviews'][$i]["href"] . " width=\"189\" height=\"255\">" . "<br>";
+                        }
+                    ?>
+                    <button type="button" class="btn btn-primary btnforms" onclick="DeleteReviews()">Удалить</button>
+                </form>
     
             </div>
         </div>
@@ -527,6 +547,7 @@ BOTTOMFORM;
                     echo "<span class=\"ParametrProductName\">Размеры : </span>" . "<br>";
                     for ($j = 0; $j < count($data["products"][$i]["Sizes"]); $j++)
                         echo ($j + 1) . ". Название размера : " . $data["products"][$i]["Sizes"][$j] . "<br>";
+                    echo "<span class=\"ParametrProductName\">Хит : </span>" . (($data["products"][$i]["Hit"]) ? "Да" : "Нет") . "<br>";
                     echo "<hr>";
                 }
             ?>
@@ -547,7 +568,7 @@ BOTTOMFORM;
             4. Ожидаемый размер баннера: <br>
             5. Ожидаемый размер нижнего баннера: <br>
             6. Ожидаемый размер фотографий : <br>
-            7. Кол-во фотографий у одного продукта должно быть > 2 <br>
+            7. Кол-во фотографий у одного продукта должно быть >= 3 <br>
             8. Кружочек для цвета должен быть размером ...  и формата только png<br>
             9. Фотографий у продукта не должно быть > 5 (<= 4 РЕКОМЕНДОВАННО!) <br>
             </label>

@@ -140,7 +140,8 @@
         // На вход : идентификатор продукта
         // На выходе : название фотографии
         private function getProductGeneralPhoto($ProductId) {
-            $sql_query = "SELECT name FROM photo WHERE id_product = " . $ProductId . " AND is_general = 1";
+            // $sql_query = "SELECT name FROM photo WHERE id_product = " . $ProductId . " AND is_general = 1";
+            $sql_query = "SELECT name FROM photo WHERE id_product = " . $ProductId;
             $PhotoName = $this->connection->query($sql_query)->fetch_assoc()["name"];
             return $PhotoName;
         }
@@ -149,10 +150,11 @@
         // На вход : идентфиикатор продукта
         // На выходе : массив из названий фотографий
         private function getProductPhoto($ProductId) {
-            $sql_query = "SELECT name FROM photo WHERE id_product = " . $ProductId . " AND is_general = 0";
+            // $sql_query = "SELECT name FROM photo WHERE id_product = " . $ProductId . " AND is_general = 0";
+            $sql_query = "SELECT name FROM photo WHERE id_product = " . $ProductId;
             $res = $this->connection->query($sql_query);
             $result = [];
-            for ($i = 0; $i < $res->num_rows; $i++) {
+            for ($i = 1; $i < $res->num_rows; $i++) {
                 $res->data_seek($i);
                 array_push($result, $res->fetch_assoc()["name"]);
             }

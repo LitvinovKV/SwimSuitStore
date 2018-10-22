@@ -1,5 +1,3 @@
-<!-- <? var_dump($data) ?> -->
-
 <section class="s-nav">
 	<div class="container">
 		<div class="row">
@@ -38,9 +36,8 @@
 				<?php
 
 					for($i = 0; $i < count($data["Products"]); $i++) {
-						
-						// Если изоброжения у товара < 2, то его отображать не стоит  
-						// if (count($data["Products"][$i]["Photos"]) < 2) continue;
+						// Если изоброжения у товара < 2, то его отображать не стоит
+						if (count($data["Products"][$i]["Photos"]) < 2) continue;
 						
 						$GeneralPhoto = $data["Products"][$i]["GeneralPhoto"];
 						$href = "/" . LanguageSelect::$lang . "/productcard/" . $data["Products"][$i]["id_product"];

@@ -39,7 +39,6 @@ function reduceCountBasket() {
 // Реакция на нажатие кнопки "Добавить в корзину"
 // Отсылает запрос на сервер, запрос на добавление товара в корзину
 function addBasket() {
-    increaseCountBasket();
     let productID = document.getElementById("hiddenIdProduct").textContent;
     let ProductSize = document.getElementById("NameSize").textContent;
     let ProductColor = document.getElementById("NameColor").textContent;
@@ -49,6 +48,7 @@ function addBasket() {
         alert("Вы не выбрали размер или цвет товара!");
         return;
     }
+    increaseCountBasket();
     let XHR = new XMLHttpRequest();
     console.log(productID);
     console.log(ProductSize);
@@ -237,4 +237,10 @@ function AddOrder(thisSymbol) {
             XHR2.send(body);
         }
     };
+}
+
+// Для отображения якобы id фотографии при просмотре информации по патерну
+function colorFunction(idPhoto) {
+    idPhoto = idPhoto.substring(0, idPhoto.length - 4);
+    document.getElementById("NameColor").textContent = idPhoto;
 }

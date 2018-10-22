@@ -11,28 +11,23 @@
         }
 
         function action_payment() {
-            $data = "THIS IS PAYMENT PAGE!";
-            $this->view->generate("payment_view.php", "template_view.php", $data);
+            $this->view->generate("payment_view.php", "template_view.php");
         }
 
         function action_delivery() {
-            $data = "THIS IS DELIVERY PAGE!";
-            $this->view->generate("delivery_view.php", "template_view.php", $data);
+            $this->view->generate("delivery_view.php", "template_view.php");
         }
 
         function action_guarantee() {
-            $data = "THIS IS GUARANTEE PAGE!";
-            $this->view->generate("guarantee_view.php", "template_view.php", $data);
+            $this->view->generate("guarantee_view.php", "template_view.php");
         }
 
         function action_chart() {
-            $data = "THIS IS SIZE CHART PAGE!";
-            $this->view->generate("chart_view.php", "template_view.php", $data);
+            $this->view->generate("chart_view.php", "template_view.php");
         }
 
         function action_tailoring() {
-            $data = "THIS IS UNIQUE TAILORING PAGE!";
-            $this->view->generate("tailoring_view.php", "template_view.php", $data);
+            $this->view->generate("tailoring_view.php", "template_view.php");
         }
     }
 

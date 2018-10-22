@@ -7,9 +7,6 @@
 
     // Скрипты для запросов панели администратора
     require_once "adminpanel_queries.php";
-
-    // var_dump(md5("KetiKate081195"));
-	// var_dump(md5("ReWqASdf951108"));
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +39,6 @@
             <button type="submit" class="btn btn-primary" name="LogIn">Log In</button>
         </div>
     </form>
-    ReWqASdf951108
 
 </body>
 </html>

@@ -1,6 +1,3 @@
-
-<!-- <?php var_dump($data) ?> -->
-
 <section class="s-nav">
 	<div class="container">
 		<div class="row">
@@ -24,8 +21,9 @@
 					}  
 					$FirstHref = "/product/" . $data["path"]["ENG"][0];
 					$SecondHref = $FirstHref . "/" . $data["path"]["ENG"][1];
-					echo "<a href=" . $FirstHref . ">" . $FirstName . "</a><i class=\"fa fa-angle-right\"></i>";
-					echo "<a href=" . $SecondHref . ">" . $SecondName . "</a><i class=\"fa fa-angle-right\"></i>";
+					echo "<a href=/" . LanguageSelect::$lang . $FirstHref . ">" . $FirstName . "</a><i class=\"fa fa-angle-right\"></i>";
+					if ($SecondName != "ПРИНТЫ" && $SecondName != "PATTERNS")
+						echo "<a href=/" . LanguageSelect::$lang . $SecondHref . ">" . $SecondName . "</a><i class=\"fa fa-angle-right\"></i>";
 					echo $ProductName;
 				?>
 				<!-- <a href="#">Купальники</a><i class="fa fa-angle-right"></i> -->
@@ -50,26 +48,40 @@
 							<a href="#"><img class="responsive-img" src="/images/products_images/Photo9.jpg" alt="4"></a> -->
 
 							<?php
-								$general = $data["generalPhoto"];
-								echo <<< GENERALPHOTO
-								<img class="demo responsive-img" src="/images/products_images/$general" onclick="currentSlide(1)"  id="defaultOpen" alt="4">						
-GENERALPHOTO;
-								for($i = 0; $i < count($data["photos"]); $i++) {
-									$photo = $data["photos"][$i];
-									$number = $i + 2;
-									echo <<< PHOTO
-										<img class="demo responsive-img" src="/images/products_images/$photo" onclick="currentSlide($number)"  id="defaultOpen" alt="4">
+								if ($SecondName != "ПРИНТЫ" && $SecondName != "PATTERNS") {
+// 									$general = $data["generalPhoto"];
+// 									echo <<< GENERALPHOTO
+// 									<img class="demo responsive-img" src="/images/products_images/$general" onclick="currentSlide(1)"  id="defaultOpen" alt="4">						
+// GENERALPHOTO;
+									for($i = 0; $i < count($data["photos"]); $i++) {
+										$photo = $data["photos"][$i];
+										$number = $i + 1;
+										echo <<< PHOTO
+											<img class="demo responsive-img" src="/images/products_images/$photo" onclick="currentSlide($number)"  id="defaultOpen" alt="4">
 PHOTO;
+									}
 								}
+
+								else {
+									for($i = 0; $i < count($data["photos"]); $i++) {
+										$photo = $data["photos"][$i];
+										$number = $i + 1;
+										echo <<< PHOTO
+											<img class="demo responsive-img" src="/images/products_images/$photo" onclick="currentSlide($number), colorFunction('$photo')"  id="defaultOpen" alt="4">
+PHOTO;
+									}
+								}
+
+
 							?>
 							<!-- <img class="demo responsive-img" src="/images/products_images/Photo9.jpg" onclick="currentSlide(1)"  id="defaultOpen" alt="4">
 							<img class="demo responsive-img" src="/images/products_images/Photo6.jpg" onclick="currentSlide(2)" alt="4">
 							<img class="demo responsive-img" src="/images/products_images/Photo13.jpg" onclick="currentSlide(3)" alt="4">
 							<img class="demo responsive-img" src="/images/products_images/Photo9.jpg" onclick="currentSlide(4)" alt="4"> -->
 
-							<!--<?
+							<!-- <?
 
-								for ($i = 0; $i < count($data["photos"]); $i++) {
+								for ($i = 0; $i < count($data["photos"]); $i++) {	
 									echo "<a href=\"#\"><img class=\"responsive-img\" src=\"/images/products_images/". 
 										$data["photos"][$i] . "\"alt=" . ($i + 1) . "></a>";
 								}
@@ -79,19 +91,18 @@ PHOTO;
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
 						<div class="view">
-							<!-- <img class="big responsive-img" src="/images/products_images/Photo6.jpg" alt="Big photo"> -->
-
 							<?php
-								$general = $data["generalPhoto"];
-								echo <<< GENERALPHOTO
-								<img class="big responsive-img" src="/images/products_images/$general" alt="Big photo">					
-GENERALPHOTO;
-								for($i = 0; $i < count($data["photos"]); $i++) {
-									$photo = $data["photos"][$i];
-									echo <<< PHOTO
-									<img class="big responsive-img" src="/images/products_images/$photo" alt="Big photo">
+								// if ($SecondName != "ПРИНТЫ" && $SecondName != "PATTERNS") {
+// 									$general = $data["generalPhoto"];
+// 									echo <<< GENERALPHOTO
+// 									<img class="big responsive-img" src="/images/products_images/$general" alt="Big photo">					
+// GENERALPHOTO;
+									for($i = 0; $i < count($data["photos"]); $i++) {
+										$photo = $data["photos"][$i];
+										echo <<< PHOTO
+										<img class="big responsive-img" src="/images/products_images/$photo" alt="Big photo">
 PHOTO;
-								}
+									}
 							?>
 
 							<!-- <img class="big responsive-img" src="/images/products_images/Photo9.jpg" alt="Big photo">
@@ -117,12 +128,26 @@ PHOTO;
 					</div>
 					<!-- <p class="description">Эти трусики лучше всего подойдут для вас. Так как они самые клевые. Когда вы их надете Вы станете милашкой.</p> -->
 					<p class="description"> <? echo $Description ?> </p>
+					
 					<!-- <p class="material">Материал:  бифлекс. Состав: 80 % лайкра, 20 % спандекс.</p> -->
-					<p class="material"><? echo $Material ?></p>
+					<? 
+						if ($SecondName != "ПРИНТЫ" && $SecondName != "PATTERNS")
+							echo "<p class='material'>" . $Material . "</p>";
+						else
+							echo "<p class='material'></p>"
+					?>
+
 					<!-- <p class="price">4999 <span>₽</span></p> -->
-					<p class="price" id="ProductPrice"><? echo $Price ?></p>
+					<? 
+						if ($SecondName != "ПРИНТЫ" && $SecondName != "PATTERNS")
+							echo "<p class='price' id='ProductPrice'>" . $Price . "</p>";
+						else
+							echo "<p class='price' id='ProductPrice'></p>"
+					?>
+
 					<!-- <p class="color"><span class="color-title">Цвет</span> <i class="fa fa-angle-right"></i> <span class="color-name">Розовый</span></p> -->
 					<p class="color"><span class="color-title"><? echo LanguageSelect::$templateData["Color"] ?></span> <i class="fa fa-angle-right"></i> <span class="color-name" id="NameColor"></span></p>
+					
 					<div class="color-circle">
 						<!-- <a class="circle" href="#"><img src="/images/s_networks/circle.png" alt=""></a>
 						<a class="circle" href="#"><img src="/images/s_networks/circle.png" alt=""></a>
@@ -130,17 +155,18 @@ PHOTO;
 						<a class="circle" href="#"><img src="/images/s_networks/circle.png" alt=""></a>
 						<a class="circle" href="#"><img src="/images/s_networks/circle.png" alt=""></a> -->
 						
-						<?php
-						
-						for($i = 0; $i < count($data["colors"]); $i++) {
-							$imageName = $data["colors"][$i]["name"];
-							$imagePath = $data["colors"][$i]["image"];
-							echo <<< COLORS
-								<label>
-									<input type='radio' value='1' name='radio_color' id="color_1"/>
-									<img src="/images/s_networks/$imagePath" onclick="changeColor('$imageName')">
-								</label>
+					<?php
+						if ($SecondName != "ПРИНТЫ" && $SecondName != "PATTERNS") {
+							for($i = 0; $i < count($data["colors"]); $i++) {
+								$imageName = $data["colors"][$i]["name"];
+								$imagePath = $data["colors"][$i]["image"];
+								echo <<< COLORS
+									<label>
+										<input type='radio' value='1' name='radio_color' id="color_1"/>
+										<img src="/images/s_networks/$imagePath" onclick="changeColor('$imageName')">
+									</label>
 COLORS;
+							}
 						}
 							
 					?>
@@ -157,20 +183,25 @@ COLORS;
 					</div>
 
 					<!-- <p class="s-title">Размер</p> -->
-					<p class="s-title"><? echo LanguageSelect::$templateData["Size"] ?> <i class="fa fa-angle-right"></i> <span class="color-name" id="NameSize"></span></p>
+					<!-- <p class="s-title"><? echo LanguageSelect::$templateData["Size"] ?> <i class="fa fa-angle-right"></i> <span class="color-name" id="NameSize"></span></p> -->
+					<? 
+						if ($SecondName != "ПРИНТЫ" && $SecondName != "PATTERNS")
+							echo "<p class='color'>" . LanguageSelect::$templateData["Size"] . " <i class='fa fa-angle-right'></i> <span class='color-name' id='NameSize'></span></p>";
+					?>
 					<div class="size">
 						<div class="first-part">
-							
 							<?php
-								for($i = 0; $i < count($data["sizes"]); $i++) {
-									$sizeName = $data["sizes"][$i];
-									$value = $i + 1;
-									echo <<< SIZE
-										<div class="item-size">
-											<input type='radio' value='$value' name='radio' id="size_$value" />
-											<label for='size_$value' onclick="changeSize('$sizeName')"><span>$sizeName</span></label>
-										</div>										
+								if ($SecondName != "ПРИНТЫ" && $SecondName != "PATTERNS") {
+									for($i = 0; $i < count($data["sizes"]); $i++) {
+										$sizeName = $data["sizes"][$i];
+										$value = $i + 1;
+										echo <<< SIZE
+											<div class="item-size">
+												<input type='radio' value='$value' name='radio' id="size_$value" />
+												<label for='size_$value' onclick="changeSize('$sizeName')"><span>$sizeName</span></label>
+											</div>										
 SIZE;
+									}
 								}
 							?>
 
@@ -205,10 +236,12 @@ SIZE;
 					<!-- <p class="status">Есть в наличии</p> -->
 					<p class="status">
 						<? 
-							if ($data["main"]["quantity"] > 0) 
-								echo LanguageSelect::$templateData["InAvailable"];
-							else 
-								echo LanguageSelect::$templateData["NoAvailable"]; 
+							if ($SecondName != "ПРИНТЫ" && $SecondName != "PATTERNS") {
+								if ($data["main"]["quantity"] > 0) 
+									echo LanguageSelect::$templateData["InAvailable"];
+								else 
+									echo LanguageSelect::$templateData["NoAvailable"]; 
+							}
 						?>
 					</p>
 					<div class="button-add">
@@ -230,8 +263,14 @@ SIZE;
 					<?php
 
 						for($i = 0; $i < count($data["products"]); $i++) {
+							// Если фотографий у товара < 2, то не отображать в карусели
+							if (count($data["products"][$i]["photo"]) < 2) continue;
+
 							$id = $data["products"][$i]["id"];
+							// Пропустить товар с таким же айдишником (не отображать в каруселе товар, который
+							// покупатель сейчас просматривает)
 							if ($id === $data["main"]["id_product"]) continue;
+							
 							$photo = $data["products"][$i]["photo"];
 							if (LanguageSelect::$lang === "RU")
 								$href = "/RU/productcard/" . $id;

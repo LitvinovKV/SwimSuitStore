@@ -17,7 +17,8 @@
                 "subcategories" => $this->getSimpleQueryFromDB("name", "subcategory"),
                 "hits" => $this->getHitsProducts(),
                 "products" => $this->getProducts(),
-                "orders" => $this->getOrders()
+                "orders" => $this->getOrders(),
+                "reviews" => $this->getReviews()
             );
         }
 
@@ -129,6 +130,22 @@ SECONDQUERY;
                     "name_ru" => $color["name"],
                     "name_eng" => $color["name_eng"],
                     "path" => $color["path_name"]
+                ));
+            }
+            return $result;
+        }
+
+        // Метод, который возвращает массив с фотографиями отзывов (строки как ссылки)
+        private function getReviews() {
+            $sql_query = "SELECT `HrefPic`, `ID_Reviews` FROM `reviews`";
+            $res = $this->connection->query($sql_query);
+            $result = [];
+            for ($i = 0; $i < $res->num_rows; $i++) {
+                $res->data_seek($i);
+                $review = $res->fetch_assoc();
+                array_push($result, array(
+                    "id" => $review["ID_Reviews"],
+                    "href" => $review["HrefPic"]
                 ));
             }
             return $result;
