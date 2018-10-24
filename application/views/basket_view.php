@@ -17,7 +17,7 @@
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 				<div class="item-step">
-					<a class="step tablink" onclick="openTab(event, 'Registration')"><span class="number">2</span><span class="name"><?if (LanguageSelect::$lang === "RU") echo "Оформление"; else echo "Ordering";?><br class="hidden-lg hidden-md"> <?if (LanguageSelect::$lang === "RU") echo " заказа"; else echo "";?></span></a>
+					<a class="step-reg step tablink" onclick="openTab(event, 'Registration')"><span class="number">2</span><span class="name"><?if (LanguageSelect::$lang === "RU") echo "Оформление"; else echo "Ordering";?><br class="hidden-lg hidden-md"> <?if (LanguageSelect::$lang === "RU") echo " заказа"; else echo "";?></span></a>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -242,7 +242,7 @@ PRODUCT;
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
 					<div class="result">
 						<p class="result-sum" name="resultSum"><?echo $TotalPrice?> <span><?echo $symbol?></span></p>
-						<!-- <button class="registration"><? echo LanguageSelect::$templateData["BasketSecondButton"]; ?></button> -->
+						<button class="registration step tablink" onclick="openTab(event, 'Registration')"><? echo LanguageSelect::$templateData["BasketSecondButton"]; ?></button>
 					</div>
 				</div>
 			</div>
@@ -372,7 +372,8 @@ PHONE;
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<!-- <button class="button-reg"><?echo LanguageSelect::$templateData["BasketSecondButton"];?></button> -->
+					<button class="button-back step tablink" onclick="openTab(event, 'Basket')"><? echo LanguageSelect::$templateData["BasketSecondButton"]; ?></button>
+					<button class="button-reg step tablink" onclick="openTab(event, 'Check')"><?echo LanguageSelect::$templateData["BasketSecondButton"];?></button>
 				</div>
 			</div>
 		</div>
@@ -395,6 +396,7 @@ PHONE;
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<button class="button-back step tablink" onclick="openTab(event, 'Registration')"><? echo LanguageSelect::$templateData["BasketSecondButton"]; ?></button>
 					<button class="button-reg" onclick="AddOrder(<?echo "'" . $symbol . "'"?>)"><?echo LanguageSelect::$templateData["BasketThirdButton"];?></button>
 				</div>
 			</div>

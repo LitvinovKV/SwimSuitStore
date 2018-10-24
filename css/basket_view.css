@@ -283,6 +283,12 @@
 	transform: translateY(2px);
 }
 
+.s-results .result .registration:focus .step-reg .number,
+.s-results .result .registration:active .step-reg .number {
+	background-color: #000;
+	color: #fff;
+}
+
 /* Order placement */
 .s-delivery .row {
 	border-top: 3px solid #000;
@@ -479,7 +485,7 @@
 	outline-color: #92847f;
 }
 
-.s-button .button-reg {
+.s-button .button-reg, .s-button .button-back {
 	display: block;
 	float: right;
 	position: relative;
@@ -500,13 +506,20 @@
 	margin-right: -13px;
 }
 
-.s-button .button-reg:hover {
+.s-button .button-back {
+	float: left;
+	margin-left: -13px;
+	margin-right: auto;
+}
+
+.s-button .button-reg:hover, .s-button .button-back:hover {
 	background-color: #303030;
 	color: #fff;
 	text-decoration: none;
 }
 
-.s-button .button-reg:focus , .s-button .button-reg:active {
+.s-button .button-reg:focus , .s-button .button-reg:active,
+.s-button .button-back:focus , .s-button .button-back:active {
 	background-color: #000;
 	color: #fff;
 	transform: translateY(2px);
