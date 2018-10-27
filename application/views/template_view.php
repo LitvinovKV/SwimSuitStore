@@ -71,12 +71,18 @@
 										<a href="https://api.whatsapp.com/send?phone=79998744766" class="wa"><img class="img-svg" src="/images/s_networks/icon-wa.svg" alt="Whatsap"></a>
 								</div>
 						</div>
-						<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+						<div class="hidden-lg hidden-md hidden-sm col-xs-2">
+							<div class="icon-menu">
+								<a href="#" class="toggle-mnu hidden-lg hidden-md hidden-sm"><span></span></a>
+							</div>
+						</div>
+						
+						<div class="col-lg-7 col-md-7 col-sm-7 col-xs-8">
 								<div class="logo">
 										<a <? echo "href=/" . LanguageSelect::$lang ?> class="lg"><h1>swim under</h1></a>
 								</div>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 							<div class="basket">
 								<div class="shop-count"><span id="ProductCountInBasket">
 								<? 
@@ -87,14 +93,11 @@
 								?>
 								</span></div>
 								<div class="basket-img">
-									<a <?echo "href=/" . LanguageSelect::$lang . "/basket" ?> class="bs"><img class="img-svg" src="/images/s_networks/icon-basket.svg" alt="Baske"></a>
+									<a <?echo "href=/" . LanguageSelect::$lang . "/basket" ?> class="bs"><img class="img-svg" src="/images/s_networks/ic-basket.svg" alt="Baske"></a>
 								</div>
 							</div>
 						</div>
-						<div class="col-xs-6">
-							<a href="#" class="toggle-mnu hidden-lg hidden-md hidden-sm"><span></span></a>
-						</div>
-						<div class="col-xs-12">
+						<div class="hidden-lg hidden-md hidden-sm col-xs-12">
 							<nav class="hidden-mnu hidden-lg hidden-md hidden-sm">
 								<ul>
 									<li>

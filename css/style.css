@@ -617,14 +617,19 @@ h1, h2, h3, h4{
 	width: auto;
 	margin: 25px 48px 0;
 }
+.main_line .icon-menu {
+	margin-top: 54px;
+	margin-left: auto;
+	margin-right: auto;
+}
 .logo h1 {
-	font-size: 93px;
+	font-size: 85px;
 }
 .main_line .basket {
 	position: relative;
-	float: none;
-	margin-top: 12px;
-	margin-left: 43%;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
 }
 .hidden-mnu ul {
 	padding: 15px 0;
@@ -677,6 +682,17 @@ h1, h2, h3, h4{
 	margin-right: 8%;
 }
 }
+@media only screen and (max-width: 600px) {
+.logo h1 {
+	font-size: 70px;
+}
+.main_line .icon-menu {
+	margin-top: 44px;
+}
+.main_line .basket {
+	margin-top: 40px;
+}
+}
 @media only screen and (max-width: 520px) {
 .main_line .s_networks {
 	display: block;
@@ -691,9 +707,6 @@ h1, h2, h3, h4{
 	height: 20;
 	width: auto;
 	margin: 25px 40px 0;
-}
-.logo h1 {
-	font-size: 85px;
 }
 .hidden-mnu ul {
 	margin-bottom: 0;
@@ -720,6 +733,17 @@ h1, h2, h3, h4{
 	border-top: 2px solid #fff;
 }
 }
+@media only screen and (max-width: 500px) {
+.logo h1 {
+	font-size: 60px;
+}
+.main_line .icon-menu {
+	margin-top: 34px;
+}
+.main_line .basket {
+	margin-top: 30px;
+}
+}
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px) {
 .main_line .s_networks {
@@ -737,7 +761,13 @@ h1, h2, h3, h4{
 	margin: 25px 25px 0;
 }
 .logo h1 {
-	font-size: 65px;
+	font-size: 50px;
+}
+.main_line .icon-menu {
+	margin-top: 24px;
+}
+.main_line .basket {
+	margin-top: 20px;
 }
 .hidden-mnu ul {
 	margin-bottom: 0;
@@ -759,7 +789,16 @@ h1, h2, h3, h4{
 }
 }
 @media only screen and (max-width: 380px) {
-	.feedback .subscription {
+.logo h1 {
+	font-size: 40px;
+}
+.main_line .icon-menu {
+	margin-top: 24px;
+}
+.main_line .basket {
+	margin-top: 20px;
+}
+.feedback .subscription {
 	margin-left: 12%;
 }
 .feedback .subscription .lable {
@@ -788,7 +827,13 @@ h1, h2, h3, h4{
 	margin: 25px 15px 0;
 }
 .logo h1 {
-	font-size: 50px;
+	font-size: 35px;
+}
+.main_line .icon-menu {
+	margin-top: 14px;
+}
+.main_line .basket {
+	margin-top: 10px;
 }
 .hidden-mnu ul {
 	margin-bottom: 0;

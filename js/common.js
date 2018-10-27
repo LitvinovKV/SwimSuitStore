@@ -129,7 +129,7 @@ $(document).ready(function() {
 	$(".carousel-pr").owlCarousel({
 		loop: true,
 		nav: true,
-		navText: ["<i class='fa fa-chevron-circle-left'></i>","<i class='fa fa-chevron-circle-right'></i>"],
+		navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
 		responsive:{
         0:{
             items:1,
@@ -162,7 +162,7 @@ $(document).ready(function() {
 	$(".carousel-images").owlCarousel({
 		loop: true,
 		nav: true,
-		navText: ["<i class='fa fa-chevron-circle-left'></i>","<i class='fa fa-chevron-circle-right'></i>"],
+		navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
 		responsive:{
         0:{
             items:1,

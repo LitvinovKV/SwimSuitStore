@@ -95,7 +95,7 @@
 	text-decoration: none;
 }
 
-.button:focus , .button:active {
+.button:active, .button:focus {
 	background-color: #dfbdaf;
 	color: #fff;
 	transform: translateY(2px);
@@ -141,18 +141,34 @@
 	position: relative;
 }
 
-.s-video .col-md-12 {
+.s-video {
+	display: block;
+	background-color: #dfbdaf;
+	margin: 2%;
+}
+
+.s-video .col-lg-12,
+.s-video .col-md-8,
+.s-video .col-md-4 {
 	padding: 0;
 }
 
 .s-video .video-item {
-	margin: 3% 0;
+	margin: 3%;
 }
 
 .s-video video {
 	max-height: 550px;
 	width: 100%;
 	background-color: #000;
+}
+
+.s-video .video-comment {
+	color: #fff;
+	font-family: "MyriadPro-Regular", sans-serif;
+	font-size: 28px;
+	text-align: center;
+	margin: 3%;
 }
 
 .s-join .col-md-12 {

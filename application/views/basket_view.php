@@ -12,7 +12,7 @@
 		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 				<div class="item-step">
-					<a class="step tablink" onclick="openTab(event, 'Basket')" id="defaultOpen"><span class="number">1</span><span class="name"><?if (LanguageSelect::$lang === "RU") echo "Корзина"; else echo "Basket";?><br class="hidden-lg hidden-md"><?if (LanguageSelect::$lang === "RU") echo " товаров"; else echo " products";?></span></a>
+					<a class="step-basket step tablink" onclick="openTab(event, 'Basket')" id="defaultOpen"><span class="number">1</span><span class="name"><?if (LanguageSelect::$lang === "RU") echo "Корзина"; else echo "Basket";?><br class="hidden-lg hidden-md"><?if (LanguageSelect::$lang === "RU") echo " товаров"; else echo " products";?></span></a>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -22,13 +22,13 @@
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 				<div class="item-step">
-					<a class="step tablink" onclick="openTab(event, 'Check')"><span class="number">3</span><span class="name"><?if (LanguageSelect::$lang === "RU") echo "Проверка"; else echo "Check";?><br class="hidden-lg hidden-md"> <?if (LanguageSelect::$lang === "RU") echo " заказа"; else echo " order";?></span></a>
+					<a class="step-check step tablink" onclick="openTab(event, 'Check')"><span class="number">3</span><span class="name"><?if (LanguageSelect::$lang === "RU") echo "Проверка"; else echo "Check";?><br class="hidden-lg hidden-md"> <?if (LanguageSelect::$lang === "RU") echo " заказа"; else echo " order";?></span></a>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
-<div id="Basket" class="tabcontent">
+<div id="Basket" class="tabcontent basket-content">
 	<section class="s-titles">
 		<div class="container">
 			<div class="row">
@@ -242,14 +242,14 @@ PRODUCT;
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
 					<div class="result">
 						<p class="result-sum" name="resultSum"><?echo $TotalPrice?> <span><?echo $symbol?></span></p>
-						<button class="registration step tablink" onclick="openTab(event, 'Registration')"><? echo LanguageSelect::$templateData["BasketSecondButton"]; ?></button>
+						<button class="button-reg" onclick="openTab(event, 'Registration')"><? echo LanguageSelect::$templateData["BasketSecondButton"]; ?></button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 </div>
-<div id="Registration" class="tabcontent">
+<div id="Registration" class="tabcontent registration-content">
 	<section class="s-delivery">
 		<div class="container">
 			<div class="row">
@@ -338,20 +338,28 @@ PHONE;
 					<div class="block">
 						<span class="required">*</span><input type="text" placeholder="<?echo $name;?>" name ="name" required>
 					</div>
-					<div class="block">
-						<span class="required">*</span><input type="text" placeholder="<?echo $country;?>" name ="country" required>
-					</div>
-					<div class="block">
-						<span class="required">*</span><input type="text" placeholder="<?echo $adress;?>" name ="adress" required>
-					</div>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="block">
 						<span class="required">*</span><input type="text" placeholder="<?echo $secondName;?>" name ="secondName" required>
 					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="block">
+						<span class="required">*</span><input type="text" placeholder="<?echo $country;?>" name ="country" required>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="block">
 						<span class="required">*</span><input type="text" placeholder="<?echo $city;?>" name ="city" required>
 					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="block">
+						<span class="required">*</span><input type="text" placeholder="<?echo $adress;?>" name ="adress" required>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="block">
 						<span class="required">*</span><input type="text" placeholder="<?echo $index?>" name ="index" required>
 					</div>
@@ -372,14 +380,14 @@ PHONE;
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<button class="button-back step tablink" onclick="openTab(event, 'Basket')"><? echo LanguageSelect::$templateData["BasketSecondButton"]; ?></button>
-					<button class="button-reg step tablink" onclick="openTab(event, 'Check')"><?echo LanguageSelect::$templateData["BasketSecondButton"];?></button>
+					<button class="button-back" onclick="openTab(event, 'Basket')"><? echo LanguageSelect::$templateData["BasketSecondButton"]; ?></button>
+					<button class="button-reg" onclick="openTab(event, 'Check')"><?echo LanguageSelect::$templateData["BasketSecondButton"];?></button>
 				</div>
 			</div>
 		</div>
 	</section>
 </div>
-<div id="Check" class="tabcontent">
+<div id="Check" class="tabcontent check-content">
 	<section class="s-check">
 		<div class="container">
 			<div class="row">
@@ -396,7 +404,7 @@ PHONE;
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<button class="button-back step tablink" onclick="openTab(event, 'Registration')"><? echo LanguageSelect::$templateData["BasketSecondButton"]; ?></button>
+					<button class="button-back" onclick="openTab(event, 'Registration')"><? echo LanguageSelect::$templateData["BasketSecondButton"]; ?></button>
 					<button class="button-reg" onclick="AddOrder(<?echo "'" . $symbol . "'"?>)"><?echo LanguageSelect::$templateData["BasketThirdButton"];?></button>
 				</div>
 			</div>

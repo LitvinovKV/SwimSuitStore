@@ -38,6 +38,24 @@
 	text-decoration: none;
 }
 
+.basket-content:hover .number {
+	color: #fff;
+	background-color: #000;
+	text-decoration: none;
+}
+
+.registration-content:hover .number {
+	color: #fff;
+	background-color: #000;
+	text-decoration: none;
+}
+
+.check-content:hover .number {
+	color: #fff;
+	background-color: #000;
+	text-decoration: none;
+}
+
 /* Basket of products */
 
 .tabcontent {
@@ -712,7 +730,7 @@
 .s-delinfo .d-title {
 	margin-top: 15px;
 }
-.s-button .button-reg {
+.s-button .button-reg, .s-button .button-back {
 	margin-top: 15px;
 	margin-bottom: 30px;
 	float: none;
