@@ -244,3 +244,18 @@ function colorFunction(idPhoto) {
     idPhoto = idPhoto.substring(0, idPhoto.length - 4);
     document.getElementById("NameColor").textContent = idPhoto;
 }
+
+function changeBasketMenu(menuNumber) {
+    if (menuNumber == 1) {
+        var element = document.getElementById("defaultOpen");
+        element.classList.add("active");
+    }
+    else if(menuNumber == 2) {
+        var element = document.getElementById("BasketButtonMenu_2");
+        element.classList.add("active");
+    }
+    else if(menuNumber == 3) {
+        var element = document.getElementById("BasketButtonMenu_3");
+        element.classList.add("active");
+    }
+}
