@@ -242,7 +242,12 @@ PRODUCT;
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
 					<div class="result">
 						<p class="result-sum" name="resultSum"><?echo $TotalPrice?> <span><?echo $symbol?></span></p>
-						<button class="button-reg" onclick="openTab(event, 'Registration')"><? echo LanguageSelect::$templateData["BasketSecondButton"]; ?></button>
+						<? 
+							if (LanguageSelect::$lang == "RU")
+								echo "<button class='button-reg' onclick='openTab(event, 'Registration')'> ОФОРМЛЕНИЕ ЗАКАЗА </button>";
+							else
+								echo "<button class='button-reg' onclick='openTab(event, 'Registration')'> ORDERING </button>";
+						?>
 					</div>
 				</div>
 			</div>
@@ -380,8 +385,17 @@ PHONE;
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<button class="button-back" onclick="openTab(event, 'Basket')"><? echo LanguageSelect::$templateData["BasketSecondButton"]; ?></button>
-					<button class="button-reg" onclick="openTab(event, 'Check')"><?echo LanguageSelect::$templateData["BasketSecondButton"];?></button>
+					<? 
+						if (LanguageSelect::$lang == "RU") {
+							echo "<button class='button-back' onclick='openTab(event, 'Basket')'> КОРЗИНА ТОВАРОВ </button>";
+							echo "<button class='button-reg' onclick='openTab(event, 'Check')'> ПРОВЕРКА ЗАКАЗА </button>";
+						}
+						else {
+							echo "<button class='button-back' onclick='openTab(event, 'Basket')'> BASKET PRODUCTS </button>";
+							echo "<button class='button-reg' onclick='openTab(event, 'Check')'> CHECK ORDER </button>";
+						}
+					?>
+					
 				</div>
 			</div>
 		</div>

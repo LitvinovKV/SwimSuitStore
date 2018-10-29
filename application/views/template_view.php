@@ -165,9 +165,10 @@
 					<div class="row">
 						<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
 							<ul class="topmenu">
-								<li><a <? echo "href=/". LanguageSelect::$lang . "/product/swimwear"?> class="first">
+								<!-- <li><a <? echo "href=/". LanguageSelect::$lang . "/product/swimwear"?> class="first">
 										<? echo LanguageSelect::$templateData['SwimWearCatName']['Name']; ?> <i class="fa fa-caret-down"></i>
-									</a>
+									</a> -->
+								<li> <? echo LanguageSelect::$templateData['SwimWearCatName']['Name']; ?> <i class="fa fa-caret-down"></i>
 									<ul class="submenu">
 										<?
 											for ($i = 0; $i < count(LanguageSelect::$templateData['SwimWearCatName']['Elements']); $i++)
@@ -181,9 +182,10 @@
 						</div>
 						<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
 							<ul class="topmenu">
-								<li><a <? echo "href=/" . LanguageSelect::$lang . "/product/underwear" ?> class="swimwear"> 
+								<!-- <li><a <? echo "href=/" . LanguageSelect::$lang . "/product/underwear" ?> class="swimwear"> 
 										<? echo LanguageSelect::$templateData['UnderWearCatName']['Name']; ?> <i class="fa fa-caret-down"></i>
-									</a>
+									</a> -->
+									<li> <? echo LanguageSelect::$templateData['UnderWearCatName']['Name']; ?> <i class="fa fa-caret-down"></i>
 									<ul class="submenu">
 										<?
 											for ($i = 0; $i < count(LanguageSelect::$templateData['UnderWearCatName']['Elements']); $i++)
@@ -196,14 +198,17 @@
 							</ul>
 						</div>
 						<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
-							<a <? echo "href=/" . LanguageSelect::$lang . "/product/patterns"?> > 
+							<!-- <a <? echo "href=/" . LanguageSelect::$lang . "/product/patterns"?> > 
 								<? echo LanguageSelect::$templateData['PatternsCatName']; ?> 
-							</a>
+							</a> -->
+								<? echo LanguageSelect::$templateData['PatternsCatName']; ?> 
 						</div>
 						<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
 							<ul class="topmenu">
-								<li><a <? echo "href=/" . LanguageSelect::$lang . "/faq" ?> class="swimwear"> 
-									<? echo LanguageSelect::$templateData['FAQCatName']['Name']; ?> <i class="fa fa-caret-down"></i></a>
+								<!-- <li><a <? echo "href=/" . LanguageSelect::$lang . "/faq" ?> class="swimwear"> 
+										<? echo LanguageSelect::$templateData['FAQCatName']['Name']; ?> <i class="fa fa-caret-down"></i>
+									</a> -->
+								<li>	<? echo LanguageSelect::$templateData['FAQCatName']['Name']; ?> <i class="fa fa-caret-down"></i>
 									<ul class="submenu">
 										<?
 											for ($i = 0; $i < count(LanguageSelect::$templateData['FAQCatName']['Elements']); $i++)
@@ -216,10 +221,12 @@
 							</ul>
 						</div>
 						<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
-							<a <? echo "href=/" . LanguageSelect::$lang . "/reviews" ?> > <? echo LanguageSelect::$templateData['ReviewsCatName']; ?> </a>
+							<!-- <a <? echo "href=/" . LanguageSelect::$lang . "/reviews" ?> > <? echo LanguageSelect::$templateData['ReviewsCatName']; ?> </a> -->
+							<? echo LanguageSelect::$templateData['ReviewsCatName']; ?>
 						</div>
 						<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
-							<a <? echo "href=/" . LanguageSelect::$lang . "/about" ?> class="last"> <? echo LanguageSelect::$templateData['AboutCatName']; ?> </a>
+							<!-- <a <? echo "href=/" . LanguageSelect::$lang . "/about" ?> class="last"> <? echo LanguageSelect::$templateData['AboutCatName']; ?> </a> -->
+							<? echo LanguageSelect::$templateData['AboutCatName']; ?> </a>
 						</div>
 						
 					</div>
