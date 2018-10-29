@@ -143,7 +143,6 @@
 
 .s-video {
 	display: block;
-	background-color: #dfbdaf;
 	margin: 2%;
 }
 
@@ -157,18 +156,9 @@
 	margin: 3%;
 }
 
-.s-video video {
-	max-height: 550px;
+.s-video iframe {
+	min-height: 600px;
 	width: 100%;
-	background-color: #000;
-}
-
-.s-video .video-comment {
-	color: #fff;
-	font-family: "MyriadPro-Regular", sans-serif;
-	font-size: 28px;
-	text-align: center;
-	margin: 3%;
 }
 
 .s-join .col-md-12 {
@@ -195,7 +185,9 @@
 }
 /* Large Devices, Wide Screens */
 @media only screen and (max-width: 1400px) {
-/**/
+.s-video iframe {
+	min-height: 500px;
+}
 }
 @media only screen and (max-width: 1200px) {
 .carousel-images .owl-controls .owl-nav {
@@ -204,6 +196,9 @@
 .s-banner .carousel-images .button {
 	right: 8%;
 	bottom: 10%;
+}
+.s-video iframe {
+	min-height: 400px;
 }
 .s-join .button {
 	bottom: 12%;
@@ -219,6 +214,9 @@
 	right: 8%;
 	bottom: 10%;
 }
+.s-video iframe {
+	min-height: 350px;
+}
 .s-join .button {
 	bottom: 12%;
 	left: 8%;
@@ -231,6 +229,9 @@
 @media only screen and (max-width: 930px) {
 .button {
 	padding: 10px 24px;
+}
+.s-video iframe {
+	min-height: 300px;
 }
 }
 @media only screen and (max-width: 830px) {
@@ -251,6 +252,9 @@
 	right: 5%;
 	bottom: 10%;
 }
+.s-video iframe {
+	min-height: 250px;
+}
 }
 @media only screen and (max-width: 700px) {
 .button {
@@ -264,6 +268,9 @@
 .s-banner .carousel-images .button {
 	right: 5%;
 	bottom: 10%;
+}
+.s-video iframe {
+	min-height: 200px;
 }
 }
 
@@ -322,6 +329,9 @@
 @media only screen and (max-width: 390px) {
 .shop .button-item .button {
 	letter-spacing: 1px;
+}
+.s-video iframe {
+	min-height: 150px;
 }
 }
 @media only screen and (max-width: 350px) {

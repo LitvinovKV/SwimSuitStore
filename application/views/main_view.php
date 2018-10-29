@@ -56,34 +56,19 @@ HITS;
 </section>
 
 					 	
-<!-- <section class="s-video"> -->
+<section class="s-video">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
 			<!-- НАДО СДЕЛАТЬ ТАК ЧТОБЫ РАЗМЕРЫ ИЗМЕНЯЛИСЬ ОТНОСИТЕЛЬНО ЭКРАНА (СДЕЛАТЬ АДАПТИВНО) -->
-			
-				<iframe width="1428" height="803" src="https://www.youtube.com/embed/igSZw4Zq8jA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-					<!-- <div class="video-item"> -->
-					<!-- <video controls="controls" poster="/images/general_images/video.jpg"> -->
-						<!-- <source src="/images/video/video1.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-						<source src="/images/video/video1.mp4" type='video/ogg; codecs="theora, vorbis"'>
-	   					<source src="/images/video/video1.mp4" type='video/webm; codecs="vp8, vorbis"'>
-					 	Тег video не поддерживается вашим браузером.  -->
-						
-						<!-- <a href="/images/video/video1.mp4">Скачайте видео</a> -->
-						
-					<!-- </video> -->
-				<!-- </div> -->
-			</div>
-			<!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-				<div class="video-comment">
-					<p>ПС... Посмотри видосик</p>
+				<div class="video-item">
+					<iframe src="https://www.youtube.com/embed/igSZw4Zq8jA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 				</div>
-			</div> -->
+			</div>
 		</div>
 	</div>
-<!-- </section> -->
+</section>
 
 <section class="s-join">
 	<div class="container-fluid">
