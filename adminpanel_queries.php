@@ -30,8 +30,10 @@
             $resPasswords->data_seek($i);
             $DBLogin = $resLogins->fetch_assoc()["login"];
             $DBPassword = $resPasswords->fetch_assoc()["p_word"];
-            if ($DBLogin === $login && $DBPassword === $password)
+            if (password_verify($login, $DBLogin) == true && password_verify($password, $DBPassword) == true)
                 return true;
+            // if ($DBLogin === $login && $DBPassword === $password)
+                // return true;
         }
         return false;
     }
@@ -85,8 +87,8 @@
     if (isset($_POST["LogIn"]) === true) {
         //Если true && true (были заполнены все text input)
         if ( (empty($_POST['UserLog']) == false) && (empty($_POST['UserPass']) == false) ) {
-            $login = md5($_POST['UserLog']);
-            $password = md5($_POST['UserPass']);
+            $login = $_POST['UserLog'];
+            $password = $_POST['UserPass'];
             // // Если такие данные пользователя существуют в базе
             if (checkAdmin($login, $password) === true) {
                 $_SESSION['UserLogin'] = $login;
